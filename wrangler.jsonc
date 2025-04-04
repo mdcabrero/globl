@@ -1,8 +1,0 @@
-{
-    "name": "globl",
-    "compatibility_date": "2025-04-04",
-    "assets": {
-      "include": ["*.html", "*.css", "*.js", "*.png", "dist/**/*"],
-      "exclude": ["node_modules/**/*"]
-    }
-  }
