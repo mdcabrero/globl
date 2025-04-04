@@ -1,0 +1,45 @@
+@use 'variables' as *;
+
+@mixin full-size {
+    width: 100%;
+    height: 100%;
+  }
+  
+  
+  @mixin flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @mixin flex-row($gap: $space-md) {
+    display: flex;
+    gap: $gap;
+  }
+  
+  
+  @mixin absolute-full {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+
+  
+//========== UI MIXINS ============//  
+
+  
+@mixin button-base {
+    text-decoration: none;
+    background: transparent;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  
+  @mixin full-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }

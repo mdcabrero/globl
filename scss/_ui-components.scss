@@ -1,0 +1,320 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+
+   /*    BUTTONS   */
+
+
+   .cta {
+    @include button-base;
+    display: inline-block;
+    padding: $space-lite $space-2x;
+    border-radius: $radius/2;
+    border: 1px solid white;
+    font-size: $size-0;
+    font-weight: $font-semibold;
+    background-color: $brand-accent;
+    color: $headline-light;
+
+    &:hover {
+      color: $brand-primary;
+      background-color: darken($headline-light, 10%);
+    }
+   }
+
+
+ .secondary-btn {
+    display: inline-block;
+    padding: 0.5rem 2rem;
+    border: 2px solid $brand-primary;
+    border-radius: $radius/2;
+    color: $brand-primary;
+    font-weight: $font-medium;
+    @include button-base;
+ 
+    &:hover {  // Note the & here
+        background-color: hsla(220, 82%, 24%, 0.1);
+    }
+}
+  
+.arrow-btn {
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid $headline-light;
+    border-radius: 50%;
+    @include button-base;
+  
+    &:hover {
+      background-color: $brand-accent;
+    }
+    
+   
+  }
+
+  .arrow-btn--v2 {
+    place-items: center;
+    border: none;
+    @include button-base;
+
+    img {
+      width: 2.5rem;
+    }
+   
+   
+  }
+
+ 
+ /*    DECORATIVE ELEMENTS    */
+
+ .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  gap: $space-lite;
+  font-size: $size-minus;
+  font-weight: $font-medium-plus;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.9;
+  margin-bottom: $space-1x;
+  color: $brand-primary;
+
+
+
+
+
+  // Brand gradient variation
+  &--brand {
+    color: $brand-primary;
+    background: linear-gradient(
+      90deg,
+      hsla(203, 100%, 83%, 1) 0%,
+      hsla(196, 39%, 67%, 0.5) 50%,
+      hsla(183, 18%, 51%, 0) 100%
+    );
+  }
+
+  // Dark variation
+  &--dark {
+    background: linear-gradient(90deg, #FF8C42 0%, #FF5733 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: $space-3q;
+  }
+
+  &--light {
+    color: whitesmoke;
+    font-weight: $font-semibold;
+    margin-bottom: $space-lite;
+  }
+
+  &--closer { //For centered sections or sections without the icon, since the distance will appear larger
+    margin-bottom: $space-3q;
+  }
+
+
+  .eyebrow-icon {
+    display: inline-block;
+    width: 1.1rem;
+    height: 1.1rem;
+    margin-right: 1px;
+
+  }
+
+}
+
+.blog-tag {
+  display: inline-block;
+  padding: $space-micro $space-3q;
+  background-color: $brand-washed;
+  color: $headline-light;
+  font-size: $size-minus;
+  font-weight: $font-medium;
+  border-radius: $radius / 4;
+  width: fit-content;
+  margin-bottom: -$space-lite;
+}
+
+
+
+  // Filters and effects
+
+  .text-filter {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    
+    /* Increase the height to allow for a longer, more gradual transition */
+    height: 35%;
+    
+    /* Extend the gradient farther with more color stops for a smoother fade */
+    background: linear-gradient(
+      to top,
+      rgba(1, 19, 54, 0.15) 0%,
+      rgba(3, 19, 48, 0.1) 50%,
+      rgba(1, 26, 74, 0) 100%,
+    );
+    
+    backdrop-filter: blur(0.65px);
+    
+    z-index: 1;
+  }
+  
+
+
+
+
+
+   /* Testimonial Cards */
+  
+   .testimonial-card {
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    width: 70%;
+    height: 78vh;
+    margin-inline: auto;
+    background: $bg-dark;
+    border-radius: $radius;
+    overflow: hidden;
+    color: $headline-light;
+
+
+    transition: opacity 0.3s ease;
+    
+    > img {
+      @include full-img;
+      border-end-end-radius: $radius * 2;
+
+    }
+  }
+  
+
+.testimonial__body {
+  padding-top: $space-4x;
+  padding-bottom: $space-3x;
+  padding-inline: $space-4x;    
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  > img {
+    width: 10rem;
+  }
+  
+  blockquote {
+    flex-shrink: 1;
+    line-height: 1.75;
+
+  }
+  
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: last baseline;
+
+  }
+}
+
+
+
+   /* ==== Process Card ==== */
+
+.process-card {
+  @include flex-column; // Using existing mixin
+  width: 40ch; // Standard card width
+  padding-block: $space-3x;
+  padding-inline: $space-3x;
+  background-color: $dusty-white;
+  border: 3px solid $brand-pastel;
+
+
+  border-radius: $radius;
+
+  p {
+    color: $text-primary;
+  }
+
+  &--md {
+    width: 45ch;
+  }
+
+  &--lg {
+    width: 50ch;
+  }
+  
+  // Header container
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: $space-1x;
+    margin-bottom: $space-1x;
+  }
+
+  // Number indicator
+  &__indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; // Prevents shrinking when title is long
+    width: 2rem;
+    height: 2rem;
+    background-color: $brand-primary;
+    border-radius: 25%;
+    color: $headline-light;
+    font-size: $size-0;
+    font-weight: $font-semibold;
+  }
+}
+
+
+
+   /* ==== Blog Card ==== */
+
+
+.blog-card {
+  display: grid;
+  max-width: 420px;
+  padding: $space-1x $space-1x $space-md $space-1x;
+  background-color: $brand-pastel;
+  border-radius: $radius;
+  flex-shrink: 0;
+  
+  &__image {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      border-radius: $radius $radius 0 0;
+      pointer-events: none;
+  }
+  
+  &__content {
+      display: flex;
+      flex-direction: column;
+      padding-top: $space-1x;
+      padding-inline: $space-3q;
+  
+
+      * + * { 
+        margin-top: $space-1x; }
+  }
+
+  .description {
+    padding-bottom: $space-md;
+    font-size: $size-0;
+    font-weight: $font-regular;
+    color: $text-primary;
+  }
+  
+  .read-time {
+      font-size: $size-minus;
+      color: $text-primary;
+      font-weight: $font-medium;
+  }
+}
+
+
+

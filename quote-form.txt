@@ -1,0 +1,152 @@
+   <form id="quoteForm" class="quote-form" novalidate>
+      <h1>Get your quote</h1>
+      
+      <p class="form-intro">Complete the fields below and let us handle the rest. One of our experts will be in touch with you soon.</p>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fullName">Full name</label>
+          <input type="text" id="fullName" name="fullName" placeholder="Type your name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company" placeholder="Type your company" required>
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label for="phone">Phone number (optional)</label>
+          <input type="tel" id="phone" name="phone" placeholder="Enter your phone">
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" placeholder="Type your company" required>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Let us know how we can help you" rows="5" required></textarea>
+      </div>
+      
+      <button type="submit" class="submit-btn">Submit</button>
+      
+      <p class="privacy-notice">By submitting this form you accept our <a href="/privacy-policy">Privacy Policy</a></p>
+    </form>
+
+
+
+    STYLES
+
+    .quote-form {
+  background-color: white;
+  border-radius: $radius;
+  padding: $space-3x;
+  width: 40%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  
+
+  
+  h1 {
+    font-size: $size-3;
+    color: $text-primary;
+    margin-bottom: $space-3q;
+  }
+  
+  .form-intro {
+    font-size: $size-0;
+    color: $text-primary;
+    margin-bottom: $space-md;
+    max-width: 45ch;
+  }
+}
+
+// Form layout and components
+.form-row {
+  display: flex;
+  gap: $space-md;
+  margin-bottom: $space-lite;
+  
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: $space-lite;
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-bottom: $space-lite;
+}
+
+label {
+  font-size: $size-0;
+  font-weight: $font-medium;
+  color: $text-primary;
+  margin-bottom: $space-micro;
+}
+
+input, 
+textarea {
+  padding: $space-lite;
+  border: 1px solid hsla(230, 35%, 15%, 0.2);
+  border-radius: $space-lite;
+  font-size: $size-0;
+  line-height: 1.5;
+  width: 100%;
+  
+  &::placeholder {
+    color: hsla(230, 35%, 15%, 0.4);
+  }
+  
+  &:focus {
+    outline: none;
+    border-color: $brand-accent;
+    box-shadow: 0 0 0 2px rgba($brand-accent, 0.2);
+  }
+}
+
+textarea {
+  resize: none;
+  height: 120px;
+}
+
+.submit-btn {
+  display: block;
+  width: 100%;
+  padding: $space-lite;
+  background-color: #FF6B00; // Based on the orange from the image
+  color: white;
+  border: none;
+  border-radius: calc($radius/2);
+  font-size: $size-1;
+  font-weight: $font-medium;
+  cursor: pointer;
+  margin-top: $space-1x;
+  transition: background-color 0.2s ease;
+  
+  &:hover {
+    background-color: darken(#FF6B00, 5%);
+  }
+}
+
+.privacy-notice {
+  font-size: $size-minus;
+  text-align: center;
+  color: $text-primary;
+  margin-top: $space-1x;
+  
+  a {
+    color: $text-primary;
+    font-weight: $font-medium;
+    text-decoration: underline;
+    
+    &:hover {
+      color: $brand-accent;
+    }
+  }
+}

@@ -1,0 +1,67 @@
+$brand-primary: #FF5000;    // Main brand blue
+$brand-secondary: #FF6900;  // Secondary brand blue
+$brand-accent: #FF6900;  // Accent blue for interactive elements
+$coral: #F46625;
+
+
+
+// Text Colors
+$text-primary: #07070b;  // Main body text and headlines
+$text-light: #D9D9D9;          // Light variant for dark backgrounds
+$headline-light: #FBFBFB;       // Light text for headlines
+
+// Background Colors
+$bg-primary: hsl(220, 70%, 15%);     // Main background
+$bg-dark: #010005;       // Darker blue background
+$bg-light: #FBFBFB;
+
+// UI Colors
+$brand-pastel: #E74F23;
+
+$brand-washed: hsl(200, 45%, 60%);
+$dusty-white: #fcfeff;
+
+// Font Weights
+$font-thin: 100;
+$font-regular: 400;
+$font-regular-plus: 450;
+$font-medium: 500;
+$font-medium-plus: 550;
+$font-semibold: 600;
+$font-bold: 700;
+
+// Font Sizes (Fluid Typography)
+$size-minus: clamp(0.7392rem, 0.7183rem + 0.0952vw, 0.8rem);
+$size-0: clamp(0.875rem, 0.8382rem + 0.1681vw, 1rem);
+$size-1: clamp(1.05rem, 0.9912rem + 0.28vw, 1.25rem);
+$size-card: clamp(1rem, 1.12rem + 0.3589vw, 1.5rem);
+$size-2: clamp(1.26rem, 1.171rem + 0.4067vw, 1.56rem);
+$size-3: clamp(1.512rem, 1.3823rem + 0.5931vw, 1.9531rem);
+$size-4: clamp(1.8144rem, 1.63rem + 0.843vw, 2.4414rem);
+$size-5: clamp(2.1773rem, 1.9201rem + 1.1758vw, 3.0518rem);
+$size-6: clamp(2.6127rem, 2.2592rem + 1.6161vw, 3.8147rem);
+$size-7: clamp(3.1353rem, 2.655rem + 2.1957vw, 4.7684rem);
+$size-8: clamp(3.7623rem, 3.1158rem + 2.9555vw, 5.9605rem);
+
+// Spacing System
+// Lite Spaces (Components & UI Elements)
+$space-micro: 0.25rem;
+$space-lite: 0.5rem;
+$space-3q: 0.75rem;
+
+// Regular Spaces
+$space-1x: 1rem;
+$space-md: 1.5rem;
+$space-2x: 2rem;
+$space-3x: 3rem;
+$space-4x: 4rem;
+$space-6x: 6rem;
+$space-8x: 8rem;
+$space-12x: 12rem;
+$space-16x: 16rem;
+
+// Radius and gap
+$radius: 1.5rem;
+$gap-section: 4rem;
+
+

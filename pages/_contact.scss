@@ -1,0 +1,74 @@
+@use '../scss/variables' as *;
+@use '../scss/mixins' as *;
+
+
+.contact {
+    display: flex;
+    min-height: calc(100vh - $space-1x);
+    width: calc(100vw - $space-1x);
+    border-radius: calc($radius/2);
+    background-image: url('/assets/contact-bg.jpg');
+    background-position: center top;
+    background-size: cover;
+    margin: $space-lite;
+    color: $headline-light;
+    padding: $space-6x;
+    justify-content: space-between;
+    align-items: end;
+  
+  
+  header {
+    display: flex;
+    flex-direction: column;
+    align-self: end;
+    
+    .supporting-text--v2 {
+     font-size: $size-3;
+     margin-top: $space-1x;
+     color: white;
+      max-width: 27ch;
+    }
+  }
+
+
+  .contact-card {
+    width: 40%;
+    background: rgba(211, 81, 0, 0.02);
+    backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 5px );
+    border-radius: calc($radius/2);
+    padding: $space-2x;
+    display: flex;
+    flex-direction: column;
+    gap: $space-3q;
+  }
+  
+  .contact-item {
+    background: rgba(255, 110, 13, 0.25);
+    border-radius: calc($radius/2);
+    padding: $space-md;
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+    transition: background-color 0.35s ease;
+    
+    &:hover {
+      background: rgba( 255, 80, 0, 0.9 );
+    }
+    
+
+  }
+  
+  .contact-icon {
+    width: 1.75rem;
+    height: auto;
+    filter: invert(100%);
+  }
+  
+  .contact-text {
+    font-size: $size-card;
+    font-weight: $font-medium-plus;
+    color: white;
+  }
+
+}

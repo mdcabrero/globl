@@ -1,0 +1,288 @@
+@use '../scss/variables' as *;
+@use '../scss/mixins' as *;
+
+/* === HERO SECTION === */
+ .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    width: 100%;
+    height: 95%;
+    background-image: url('../../assets/hero-image.png');
+    background-position: right center;
+    background-size: cover;
+    border-radius: calc($radius/2);
+  
+    &__content {
+      gap: 4em;
+      padding-left: $space-6x;
+      padding-bottom: $space-8x;
+    }
+  }
+  
+
+
+ .why-us-preview {
+
+
+    .section-header {
+      margin-top: $space-3x;
+    }
+
+    .media-wrap {
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 3.5%;
+        left: 3%;
+        height: 100%;
+        width: 92%;
+        background-color: $brand-accent; // Use your brand accent color
+        border-radius: $radius;
+        border: 2px solid black;
+        z-index: -1; // Send it behind the main image
+    }
+  
+      img {
+        width: 90%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top right;
+        border-radius: $radius;
+        border: 2px solid black;
+      }
+    }
+
+
+
+  .benefits-list {
+     list-style: none;
+     margin-top: $space-2x;
+     width: 95%;
+  
+  
+  .benefit-item {
+      display: flex;
+      align-items: center;
+      padding: $space-3q;
+      position: relative;
+      border-bottom: 1px solid black;
+      
+      &:first-child::before { //top border for the first item
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background-color: black;
+    }
+
+  }
+
+  .benefit-title {
+    font-size: $size-1;
+    font-weight: $font-medium;
+  }
+  
+  .benefit-icon {
+      width: 2.5rem;
+      height: 2.25rem;
+      margin-right: $space-2x;
+      fill: $text-primary;
+  }
+
+}
+  
+
+ }
+
+
+ .solutions {
+
+  .section-header {
+      margin-bottom: $space-1x;
+  }
+    
+
+.solutions-cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-md;
+  margin-top: $space-3x;
+}
+
+.solution-card {
+  background-color: $dusty-white;
+  box-shadow: 0 3px 4px 1px rgba(37, 20, 6, 0.5);
+  border-radius: $radius;
+  border: 3px solid $brand-accent;
+  padding: $space-2x; 
+  display: flex;
+  flex-direction: column;
+
+  
+  &__icon {
+      width: 6.5rem; 
+      height: auto;
+      fill: $brand-primary;
+      margin-bottom: $space-2x;
+      align-self: flex-start; // Left-aligned
+  }
+  
+  &__content {
+      display: flex;
+      flex-direction: column;
+      gap: $space-1x;
+
+  
+      
+      p {
+          font-size: 1.2rem;
+          line-height: 1.6;
+          color: $text-primary;
+          max-width: 35ch;
+      }
+  }
+}
+ }
+
+
+
+ /* ===  SERVICES & SOLUTIONS PREVIEW === */
+
+
+ .services-preview {
+  overflow-x: hidden;
+
+  header {
+    margin-bottom: $space-1x; //Smaller margin to compensate for dark background (which makes distances apppear larger)
+  }
+
+  .content--services {
+    display: flex;
+    justify-content: space-between;
+    align-items: last baseline;
+
+  }
+
+  .slider-wrapper {
+    padding-left: 0;
+    margin-top: $space-4x;
+
+      .card-slider {
+        gap: 2rem;
+      }
+  }
+
+
+
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    width: 420px;
+    aspect-ratio: 5/6;
+    background-image: url('/assets/placeholder-card.png');
+    background-size: cover;
+    background-position: left center;
+
+    border-radius: $radius;
+    overflow: hidden;
+  
+    &__content {
+      padding: $space-2x;
+      z-index: 2;
+
+    }
+
+    .card-title {
+        margin-bottom: $space-lite;
+        font-size: 1.6rem;
+    }
+
+    &--outsourcing {
+      background-image: url('/assets/services/global-outsourcing2.jpg');
+    }
+
+    &--transformation {
+      background-image: url('/assets/services/business-transformation2.jpg');
+      background-position: right bottom;
+    }
+
+    &--intelligence {
+      background-image: url('/assets/services/hr-intelligence.jpg');
+      background-position: center;
+    }
+
+    &--strategy {
+      background-image: url('/assets/services/talent-strategy2.jpg');
+      background-position: center;
+    }
+
+    &--automation {
+      background-image: url('/assets/services/ai-solutions.jpg');
+      background-position: center;
+    }
+  
+
+  }
+
+
+ }
+
+
+
+
+
+
+ /* === PROCESS SECTION  === */
+
+
+.process {
+ //We are taking into account the standard margin between sections + the negative space that the absolute element adds. 
+ //How? Each section has a margin-top of 6rem applied (6rem margin of distance from previous section + 6rem to the next section = 12rem)
+ //Then you have to add the extra 8rem (4rem top + 4rem bottom) of dead-space the .pattern with absolute positioning creates.
+ //This equals 20rem in total, which, to match the 128px of spacing between sections, it has to distributed in the below way:
+ 
+ //27 February: Increase margin between sections by 4rem, so it should reflect too in the calculations
+ 
+ margin-top: $space-12x; 
+ margin-bottom: $space-16x;
+
+
+    header {
+      margin-bottom: $space-4x + $space-3x; //Compensate in this particular section for the 'dead-space' caused by the absolute element + optical imbalance between text and graphics
+      margin-inline: auto;
+    }
+
+
+    .process-layout {
+      position: relative;
+      padding-left: $space-6x + 1rem; //Compensation for the lack of page-wrapper, which added an extra 1rem of inline-padding to the previous sections
+      display: flex;
+      flex-direction: column;
+      gap: $space-2x;
+
+
+      // Background pattern
+      .pattern {
+        position: absolute;
+        top: -$space-4x; // Creates space above first card
+        right: 0;
+        width: 80%;
+        height: calc(100% + $space-8x); // Extends beyond last card, adding exactly 4rem of extra space on both top and bottom of the section
+        background-image: url('/assets/pattern-process3.png');
+        background-size: contain;
+        background-color: $brand-primary;
+        border-top-left-radius: $radius;
+        border-bottom-left-radius: $radius;
+
+        z-index: -1; // Ensures pattern stays behind cards
+      }
+}
+
+}

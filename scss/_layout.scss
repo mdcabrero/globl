@@ -1,0 +1,166 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.page-wrapper {
+    padding-top: $space-1x;
+    padding-inline: $space-1x;
+  }
+
+  .hero-wrapper {
+    padding: 1rem;
+  }
+
+  section + section {  /* Default spacing between all sections */
+    margin-top: 10rem;
+
+  }
+
+
+  p + p {
+    margin-top: $space-1x; //Ensure consistent spacing between <p> elements
+  }
+
+
+// INTERNAL PAGES HEADER 
+
+
+  .page-intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    height: calc(100vh - 1.5rem);
+    width: calc(100vw - 1.5rem);
+    border-radius: calc($radius/2);
+    background-image: url('/assets/about/glbl3.png');
+    background-size: cover;/* This makes it fit the height while maintaining aspect ratio */
+    background-position: right center; /* Right aligned, vertically centered */
+
+
+
+    margin: 0.75rem ; /* This centers it horizontally with equal space on sides */
+
+
+  
+    &__content {
+      gap: 4em;
+      padding-left: $space-6x;
+      padding-bottom: $space-8x;
+    }
+
+    &--services{
+      background-image: url('/assets/services/services-hero2.jpg');
+      background-size: cover;
+      background-position: left 10%;
+    }
+
+
+
+  }
+
+
+// SECTION HEADERS 
+
+.section-header {
+  margin-bottom: $space-md;
+
+  &--center {
+    text-align: center;
+    margin-bottom: $space-md;
+  }
+
+  &--flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+    padding-inline: $space-6x;
+  }
+
+}
+
+.extra-gap {
+  margin-bottom: $space-3x; // Utility class with 2x the default margin-bottom of the section-header to compensate for optical imbalance between text and graphics when needed
+}
+
+  
+
+// CONTAINER LAYOUTS
+
+.container { 
+    display: flex;   
+    padding-inline: $space-6x;
+   
+
+  
+    &--flex {  
+     @include flex-column;
+     }
+
+     &--island {
+
+      background-image: url('/assets/services-preview2.png');
+      background-size: cover;
+      
+      border-radius: $radius;
+      padding: $space-6x;
+      z-index: -2;
+
+     }
+
+  }
+
+
+  .content-wrapper {
+    max-width: 50ch;
+  }
+
+  
+// GRID LAYOUTS
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1.1fr 0.75fr;
+  gap: $space-3x;
+  padding-inline: $space-6x;
+}
+
+
+
+
+
+
+
+
+
+  // SLIDERS 
+  
+ // Slider wrapper - handles containment and positioning
+.slider-wrapper {
+  width: 100%;
+  position: relative;
+  overflow: visible; // Let cards be visible outside the wrapper, so they don't get cropped by any padding attributes
+  padding-left: $space-6x;
+}
+
+// Core slider functionality - reusable across different contexts
+.card-slider {
+  display: flex;
+  gap: $space-md;
+  position: relative;
+  left: 0;
+  user-select: none;
+  width: max-content;
+  padding-right: 6rem;
+  
+
+}
+
+.is-dragging * { 
+  cursor: grabbing;
+}
+
+
+/*  IMAGES AND GRAPHIC ELEMENTS  */
+
+
+

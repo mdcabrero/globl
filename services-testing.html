@@ -1,0 +1,174 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EUROHIRE</title>
+ 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dist/main.css">
+  
+</head>
+<body class="services">
+
+
+  
+    <section class="services-header">
+        <div class="page-intro page-intro--services">     
+            <div class="page-intro__content">
+              <h1 class="page-title">SERVICES</h1>
+          </div> 
+      </div>
+      </section>
+
+
+
+      <div class="service-media" data-variant="global-outsourcing">
+        <div class="service-content">
+          <h2>Global Outsourcing</h2>
+          <p class="p--light">We connect you with elite offshore talent to solve capacity challenges and skill gaps. Our pre-vetted global talent pools and proven collaboration frameworks turn contingent workers into seamless team extensions.</p>
+        </div>
+        <ul class="subservices-list"> 
+          <li class="subservice">International Talent Pool</li>
+          <li class="subservice"> Outsourcing Consulting</li>
+          <li class="subservice"> International Compliance</li>
+          <li class="subservice"> Temporary Staffing </li>
+          <li class="subservice"> Offshore Development</li>
+        </ul>
+      </div>
+
+      <div class="service-media" data-variant="business-transformation">
+        <div class="service-content">
+          <h2>Business Transformation</h2>
+          <p class="p--light">We enable smooth organizational scaling when you're growing fast. Our approach creates flexible talent structures that can expand from startup to enterprise without sacrificing quality or increasing management complexity.</p>
+        </div>
+        <ul class="subservices-list"> 
+          <li class="subservice">Employee Experience</li>
+          <li class="subservice">Change Management</li>
+          <li class="subservice"> Capacity Expansion </li> 
+          <li class="subservice">Process Optimization</li>
+          <li class="subservice">Growth Infrastructure</li>
+        </ul>
+      </div>
+
+      <div class="service-media" data-variant="hr-intelligence">
+        <div class="service-content">
+          <h2>HR Intelligence & Analytics</h2>
+          <p class="p--light">We turn workforce data into actionable insights with a novel platform that analyzes patterns across the employee lifecycle. You will see improved hiring outcomes, reduced onboarding time, and talent that's aligned to business needs.</p>
+        </div>
+        <ul class="subservices-list"> 
+          <li class="subservice">Recruitment Forecasting</li>
+          <li class="subservice">Skill Gap Assessment </li>
+          <li class="subservice">Workforce Metrics</li>
+          <li class="subservice">People Analytics</li>
+          <li class="subservice">Market Insights</li>
+        </ul>
+      </div>
+      
+      <div class="service-media" data-variant="talent-strategy">
+        <div class="service-content">
+          <h2>Talent Strategy</h2>
+          <p class="p--light">We replace reactive hiring with strategic talent planning by building roadmaps that sync recruitment with current needs and future goals, we can help you turn talent shortages into competitive advantages.</p>
+        </div>
+        <ul class="subservices-list"> 
+          <li class="subservice"> Workforce Planning</li>
+          <li class="subservice">Retention & Engagement </li>
+          <li class="subservice">Compensation Structure</li>
+          <li class="subservice">Talent Acquisition</li>
+          <li class="subservice">Career Paths</li>
+        </ul>
+      </div>
+      
+      <div class="service-media" data-variant="automation">
+        <div class="service-content">
+          <h2>AI & Automation Solutions</h2>
+          <p class="p--light"> Our advanced systems automate away repetitive, ineffiecient tasks and improve overall service delivery autonomously, removing that layer of administrative overhead so your HR team can focus on the important things.</p>
+        </div>
+        <ul class="subservices-list"> 
+          <li class="subservice">Applicant Tracking </li>
+          <li class="subservice"> Screening Automation</li>
+          <li class="subservice">Smart Scheduling </li>
+          <li class="subservice">Generative HR Content</li>
+          <li class="subservice">Virtual Assessments</li>
+        </ul>
+      </div>
+      
+    
+      
+  
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+    <script>
+// JAVASCRIPT for the divine animation
+document.addEventListener('DOMContentLoaded', function() {
+  // First, let's make sure GSAP and ScrollTrigger are loaded
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+    console.error("PRAISE THE LORD BUT LOAD GSAP FIRST! Make sure GSAP and ScrollTrigger are loaded!");
+    return;
+  }
+  
+  // Register ScrollTrigger plugin
+  gsap.registerPlugin(ScrollTrigger);
+  
+  // Set initial state - all cards hidden below viewport
+  gsap.set(".service-media", {
+    y: "100vh", // Start below the viewport
+    opacity: 1
+  });
+  
+  // Count the cards to calculate the scroll length
+  const cardCount = document.querySelectorAll('.service-media').length;
+  
+  // Create the main timeline for the stacking animation
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".services-header",
+      start: "top top",
+      end: `+=${cardCount * 100}%`, // End after scrolling 100% per card
+      scrub: 1, // Smooth scrubbing with 1 second lag
+      pin: true, // Pin the section during scroll
+      markers: true
+    }
+  });
+  
+  // Get all cards in reverse order (since we want the first one to show up first)
+  const cards = Array.from(document.querySelectorAll('.service-media'));
+  
+  // Add each card to the timeline with proper spacing
+  cards.forEach((card, index) => {
+    // Calculate when this card should start appearing
+    const startPosition = index / cardCount;
+    
+    // Add this card's animation to the timeline
+    tl.to(card, {
+      y: 0, // Move to visible position
+      ease: "sine.inOut", // Smooth easing
+      duration: 1 / cardCount // Duration relative to the total scroll length
+    }, startPosition); // Start at the calculated position
+  });
+  
+
+});
+       
+</script>
+       
+</body>
+</html>
