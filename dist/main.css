@@ -457,7 +457,7 @@ p + p {
   justify-content: end;
   width: 100%;
   height: 95%;
-  background-image: url("/assets/hero-image.png");
+  background-image: url("../assets/hero-image.png");
   background-position: right center;
   background-size: cover;
   border-radius: 0.75rem;
@@ -589,7 +589,7 @@ p + p {
   position: relative;
   width: 420px;
   aspect-ratio: 5/6;
-  background-image: url("/assets/placeholder-card.png");
+  background-image: url("../assets/placeholder-card.png");
   background-size: cover;
   background-position: left center;
   border-radius: 1.5rem;
@@ -604,22 +604,22 @@ p + p {
   font-size: 1.6rem;
 }
 .services-preview .service-card--outsourcing {
-  background-image: url("/assets/services/global-outsourcing2.jpg");
+  background-image: url("../assets/services/global-outsourcing2.jpg");
 }
 .services-preview .service-card--transformation {
-  background-image: url("/assets/services/business-transformation2.jpg");
+  background-image: url("../assets/services/business-transformation2.jpg");
   background-position: right bottom;
 }
 .services-preview .service-card--intelligence {
-  background-image: url("/assets/services/hr-intelligence.jpg");
+  background-image: url("../assets/services/hr-intelligence.jpg");
   background-position: center;
 }
 .services-preview .service-card--strategy {
-  background-image: url("/assets/services/talent-strategy2.jpg");
+  background-image: url("../assets/services/talent-strategy2.jpg");
   background-position: center;
 }
 .services-preview .service-card--automation {
-  background-image: url("/assets/services/ai-solutions.jpg");
+  background-image: url("../assets/services/ai-solutions.jpg");
   background-position: center;
 }
 
@@ -645,7 +645,7 @@ p + p {
   right: 0;
   width: 80%;
   height: calc(100% + 8rem);
-  background-image: url("/assets/pattern-process3.png");
+  background-image: url("../assets/pattern-process3.png");
   background-size: contain;
   background-color: #FF5000;
   border-top-left-radius: 1.5rem;
