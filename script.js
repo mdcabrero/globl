@@ -111,21 +111,21 @@ document.addEventListener('DOMContentLoaded', initSliders);
 
 const testimonials = [
     {
-      personImg: "/assets/testimonials1.png",
+      personImg: "assets/testimonials1.png",
       logoImg: "assets/icons/netflix-logo.svg",
       quote: "Back when the video streaming industry started to boom, GLOBL helped us duplicate the size of our engineering in just 18 months, a crucial feat to Netflix's present success. Their tech-driven approach and their legacy talent network made them the perfect partner during our hypergrowth phase.",
       person: "Alice Parkinson",
       title: "Product Management Lead at Netflix"
     },
     {
-      personImg: "/assets/testimonials2.png",
+      personImg: "assets/testimonials2.png",
       logoImg: "assets/icons/shopify-logo.svg",
       quote: "Incorporating GLOBL talent matching and automated HR workflowsinto our global TA processes, along their skills-based strategy, has allowed us to identify the right talent for our teams and reduce the time it takes to fill vacancies,  all while creating an overall better candidate experience.",
       person: "Michael Chen",
       title: "CTO at Shopify"
     },
     {
-      personImg: "/assets/testimonials3.png",
+      personImg: "assets/testimonials3.png",
       logoImg: "assets/icons/zoom-logo.svg",
       quote: "Seeing skills as the labor market currency allows you to hire faster and better, because you're looking at the skill, not only the individual and the positions they have held before. It allows you to be relevant in the market and to move with pace. That's what GLOBL taught us.",
       person: "Sarah Williams",
