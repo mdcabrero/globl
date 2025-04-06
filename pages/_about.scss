@@ -197,8 +197,8 @@
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: $space-1x;
-  width: 88vw;
-  height: 132vh;
+  width: 90vw;
+  height: 130vh;
   margin-inline: auto;
 
 }
@@ -216,10 +216,9 @@
     &::after {
       content: '';
       position: absolute;
-      right: -30%;  // Just position it on the right side
-      top: 50%;  // Center it vertically
-      transform: translateY(-50%);  // Perfect centering
-      width: 50%;
+      right: -25%;  // Just position it on the right side
+      top: 30%;  // Center it vertically
+      width: 100%;
       height: 75%;
       background-repeat: no-repeat;
       background-position: center right;
@@ -238,6 +237,7 @@
     line-height: 1.2;
     margin-top: $space-1x;
     max-width: 70%;
+    z-index: 2;
   }
   
   &__text {
@@ -248,12 +248,11 @@
   
   // Card variants with correct color schemes
 
-  &--orange {
-    background-color: #e14115; // Blue background
+  &--blue {
+    background-color: #0949B3; // Blue background
 
     &::after {
       background-image: url('/assets/about/global-reach.svg'); 
-      right: -25%;  // Just position it on the right side
     }
     
     .card-eyebrow,
@@ -263,13 +262,12 @@
     }
   }
 
-  &--sand {
-    background-color: #fcf3e8; // Light beige/mint background
+  &--soft-blue {
+    background-color: #E6E8FF; // Light beige/mint background
 
     &::after {
-      background-image: url('/assets/about/quality-partner.svg'); 
-      right: -20%;  // Just position it on the right side
-      top: 55%;
+      background-image: url('/assets/about/question-mark.svg'); 
+     right: -5%;
     }
     
     .card-eyebrow,
@@ -283,8 +281,8 @@
     }
   }
   
-  &--coral {
-    background-color: #fcdebd; // Beige background
+  &--sky {
+    background-color: #D2E4FE; // Beige background
 
     &::after {
       background-image: url('/assets/about/structured-progress.svg'); 
@@ -303,7 +301,7 @@
   }
 
   &--dark {
-    background-color: $bg-dark; // Dark green background
+    background-color: $brand-dark; // Dark green background
     
 
       &::after {

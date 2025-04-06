@@ -6,9 +6,8 @@
     min-height: calc(100vh - $space-1x);
     width: calc(100vw - $space-1x);
     border-radius: calc($radius/2);
-    background-image: url('/assets/faqs-bg.jpg');
-    background-size: contain;
-    background-position: center;
+    background-image: url('/assets/faqs-bg--blue.jpg');
+    background-size: cover;
     margin: $space-lite;
     color: $headline-light;
     padding: $space-4x;

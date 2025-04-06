@@ -792,8 +792,8 @@ p + p {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 1rem;
-  width: 88vw;
-  height: 132vh;
+  width: 90vw;
+  height: 130vh;
   margin-inline: auto;
 }
 
@@ -809,10 +809,9 @@ p + p {
 .benefit-card::after {
   content: "";
   position: absolute;
-  right: -30%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 50%;
+  right: -25%;
+  top: 30%;
+  width: 100%;
   height: 75%;
   background-repeat: no-repeat;
   background-position: center right;
@@ -829,57 +828,56 @@ p + p {
   line-height: 1.2;
   margin-top: 1rem;
   max-width: 70%;
+  z-index: 2;
 }
 .benefit-card__text {
   font-size: clamp(0.875rem, 0.8382rem + 0.1681vw, 1rem);
   line-height: 1.5;
   max-width: 40ch;
 }
-.benefit-card--orange {
-  background-color: #e14115;
+.benefit-card--blue {
+  background-color: #0949B3;
 }
-.benefit-card--orange::after {
+.benefit-card--blue::after {
   background-image: url("/assets/about/global-reach.svg");
-  right: -25%;
 }
-.benefit-card--orange .card-eyebrow,
-.benefit-card--orange .benefit-card__title,
-.benefit-card--orange .benefit-card__text {
+.benefit-card--blue .card-eyebrow,
+.benefit-card--blue .benefit-card__title,
+.benefit-card--blue .benefit-card__text {
   color: #FBFBFB;
 }
-.benefit-card--sand {
-  background-color: #fcf3e8;
+.benefit-card--soft-blue {
+  background-color: #E6E8FF;
 }
-.benefit-card--sand::after {
-  background-image: url("/assets/about/quality-partner.svg");
-  right: -20%;
-  top: 55%;
+.benefit-card--soft-blue::after {
+  background-image: url("/assets/about/question-mark.svg");
+  right: -5%;
 }
-.benefit-card--sand .card-eyebrow,
-.benefit-card--sand .benefit-card__title,
-.benefit-card--sand .benefit-card__text {
+.benefit-card--soft-blue .card-eyebrow,
+.benefit-card--soft-blue .benefit-card__title,
+.benefit-card--soft-blue .benefit-card__text {
   color: #07070b;
 }
-.benefit-card--sand .benefit-card__text {
+.benefit-card--soft-blue .benefit-card__text {
   max-width: 35ch;
 }
-.benefit-card--coral {
-  background-color: #fcdebd;
+.benefit-card--sky {
+  background-color: #D2E4FE;
 }
-.benefit-card--coral::after {
+.benefit-card--sky::after {
   background-image: url("/assets/about/structured-progress.svg");
   right: -20%;
 }
-.benefit-card--coral .card-eyebrow,
-.benefit-card--coral .benefit-card__title,
-.benefit-card--coral .benefit-card__text {
+.benefit-card--sky .card-eyebrow,
+.benefit-card--sky .benefit-card__title,
+.benefit-card--sky .benefit-card__text {
   color: #07070b;
 }
-.benefit-card--coral .benefit-card__text {
+.benefit-card--sky .benefit-card__text {
   max-width: 35ch;
 }
 .benefit-card--dark {
-  background-color: #010005;
+  background-color: #040F20;
 }
 .benefit-card--dark::after {
   background-image: url("/assets/about/actionable-insights.svg");
@@ -1177,9 +1175,8 @@ p + p {
   min-height: calc(100vh - 1rem);
   width: calc(100vw - 1rem);
   border-radius: 0.75rem;
-  background-image: url("/assets/faqs-bg.jpg");
-  background-size: contain;
-  background-position: center;
+  background-image: url("/assets/faqs-bg--blue.jpg");
+  background-size: cover;
   margin: 0.5rem;
   color: #FBFBFB;
   padding: 4rem;
