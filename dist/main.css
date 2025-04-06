@@ -53,7 +53,7 @@ h3 {
 }
 
 .card-title--dark {
-  color: #FF5000;
+  color: #0949B3;
 }
 
 .card-title--v2,
@@ -61,7 +61,7 @@ h4 {
   font-size: clamp(1.05rem, 0.9912rem + 0.28vw, 1.25rem);
   font-weight: 600;
   line-height: 1.3;
-  color: #FF5000;
+  color: #0949B3;
 }
 
 .body--light {
@@ -163,7 +163,7 @@ p + p {
   flex-direction: column;
 }
 .container--island {
-  background-image: url("/assets/services-preview2.png");
+  background-image: url("../assets/services-preview.jpg");
   background-size: cover;
   border-radius: 1.5rem;
   padding: 6rem;
@@ -215,20 +215,20 @@ p + p {
   border: 1px solid white;
   font-size: clamp(0.875rem, 0.8382rem + 0.1681vw, 1rem);
   font-weight: 600;
-  background-color: #FF6900;
+  background-color: #0858DD;
   color: #FBFBFB;
 }
 .cta:hover {
-  color: #FF5000;
+  color: #0949B3;
   background-color: rgb(225.5, 225.5, 225.5);
 }
 
 .secondary-btn {
   display: inline-block;
   padding: 0.5rem 2rem;
-  border: 2px solid #FF5000;
+  border: 2px solid #0949B3;
   border-radius: 0.75rem;
-  color: #FF5000;
+  color: #0949B3;
   font-weight: 500;
   text-decoration: none;
   background: transparent;
@@ -251,7 +251,7 @@ p + p {
   transition: background-color 0.2s ease;
 }
 .arrow-btn:hover {
-  background-color: #FF6900;
+  background-color: #0858DD;
 }
 
 .arrow-btn--v2 {
@@ -278,10 +278,10 @@ p + p {
   letter-spacing: 1px;
   opacity: 0.9;
   margin-bottom: 1rem;
-  color: #FF5000;
+  color: #0949B3;
 }
 .eyebrow--brand {
-  color: #FF5000;
+  color: #0949B3;
   background: linear-gradient(90deg, hsl(203, 100%, 83%) 0%, hsla(196, 39%, 67%, 0.5) 50%, hsla(183, 18%, 51%, 0) 100%);
 }
 .eyebrow--dark {
@@ -381,7 +381,7 @@ p + p {
   padding-block: 3rem;
   padding-inline: 3rem;
   background-color: #fcfeff;
-  border: 3px solid #E74F23;
+  border: 3px solid #558EEC;
   border-radius: 1.5rem;
 }
 .process-card p {
@@ -406,7 +406,7 @@ p + p {
   flex-shrink: 0;
   width: 2rem;
   height: 2rem;
-  background-color: #FF5000;
+  background-color: #0949B3;
   border-radius: 25%;
   color: #FBFBFB;
   font-size: clamp(0.875rem, 0.8382rem + 0.1681vw, 1rem);
@@ -418,7 +418,7 @@ p + p {
   display: grid;
   max-width: 420px;
   padding: 1rem 1rem 1.5rem 1rem;
-  background-color: #E74F23;
+  background-color: #558EEC;
   border-radius: 1.5rem;
   flex-shrink: 0;
 }
@@ -477,17 +477,17 @@ p + p {
 .why-us-preview .media-wrap::after {
   content: "";
   position: absolute;
-  top: 3.5%;
+  top: 3%;
   left: 3%;
   height: 100%;
-  width: 92%;
-  background-color: #FF6900;
+  width: 95%;
+  background-color: #558EEC;
   border-radius: 1.5rem;
   border: 2px solid black;
   z-index: -1;
 }
 .why-us-preview .media-wrap img {
-  width: 90%;
+  width: 95%;
   height: 100%;
   object-fit: cover;
   object-position: top right;
@@ -539,7 +539,7 @@ p + p {
   background-color: #fcfeff;
   box-shadow: 0 3px 4px 1px rgba(37, 20, 6, 0.5);
   border-radius: 1.5rem;
-  border: 3px solid #FF6900;
+  border: 3px solid #0858DD;
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -547,7 +547,7 @@ p + p {
 .solutions .solution-card__icon {
   width: 6.5rem;
   height: auto;
-  fill: #FF5000;
+  fill: #0949B3;
   margin-bottom: 2rem;
   align-self: flex-start;
 }
@@ -645,9 +645,9 @@ p + p {
   right: 0;
   width: 80%;
   height: calc(100% + 8rem);
-  background-image: url("../assets/pattern-process3.png");
-  background-size: contain;
-  background-color: #FF5000;
+  background-image: url("../assets/process-pattern.jpg");
+  background-size: cover;
+  background-color: #0949B3;
   border-top-left-radius: 1.5rem;
   border-bottom-left-radius: 1.5rem;
   z-index: -1;
@@ -682,7 +682,7 @@ p + p {
   overflow: hidden;
   box-shadow: 3px 6px 12px rgba(53, 22, 0, 0.642);
   position: relative;
-  border: 2px solid #FF5000;
+  border: 2px solid #0949B3;
 }
 .founder-story__content {
   display: flex;
@@ -698,7 +698,7 @@ p + p {
   background-size: 1rem 1rem;
   position: relative;
   z-index: 1;
-  border-right: 2px solid #FF5000;
+  border-right: 2px solid #0949B3;
 }
 .founder-story__content p {
   color: #D9D9D9;
@@ -706,7 +706,7 @@ p + p {
 }
 .founder-story__content cite {
   font-size: clamp(1.26rem, 1.171rem + 0.4067vw, 1.56rem);
-  color: #FF6900;
+  color: #0858DD;
 }
 .founder-story__content cite .subtitle {
   font-size: clamp(1.05rem, 0.9912rem + 0.28vw, 1.25rem);
@@ -776,7 +776,7 @@ p + p {
   font-size: clamp(1.26rem, 1.171rem + 0.4067vw, 1.56rem);
   font-weight: 500;
   margin: 0;
-  color: #E74F23;
+  color: #558EEC;
 }
 .employee-card__role {
   font-size: clamp(1.05rem, 0.9912rem + 0.28vw, 1.25rem);
@@ -1005,7 +1005,7 @@ p + p {
   outline: none;
 }
 .newsletter-cta input[type=email]:focus {
-  border-color: #FF5000;
+  border-color: #0949B3;
 }
 .newsletter-cta .consent-group {
   display: flex;
@@ -1026,8 +1026,8 @@ p + p {
   flex-shrink: 0;
 }
 .newsletter-cta input[type=checkbox]:checked {
-  background-color: #FF5000;
-  border-color: #FF5000;
+  background-color: #0949B3;
+  border-color: #0949B3;
 }
 .newsletter-cta input[type=checkbox]:checked::after {
   content: "";
@@ -1046,12 +1046,12 @@ p + p {
   color: #07070b;
 }
 .newsletter-cta .text-link {
-  color: #FF5000;
+  color: #0949B3;
   text-decoration: underline;
   font-weight: 500;
 }
 .newsletter-cta .text-link:hover {
-  color: #FF6900;
+  color: #0858DD;
 }
 .newsletter-cta .submit-btn {
   background-color: #e9e9e9;
@@ -1072,7 +1072,7 @@ p + p {
   cursor: pointer;
 }
 .newsletter-cta .submit-btn.active:hover {
-  background-color: rgb(229.5, 94.5, 0);
+  background-color: rgb(7.1091703057, 78.2008733624, 196.3908296943);
 }
 
 #services {
@@ -1169,7 +1169,7 @@ p + p {
   top: 0;
   width: 4px;
   height: 100%;
-  background-color: #FF6900;
+  background-color: #0858DD;
 }
 
 .faqs {
@@ -1208,7 +1208,7 @@ p + p {
 
 .faq-category {
   display: inline-flex;
-  background-color: #FF6900;
+  background-color: #0858DD;
   align-items: center;
   color: black;
   gap: 0.5rem;
@@ -1293,7 +1293,7 @@ p + p {
 }
 
 .faq-item:hover .faq-btn {
-  background-color: #FF5000;
+  background-color: #0949B3;
 }
 .faq-item.active .faq-btn::after {
   transform: translate(-50%, -50%) scaleY(0);
@@ -1318,8 +1318,8 @@ p + p {
   transition: background-color 0.3s ease;
 }
 .filter-btn.active {
-  border-color: #FF6900;
-  color: #FF6900;
+  border-color: #0858DD;
+  color: #0858DD;
 }
 
 .contact {
@@ -1466,19 +1466,19 @@ body {
   display: block;
 }
 .logo img {
-  height: 2rem;
-  width: auto;
+  width: 12rem;
+  height: auto;
 }
 
 .main-navigation {
   display: flex;
-  gap: 3rem;
+  gap: 3.5rem;
 }
 
 .nav-link {
   color: #FBFBFB;
   text-decoration: none;
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 500;
   transition: opacity 0.2s ease;
 }
@@ -1499,7 +1499,7 @@ body {
 
 /* ==== FOOTER ==== */
 .site-footer {
-  background-image: url("/assets/footer-pattern-final.jpg");
+  background-image: url("/assets/footer-pattern--blue.jpg");
   background-size: cover;
   background-position: center 60%;
   background-repeat: no-repeat;
@@ -1530,12 +1530,12 @@ body {
 .footer-nav {
   display: flex;
   gap: 1.2rem;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 .footer-nav a {
   color: white;
-  font-weight: 450;
-  font-size: 1.05rem;
+  font-weight: 500;
+  font-size: 1.15rem;
 }
 
 .footer-cta {
@@ -1543,13 +1543,12 @@ body {
   flex-direction: column;
   justify-content: space-between;
   padding: 2.5rem;
-  background: rgba(12, 4, 67, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  background: rgba(5, 22, 107, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-radius: 1.5rem;
-  border: 1px solid rgba(22, 24, 59, 0.308);
   width: 40%;
-  height: 60vh;
+  height: 62vh;
   border-radius: 1.5rem;
   font-weight: 450;
 }
@@ -1566,7 +1565,7 @@ body {
   line-height: 1;
 }
 .footer-cta:hover {
-  background: #FF5000;
+  background: #0949B3;
 }
 
 .footer-legal {

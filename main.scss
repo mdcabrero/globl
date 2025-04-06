@@ -119,20 +119,20 @@ input, button, textarea, select {
   display: block;
   
   img {
-    height: 2rem;
-    width: auto;
+    width: 12rem;
+    height: auto;
   }
 }
 
 .main-navigation {
-  @include flex-row($space-3x);
+  @include flex-row(3.5rem);
 
 }
 
 .nav-link {
   color: $headline-light;
   text-decoration: none;
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: $font-medium;
   transition: opacity 0.2s ease;
 
@@ -164,7 +164,7 @@ input, button, textarea, select {
 /* ==== FOOTER ==== */
 
 .site-footer {
-  background-image: url('/assets/footer-pattern-final.jpg');
+  background-image: url('/assets/footer-pattern--blue.jpg');
   background-size: cover;
   background-position: center 60%;
   background-repeat: no-repeat;
@@ -205,14 +205,15 @@ input, button, textarea, select {
 .footer-nav {
   display: flex;
   gap: 1.2rem;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
+
   
 
   
   a {
     color: white;
-    font-weight: $font-regular-plus;
-    font-size: 1.05rem;
+    font-weight: $font-medium;
+    font-size: 1.15rem;
   }
   
 
@@ -224,13 +225,13 @@ input, button, textarea, select {
   flex-direction: column;
   justify-content: space-between;
   padding: 2.5rem;
-  background: rgba(12, 4, 67, 0.1);
-  backdrop-filter: blur( 5px );
-  -webkit-backdrop-filter: blur( 5px);
+  background: rgba(5, 22, 107, 0.25);
+  backdrop-filter: blur( 8px );
+  -webkit-backdrop-filter: blur( 8px);
   border-radius: $radius;
-  border: 1px solid rgba(22, 24, 59, 0.308);
+
   width: 40%;
-  height: 60vh;
+  height: 62vh;
   border-radius: $radius;
   font-weight: $font-regular-plus;
 
