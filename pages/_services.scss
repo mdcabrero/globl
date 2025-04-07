@@ -54,14 +54,14 @@
     &[data-variant="business-transformation"] {
         background: url('/assets/services/business-transformation2.jpg');
         background-size: cover;
-        background-position: right center;
+        background-position:  left 20%;
         z-index: 3;
     }
 
     &[data-variant="hr-intelligence"] {
         background-image: url('/assets/services/hr-intelligence.jpg');
         background-size: cover;
-        background-position: center center;
+        background-position: center 65%;
         z-index: 4;
     }
     
@@ -75,7 +75,7 @@
     &[data-variant="automation"] {
         background: url('/assets/services/ai-solutions.jpg');
         background-size: cover;
-        background-position: center 70%;
+        background-position: center 75%;
         z-index: 6; 
     }
     

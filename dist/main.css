@@ -4,7 +4,7 @@ p {
 }
 
 .p--light {
-  color: #D9D9D9;
+  color: #e8e8e8;
   max-width: 40ch;
   line-height: 1.75;
 }
@@ -28,14 +28,14 @@ h1 {
 
 .supporting-text {
   font-size: clamp(1.26rem, 1.171rem + 0.4067vw, 1.56rem);
-  color: #D9D9D9;
+  color: #e8e8e8;
   margin-top: 1.5rem;
 }
 
 .section-headline, .section-headline--light,
 h2 {
   font-size: clamp(1.8144rem, 1.63rem + 0.843vw, 2.4414rem);
-  color: #07070b;
+  color: #031023;
   line-height: 1.25;
   font-weight: 600;
 }
@@ -66,18 +66,18 @@ h4 {
 
 .body--light {
   line-height: 1.5;
-  color: #D9D9D9;
+  color: #e8e8e8;
 }
 
 .card-body {
   font-size: 1.15rem;
   font-weight: 400;
-  color: #D9D9D9;
+  color: #e8e8e8;
 }
 
 .subtitle {
   display: block;
-  color: #D9D9D9;
+  color: #e8e8e8;
   font-size: clamp(0.875rem, 0.8382rem + 0.1681vw, 1rem);
   font-weight: 400;
 }
@@ -119,9 +119,9 @@ p + p {
   height: calc(100vh - 1.5rem);
   width: calc(100vw - 1.5rem);
   border-radius: 0.75rem;
-  background-image: url("/assets/about/glbl3.png");
+  background-image: url("/assets/about/about-hero.jpg");
   background-size: cover; /* This makes it fit the height while maintaining aspect ratio */
-  background-position: right center; /* Right aligned, vertically centered */
+  background-position: left 75%; /* Right aligned, vertically centered */
   margin: 0.75rem; /* This centers it horizontally with equal space on sides */
 }
 .page-intro__content {
@@ -273,7 +273,7 @@ p + p {
   width: fit-content;
   gap: 0.5rem;
   font-size: clamp(0.7392rem, 0.7183rem + 0.0952vw, 0.8rem);
-  font-weight: 550;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
   opacity: 0.9;
@@ -285,7 +285,7 @@ p + p {
   background: linear-gradient(90deg, hsl(203, 100%, 83%) 0%, hsla(196, 39%, 67%, 0.5) 50%, hsla(183, 18%, 51%, 0) 100%);
 }
 .eyebrow--dark {
-  background: linear-gradient(90deg, #FF8C42 0%, #FF5733 100%);
+  background: linear-gradient(90deg, rgb(100, 93, 228) 0%, rgb(175, 206, 250) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -457,8 +457,8 @@ p + p {
   justify-content: end;
   width: 100%;
   height: 95%;
-  background-image: url("../assets/hero-image.png");
-  background-position: right center;
+  background-image: url("../assets/hero-image.jpg");
+  background-position: right 60%;
   background-size: cover;
   border-radius: 0.75rem;
 }
@@ -680,9 +680,8 @@ p + p {
   margin: auto;
   border-radius: 1.5rem;
   overflow: hidden;
-  box-shadow: 3px 6px 12px rgba(53, 22, 0, 0.642);
+  box-shadow: 3px 6px 12px rgba(1, 40, 108, 0.671);
   position: relative;
-  border: 2px solid #0949B3;
 }
 .founder-story__content {
   display: flex;
@@ -693,20 +692,18 @@ p + p {
   padding-top: 4rem;
   padding-bottom: 3rem;
   max-width: 65%;
-  background: radial-gradient(black 15%, transparent 16%) 0 0, radial-gradient(black 15%, transparent 16%) 8px 8px, radial-gradient(rgba(0, 0, 0, 0.12) 15%, transparent 20%) 0 1px, radial-gradient(rgba(249, 112, 0, 0.16) 16%, transparent 20%) 8px 9px;
-  background-color: #010005;
-  background-size: 1rem 1rem;
+  background: linear-gradient(130deg, rgb(0, 6, 18) 0%, rgb(3, 21, 48) 40%, rgb(3, 46, 116) 100%);
   position: relative;
   z-index: 1;
   border-right: 2px solid #0949B3;
 }
 .founder-story__content p {
-  color: #D9D9D9;
+  color: #e8e8e8;
   font-size: 1.45rem;
 }
 .founder-story__content cite {
   font-size: clamp(1.26rem, 1.171rem + 0.4067vw, 1.56rem);
-  color: #0858DD;
+  color: #A8CCFF;
 }
 .founder-story__content cite .subtitle {
   font-size: clamp(1.05rem, 0.9912rem + 0.28vw, 1.25rem);
@@ -716,15 +713,12 @@ p + p {
   background-color: #000000;
   display: flex;
   flex-direction: column;
-  justify-content: end;
-  align-items: center;
   position: relative;
 }
 .founder-story__portrait img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
 }
 .founder-story__portrait h3 {
   color: #FBFBFB;
@@ -780,7 +774,7 @@ p + p {
 }
 .employee-card__role {
   font-size: clamp(1.05rem, 0.9912rem + 0.28vw, 1.25rem);
-  color: #D9D9D9;
+  color: #e8e8e8;
   margin-top: 0.5rem;
   opacity: 0;
   transform: translateY(0.5rem);
@@ -877,7 +871,7 @@ p + p {
   max-width: 35ch;
 }
 .benefit-card--dark {
-  background-color: #040F20;
+  background-color: #031023;
 }
 .benefit-card--dark::after {
   background-image: url("/assets/about/actionable-insights.svg");
@@ -1113,13 +1107,13 @@ p + p {
 .service-media[data-variant=business-transformation] {
   background: url("/assets/services/business-transformation2.jpg");
   background-size: cover;
-  background-position: right center;
+  background-position: left 20%;
   z-index: 3;
 }
 .service-media[data-variant=hr-intelligence] {
   background-image: url("/assets/services/hr-intelligence.jpg");
   background-size: cover;
-  background-position: center center;
+  background-position: center 65%;
   z-index: 4;
 }
 .service-media[data-variant=talent-strategy] {
@@ -1130,7 +1124,7 @@ p + p {
 .service-media[data-variant=automation] {
   background: url("/assets/services/ai-solutions.jpg");
   background-size: cover;
-  background-position: center 70%;
+  background-position: center 75%;
   z-index: 6;
 }
 
@@ -1177,6 +1171,7 @@ p + p {
   border-radius: 0.75rem;
   background-image: url("/assets/faqs-bg--blue.jpg");
   background-size: cover;
+  background-position: center;
   margin: 0.5rem;
   color: #FBFBFB;
   padding: 4rem;
@@ -1324,9 +1319,9 @@ p + p {
   min-height: calc(100vh - 1rem);
   width: calc(100vw - 1rem);
   border-radius: 0.75rem;
-  background-image: url("/assets/contact-bg.jpg");
-  background-position: center top;
+  background-image: url("/assets/process-pattern.jpg");
   background-size: cover;
+  background-position: left top;
   margin: 0.5rem;
   color: #FBFBFB;
   padding: 6rem;
@@ -1346,9 +1341,9 @@ p + p {
 }
 .contact .contact-card {
   width: 40%;
-  background: rgba(211, 81, 0, 0.02);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(5px);
+  background: rgba(51, 106, 235, 0.05);
+  backdrop-filter: blur(8.5px);
+  -webkit-backdrop-filter: blur(7px);
   border-radius: 0.75rem;
   padding: 2rem;
   display: flex;
@@ -1356,7 +1351,7 @@ p + p {
   gap: 0.75rem;
 }
 .contact .contact-item {
-  background: rgba(255, 110, 13, 0.25);
+  background: hsla(223, 96%, 9%, 0.85);
   border-radius: 0.75rem;
   padding: 1.5rem;
   display: flex;
@@ -1365,7 +1360,7 @@ p + p {
   transition: background-color 0.35s ease;
 }
 .contact .contact-item:hover {
-  background: rgba(255, 80, 0, 0.9);
+  background: hsla(223, 96%, 9%, 0.01);
 }
 .contact .contact-icon {
   width: 1.75rem;
@@ -1417,7 +1412,7 @@ body {
   font-size: clamp(1.05rem, 0.9912rem + 0.28vw, 1.25rem);
   line-height: 1.5;
   color: #07070b;
-  background-color: #FBFBFB;
+  background-color: #FFFDFA;
   overflow-x: hidden;
 }
 
@@ -1446,7 +1441,7 @@ body {
 }
 .site-header.is-header-sticky {
   background-color: #010005;
-  padding-block: 1.5rem;
+  padding-block: 1rem;
 }
 @keyframes headerBackground {
   from {
@@ -1506,7 +1501,7 @@ body {
   flex-direction: column;
   margin: 0.75rem;
   margin-top: 8rem;
-  height: calc(92.5vh - 1.5rem);
+  height: calc(93vh - 1.5rem);
   width: calc(100vw - 1.5rem);
   border-radius: 0.75rem;
   padding-top: 6rem;
@@ -1520,19 +1515,22 @@ body {
   align-items: flex-start;
 }
 .footer-main .footer-logo {
-  width: calc(20vw + 0.3rem);
+  width: 100%;
+  justify-self: center;
   height: auto;
+  transform: scaleX(105%);
 }
 
 .footer-nav {
   display: flex;
-  gap: 1.2rem;
-  margin-top: 0.5rem;
+  justify-content: center;
+  gap: 1.1rem;
+  margin-top: 1rem;
 }
 .footer-nav a {
   color: white;
-  font-weight: 500;
-  font-size: 1.15rem;
+  font-weight: 550;
+  font-size: 1.25rem;
 }
 
 .footer-cta {
@@ -1545,18 +1543,21 @@ body {
   -webkit-backdrop-filter: blur(8px);
   border-radius: 1.5rem;
   width: 40%;
-  height: 62vh;
+  height: 60vh;
   border-radius: 1.5rem;
   font-weight: 450;
 }
 .footer-cta p {
   color: white;
-  font-size: 1.6rem;
+  font-size: 1.75rem;
   line-height: 1.4;
+}
+.footer-cta p:first-of-type {
+  line-height: 1.25; /* narrower line height for first paragraph */
 }
 .footer-cta h4 {
   color: whitesmoke;
-  font-size: 3.2rem;
+  font-size: 3.25rem;
   letter-spacing: -1px;
   font-weight: 550;
   line-height: 1;
