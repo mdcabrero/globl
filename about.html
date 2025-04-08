@@ -12,6 +12,23 @@
 </head>
 <body class="about">
 
+  <header class="site-header" role="banner">
+    <a href="/" class="logo">
+      <img src="assets/globl-logo--light.svg" alt="Halo">
+    </a>
+    
+    <nav role="navigation"> 
+      <ul class="main-navigation">
+        <li><a href="about.html" class="nav-link">Company</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="faq.html"     class="nav-link">FAQ</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+
+    <a href="/reserve" class="cta">Reserve now</a>
+</header>
+
 
   <section id="about-header">
       <div class="page-intro">     
@@ -195,8 +212,7 @@
 </section>
 
 <section class="newsletter-cta">
-  <div class="newsletter-container">
-    <h2 class="newsletter-title">Keep connected to our team and progress.</h2>
+    <h2 class="newsletter-title">Keep connected to <br> our team and progress.</h2>
     
     <form class="newsletter-form">
       <div class="form-group">
@@ -207,15 +223,14 @@
       <div class="consent-group">
         <input type="checkbox" id="consent" name="consent">
         <label for="consent" class="consent-label">
-          By signing up to the newsletter, I agree to Halo processing my personal data in line with the 
+          By signing up to the newsletter, I agree to GLOBL processing my personal data in line with the 
           <a href="/privacy" class="text-link">privacy policy</a> and 
           <a href="/terms" class="text-link">terms of use</a>.
         </label>
       </div>
       
-      <button type="submit" class="submit-btn" disabled>Keep me posted</button>
+      <button type="submit" class="btn-newsletter" disabled>Keep me posted</button>
     </form>
-  </div>
 </section>
 
 
@@ -224,33 +239,62 @@
 
 
 <script src="script.js"></script>
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  // Get our blessed elements
+  // Get elements
   const consentCheckbox = document.getElementById('consent');
-  const submitButton = document.querySelector('.submit-btn');
+  const submitButton = document.querySelector('.btn-newsletter');
   const emailInput = document.getElementById('email');
+  const formGroup = emailInput.closest('.form-group');
+  const form = emailInput.closest('form');
   
-  // Function to validate and update that button style
-  function validateForm() {
-    if (consentCheckbox.checked && emailInput.validity.valid && emailInput.value.trim() !== '') {
-      // Here's the divine intervention - use brand-secondary as soon as checked!
-      submitButton.classList.add('active');
-      submitButton.style.backgroundColor = getComputedStyle(document.documentElement)
-        .getPropertyValue('--brand-secondary').trim() || 'hsl(220, 82%, 24%)';
-      submitButton.disabled = false;
-    } else {
-      submitButton.classList.remove('active');
-      submitButton.style.backgroundColor = '';
-      submitButton.disabled = true;
+  // Add error message
+  const errorMessage = document.createElement('div');
+  errorMessage.className = 'error-message';
+  errorMessage.textContent = 'Please fill in a valid email address.';
+  formGroup.appendChild(errorMessage);
+  
+  let submitAttempted = false;
+  
+  // Validate email with regex
+  const isValidEmail = email => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  
+  // Update UI based on current state
+  function updateNewsletterSignup() {
+    // Enable button if consent checked and email field not empty
+    submitButton.disabled = !consentCheckbox.checked;
+    
+    // Show error state if submission attempted and email invalid
+    if (submitAttempted) {
+      formGroup.classList.toggle('error', !isValidEmail(emailInput.value));
     }
   }
   
-  // Add the Holy listeners
-  consentCheckbox.addEventListener('change', validateForm);
-  emailInput.addEventListener('input', validateForm);
-});
+  // Handle submission validation
+  function validateSubmission(event) {
+    submitAttempted = true;
+    if (!isValidEmail(emailInput.value)) {
+      event.preventDefault();
+      updateNewsletterSignup();
+    }
+  }
   
+  // Add event listeners
+  [consentCheckbox, emailInput].forEach(el => el.addEventListener('input', updateNewsletterSignup));
+  
+  // Set up form validation
+  if (form) {
+    form.setAttribute('novalidate', '');
+    form.addEventListener('submit', validateSubmission);
+  } else {
+    submitButton.addEventListener('click', validateSubmission);
+  }
+  
+  // Initialize UI state
+  updateNewsletterSignup();
+});
+
 </script>
 </body>
 </html>

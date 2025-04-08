@@ -24,18 +24,28 @@
 
 
  .secondary-btn {
+  @include button-base;
     display: inline-block;
-    padding: 0.5rem 2rem;
-    border: 2px solid $brand-primary;
-    border-radius: $radius/2;
-    color: $brand-primary;
-    font-weight: $font-medium;
-    @include button-base;
- 
+    padding: $space-lite $space-2x;
+    background-color: hsl(217, 94%, 49%);
+    border: 1px solid $brand-dark;
+    border-radius: calc($radius / 2);
+    color: white;
+    font-weight: $font-regular-plus;
+    box-shadow: 
+      0 1px 0 #cce0ff, 
+      0 2px 0 #b8d1f9, 
+      0 6px 2px rgba(8, 88, 221, 0.1), 
+      0 0 5px rgba(8, 88, 221, 0.1), 
+      0 1px 3px rgba(8, 88, 221, 0.1), 
+      0 5px 10px rgba(8, 88, 221, 0.1);
+
     &:hover {  // Note the & here
-        background-color: hsla(220, 82%, 24%, 0.1);
+      background-color: hsl(234, 95%, 48%);
     }
 }
+
+
   
 .arrow-btn {
     place-items: center;

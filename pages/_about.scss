@@ -208,9 +208,9 @@
       content: '';
       position: absolute;
       right: -25%;  // Just position it on the right side
-      top: 30%;  // Center it vertically
+      top: 25%;  // Center it vertically
       width: 100%;
-      height: 75%;
+      height: 80%;
       background-repeat: no-repeat;
       background-position: center right;
       background-size: contain;  // 'contain' is better than 'cover' for icons
@@ -243,7 +243,8 @@
     background-color: #0949B3; // Blue background
 
     &::after {
-      background-image: url('/assets/about/global-reach.svg'); 
+      background-image: url('/assets/about/global-reach2.svg'); 
+      right: -28%;
     }
     
     .card-eyebrow,
@@ -259,6 +260,7 @@
     &::after {
       background-image: url('/assets/about/question-mark.svg'); 
      right: -5%;
+     top: 25%;
     }
     
     .card-eyebrow,
@@ -277,7 +279,7 @@
 
     &::after {
       background-image: url('/assets/about/structured-progress.svg'); 
-      right: -20%;  // Just position it on the right side
+      right: -35%;  // Just position it on the right side
     }
     
     .card-eyebrow,
@@ -297,7 +299,9 @@
 
       &::after {
         background-image: url('/assets/about/actionable-insights.svg'); 
-        right: -12%;  // Just position it on the right side
+        right: -18%;  // Just position it on the right side
+        height: 90%;
+        top: 18%;
       }
     
     .card-eyebrow,
@@ -333,6 +337,7 @@
   padding-left: $space-6x;
   padding-block: $space-8x;
   gap: $gap-section;
+
 
 
 .glbl-video {
@@ -409,35 +414,32 @@ blockquote {
 
 .newsletter-cta {
   margin-top: 0; //Might remove later by just adjusting the section spacing in the layout partial, and adding a rule to exclude the margin-top of 10rem from the last section
-  
-  .newsletter-container {
-    display: flex;
-    justify-content: space-between;
-    padding: $space-6x;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  padding: $space-6x;
+ 
   .newsletter-title {
-    font-size: $size-5;
+    font-size: 3.25rem;
     line-height: 1.1;
-    max-width: 16ch;
+    max-width: 18ch;
     color: $text-primary;
-    font-weight: $font-semibold;
-    margin: 0;
+    font-weight: $font-medium-plus;
+
     flex: 1;
   }
   
   .newsletter-form {
     flex: 1;
-    max-width: 450px;
+    max-width: 35%;
     display: flex;
     flex-direction: column;
-    gap: $space-md;
+    gap: $space-1x;
   }
   
   .form-group {
     display: flex;
     flex-direction: column;
-    gap: $space-3q;
+    gap: $space-lite;
   }
   
   .required-label {
@@ -447,22 +449,23 @@ blockquote {
     
     &::after {
       content: "*";
-      color: red;
+      color: $brand-accent;
       margin-left: 2px;
     }
   }
   
   input[type="email"] {
-    border: 1px solid hsla(230, 35%, 15%, 0.2);
-    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.537);
+    border-radius: calc($radius / 4);
     padding: $space-1x;
     font-size: $size-0;
-    height: 46px;
-    width: 100%;
+    height: 2.5rem;
+    width: 85%;
     outline: none;
     
     &:focus {
-      border-color: $brand-primary;
+      border-color: $brand-accent;
+      border: 1.5px solid $brand-primary;
     }
   }
   
@@ -470,7 +473,6 @@ blockquote {
     display: flex;
     align-items: flex-start;
     gap: $space-3q;
-    margin-bottom: $space-md;
   }
   
   input[type="checkbox"] {
@@ -478,7 +480,7 @@ blockquote {
     -webkit-appearance: none;
     width: 18px;
     height: 18px;
-    border: 1px solid hsla(230, 35%, 15%, 0.4);
+    border: 1px solid hsla(0, 0%, 0%, 0.4);
     border-radius: 3px;
     margin-top: 2px;
     cursor: pointer;
@@ -486,16 +488,16 @@ blockquote {
     flex-shrink: 0;
     
     &:checked {
-      background-color: $brand-primary;
-      border-color: $brand-primary;
+      background-color: $brand-accent; // Using your coral color variable for checkbox
+      border-color: $brand-accent;
       
       &::after {
         content: '';
         position: absolute;
-        left: 5px;
-        top: 2px;
+        left: 6px;
+        top: 1.5px;
         width: 5px;
-        height: 9px;
+        height: 11px;
         border: solid white;
         border-width: 0 2px 2px 0;
         transform: rotate(45deg);
@@ -505,8 +507,9 @@ blockquote {
   
   .consent-label {
     font-size: $size-minus;
-    line-height: 1.5;
+    line-height: 1.6;
     color: $text-primary;
+    max-width: 90%;
   }
   
   .text-link {
@@ -519,27 +522,62 @@ blockquote {
     }
   }
   
-  .submit-btn {
-    background-color: #e9e9e9;
-    color: rgba(0, 0, 0, 0.4);
+  .btn-newsletter {
     border: none;
     border-radius: 4px;
     padding: $space-lite $space-2x;
     font-size: $size-0;
     font-weight: $font-medium;
-    cursor: not-allowed;
     align-self: flex-start;
-    height: 46px;
-    min-width: 150px;
+    height: 2.5rem;
+    min-width: 9rem;
     transition: all 0.2s ease;
     
-    &.active {
-      color: white;
-      cursor: pointer;
-      
-      &:hover {
-        background-color: darken($brand-secondary, 5%); 
-      }
+    // Default state (disabled)
+    &[disabled] {
+      background-color: #edececbb;
+      color: rgba(0, 0, 0, 0.25);
+      cursor: not-allowed;
     }
+    
+    // Active state (not disabled)
+   &:not([disabled]) {
+  background-color: $brand-accent;
+  color: white;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: darken($brand-accent, 5%);
   }
+}
+  }
+}
+
+
+/* Error state styles */
+.form-group.error .required-label {
+  color: #e60a0a;
+
+  &::after {
+    content: "*";
+    color: #e60a0a;
+  }
+}
+
+.form-group.error input {
+  border-color: #e60a0a;
+  color: #e60a0a;
+  font-weight: $font-regular-plus;
+}
+
+.error-message {
+  color: #e60a0a;
+  font-size: 0.85rem;
+  display: none;
+  margin-top: -0.2rem;
+  margin-left: 3px;
+}
+
+.form-group.error .error-message {
+  display: block;
 }

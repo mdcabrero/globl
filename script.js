@@ -1,30 +1,47 @@
 //Navbar scrolling behavior
 
 document.addEventListener('DOMContentLoaded', () => {
-    let lastScroll = 0;
-    const header = document.querySelector('.site-header');
+  const header = document.querySelector('.site-header');
+  let lastScroll = parseInt(sessionStorage.getItem('lastScrollPosition') || 0);
+  
+  // Apply the correct class immediately on page load based on stored position
+  if (lastScroll > 0) {
+      header.classList.add('is-scroll-down');
+      header.classList.remove('is-scroll-up');
+  }
 
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.scrollY;
+  // Restore scroll position if there was one
+  if (lastScroll > 0) {
+      window.scrollTo(0, lastScroll);
+  }
 
-        // Add/remove sticky class based on scroll position
-        if (currentScroll > 0) {
-            header.classList.add('is-header-sticky');
-        } else {
-            header.classList.remove('is-header-sticky');
-        }
+  window.addEventListener('scroll', () => {
+      const currentScroll = window.scrollY;
 
-        // Simple scroll direction detection
-        if (currentScroll > lastScroll) {
-            header.classList.add('is-scroll-down');
-            header.classList.remove('is-scroll-up');
-        } else {
-            header.classList.add('is-scroll-up');
-            header.classList.remove('is-scroll-down');
-        }
+      // Simple scroll direction detection
+      if (currentScroll > lastScroll) {
+          header.classList.add('is-scroll-down');
+          header.classList.remove('is-scroll-up');
+      } else {
+          header.classList.add('is-scroll-up');
+          header.classList.remove('is-scroll-down');
+      }
 
-        lastScroll = currentScroll;
-    });
+      lastScroll = currentScroll;
+      
+      // Store current scroll position
+      sessionStorage.setItem('lastScrollPosition', currentScroll.toString());
+  });
+
+  setTimeout(() => {
+    header.classList.add('is-loaded');
+}, 100);
+  
+  // Store header state before unload
+  window.addEventListener('beforeunload', () => {
+      const isScrollDown = header.classList.contains('is-scroll-down');
+      sessionStorage.setItem('headerScrolledDown', isScrollDown.toString());
+  });
 });
 
 

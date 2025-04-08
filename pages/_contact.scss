@@ -33,8 +33,9 @@
 
   .contact-card {
     width: 40%;
-    background: rgba(51, 106, 235, 0.05);
-    backdrop-filter: blur( 8.5px );
+    background: rgba(6, 36, 108, 0.075);
+    box-shadow:  0px 1px 2px 1px hsla(215, 100%, 4%, 0.4);
+    backdrop-filter: blur( 12.5px );
     -webkit-backdrop-filter: blur( 7px );
     border-radius: calc($radius/2);
     padding: $space-2x;
@@ -44,16 +45,21 @@
   }
   
   .contact-item {
-    background: hsla(223, 96%, 9%, 0.85);
+    background: hsla(217, 90%, 24%, 0.5);
+    box-shadow:  0px 1px 2px 2.5px hsla(219, 88%, 3%, 0.4);
     border-radius: calc($radius/2);
     padding: $space-md;
     display: flex;
     align-items: center;
     gap: $space-md;
-    transition: background-color 0.35s ease;
+    transition: background-color 0.3s ease;
     
     &:hover {
-      background: hsla(223, 96%, 9%, 0.01);
+      background: hsla(217, 95%, 7%, 0.95);
+   
+
+
+     
     }
     
 
