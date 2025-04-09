@@ -3,6 +3,7 @@
 
 .faqs {
     display: flex;
+  
     min-height: calc(100vh - $space-1x);
     width: calc(100vw - $space-1x);
     border-radius: calc($radius/2);
@@ -12,12 +13,13 @@
     margin: $space-lite;
     color: $headline-light;
     padding: $space-4x;
+    padding-top: $space-8x;
   }
   
   .faq-container {
     display: grid;
     width: 100%;
-    grid-template-columns: 0.75fr 1fr;
+    grid-template-columns: 1fr 1fr;
     min-height: 100%;
   }
   
@@ -42,7 +44,7 @@
   
   .faq-category {
     display: inline-flex;
-    background-color: $brand-accent; 
+    background-color: $brand-light; 
     align-items: center; // Helps align icon with text
     color: black;
     gap: $space-lite; 

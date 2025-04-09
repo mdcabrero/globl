@@ -78,7 +78,7 @@ input, button, textarea, select {
   /* Hide until DOM fully loaded to prevent flicker */
   opacity: 0;
   transition: 
-      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
       background-color 0.35s cubic-bezier(0.5, 1, 0.2, 1),
       opacity 0.2s ease-in;
 
@@ -103,12 +103,58 @@ input, button, textarea, select {
   @keyframes headerBackground {
     from {
       background-color: rgba($bg-dark, 0);
-      padding-top: $space-3x;
     }
     to {
       background-color: rgba($bg-dark, 1);
-      padding-block: $space-1x;
     }
+  }
+
+
+  &--services {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-inline: $space-4x;
+    padding-block: 2.75rem; //Main-navigation padding is adding an extra 1.5rem (total) of vertical spacing, so this version of the header needs different vertical padding proportions to mantain dimension consistency.
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+
+    /* Hide until DOM fully loaded to prevent flicker */
+    opacity: 0;
+    transition: 
+    transform 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.2s ease-in;
+
+      .main-navigation {
+        filter: drop-shadow(0 0 3px rgba(16, 3, 3, 0.35));
+
+
+          .nav-link {
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.75);
+
+          }
+
+      }
+
+
+
+  &.is-loaded {
+    opacity: 1;
+  }
+
+  &.is-scroll-down {
+      transform: translateY(-100%);
+  }
+
+  &.is-scroll-up {
+      transform: translateY(0);
+  }
+
+
   }
 }
 
@@ -132,9 +178,10 @@ input, button, textarea, select {
 
 .logo {
   display: block;
+
   
   img {
-    width: 12rem;
+    width: 11rem;
     height: auto;
   }
 }
@@ -145,14 +192,46 @@ input, button, textarea, select {
 }
 
 .nav-link {
-  color: $headline-light;
+  color: white;
   text-decoration: none;
   font-size: 1.35rem;
   font-weight: $font-medium;
-  transition: opacity 0.2s ease;
+  transition: color 0.2s ease; // Changed from opacity to color for the hover effect
+  position: relative; // Added to position the dot correctly
+  padding-bottom: 8px; // Add padding to accommodate the dot
 
+  
+  // White dot indicator (hidden by default)
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -6px; // Position below the text
+    left: 50%;
+    transform: translateX(-50%) scale(0); // Center horizontally and hide initially
+    width: 4px; // Size of the dot
+    height: 4px; // Size of the dot
+    background-color: white; // White dot
+    border-radius: 50%; // Make it circular
+    transition: transform 0.2s ease; // Smooth transition for the dot
+  }
+  
+  // Hover state
   &:hover {
-    opacity: 0.8;
+    opacity: 0.85; // Use your brand color variable here
+    
+    &::after {
+      transform: translateX(-50%) scale(1.25); // Show the dot
+    }
+  }
+  
+  // Active state
+  &.active {
+    
+    &::after {
+      transform: translateX(-50%) scale(1.25); // Show the dot
+      background-color: rgb(255, 255, 255); 
+
+    }
   }
 }
 
@@ -163,13 +242,7 @@ input, button, textarea, select {
   }
 
 
-  .internal-link {
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-
-}
-  
+ 
   
 
 
@@ -230,8 +303,8 @@ input, button, textarea, select {
   
   a {
     color: white;
-    font-weight: $font-medium-plus;
-    font-size: 1.25rem;
+    font-weight: $font-medium;
+    font-size: 1.2rem;
   }
   
 
@@ -244,8 +317,8 @@ input, button, textarea, select {
   justify-content: space-between;
   padding: 2.5rem;
   background: rgba(5, 22, 107, 0.25);
-  backdrop-filter: blur( 8px );
-  -webkit-backdrop-filter: blur( 8px);
+  backdrop-filter: blur( 9px ) saturate(130%);
+  -webkit-backdrop-filter: blur( 9px);
   border-radius: $radius;
   /* Subtle 3D glossy border effect */
   box-shadow: inset 0 16px 24px rgba(0,0,0,0.16), 0 0 6px 3px hsla(216, 93%, 11%, 0.231);
@@ -322,181 +395,3 @@ input, button, textarea, select {
 
 
 
-/* ====================== QUOTE FORM =========================== */
-
-
-#quote {
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-}
-
-.popup-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-
-.popup-image {
-  /* No need to specify width - grid takes care of it */
-  background-image: url('../assets/quote-form.jpg');
-  background-size: cover;
-  background-position: center;
-}
-
-.popup {
-    display: grid;
-    grid-template-columns: 40% 1fr; 
-    width: 70vw;
-   
-    border-radius: $radius;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(7, 54, 112, 0.2);
-
-}
-
-
-.popup-content {
-  /* No need to specify width - grid takes care of it */
-  background-color: white;
-  position: relative;
-  overflow-y: auto;
-}
-
-.close-btn {
-  position: absolute;
-  top: 0.5rem;
-  right: 1.5rem;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  color: rgba(77, 77, 77, 0.6);
-}
-
-
-.quote-form {
-  display: flex;
-  flex-direction: column;
-  height: fit-content;
-  background-color: white;
-  padding: $space-4x;
-  padding-bottom: $space-2x;
-  box-shadow: 0 10px 25px rgba(7, 54, 112, 0.2);
-  
-
-  
-  h1 {
-    font-size: $size-3;
-    color: $brand-dark;
-    margin-bottom: $space-3q;
-  }
-  
-  .form-intro {
-    font-size: $size-0;
-    color: $text-primary;
-    margin-bottom: $space-md;
-    max-width: 45ch;
-  }
-}
-
-// Form layout and components
-.form-row {
-  display: flex;
-  gap: $space-2x;
-  margin-bottom: $space-lite;
-  
-
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  margin-bottom: $space-lite;
-}
-
-label {
-  font-size: 0.9rem;
-  font-weight: $font-medium;
-  color: $brand-dark;
-  margin-bottom: $space-lite;
-  margin-left: 0.25rem;
-}
-
-input, 
-textarea {
-  padding-block: $space-lite;
-  padding-inline: $space-3q;
-  border: 1px solid hsla(230, 35%, 15%, 0.2);
-  border-radius: $space-lite;
-  font-size: 0.9rem;
-  height: 2.5rem;
-  line-height: 1.5;
-  width: 100%;
-  
-  &::placeholder {
-    color: hsla(230, 35%, 15%, 0.4);
-    font-size: 0.9rem;
-    font-weight: $font-medium-plus;
-
-  }
-  
-  &:focus {
-    outline: none;
-    border-color: $brand-accent;
-    box-shadow: 0 0 0 2px rgba($brand-accent, 0.2);
-  }
-}
-
-textarea {
-  resize: none;
-  height: 100px;
-}
-
-.submit-btn {
-  display: block;
-  width: 100%;
-  padding: $space-lite;
-  background-color: $brand-accent; // Based on the orange from the image
-  color: white;
-  border: none;
-  border-radius: calc($radius/2);
-  font-size: $size-1;
-  font-weight: $font-medium;
-  cursor: pointer;
-  margin-top: $space-1x; //It's actually like space-md because the margin-bottom from form-group adds up to the total distance
-  transition: background-color 0.2s ease;
-  
-  &:hover {
-    background-color: darken(#003bbb, 15%);
-  }
-}
-
-.privacy-notice {
-
-  font-size: $size-minus;
-
-  align-self: center;
-  color: $text-primary;
-  margin-top: $space-1x;
-  
-  a {
-    color: $text-primary;
-    font-weight: $font-medium;
-    text-decoration: underline;
-    
-    &:hover {
-      color: $brand-accent;
-    }
-  }
-}

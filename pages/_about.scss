@@ -472,20 +472,20 @@ blockquote {
   .consent-group {
     display: flex;
     align-items: flex-start;
-    gap: $space-3q;
+    gap: $space-lite;
   }
   
   input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
-    width: 18px;
-    height: 18px;
+    width: 0.5rem;
+    height: 45%;
     border: 1px solid hsla(0, 0%, 0%, 0.4);
-    border-radius: 3px;
-    margin-top: 2px;
+    border-radius: 4px;
+    margin-top: 3px;
     cursor: pointer;
     position: relative;
-    flex-shrink: 0;
+
     
     &:checked {
       background-color: $brand-accent; // Using your coral color variable for checkbox
@@ -494,13 +494,13 @@ blockquote {
       &::after {
         content: '';
         position: absolute;
-        left: 6px;
-        top: 1.5px;
-        width: 5px;
-        height: 11px;
+        left: 8px;
+        top: 0px;
+        width: 7px;
+        height: 17px;
         border: solid white;
-        border-width: 0 2px 2px 0;
-        transform: rotate(45deg);
+        border-width: 0 3px 3px 0;
+        transform: rotate(42deg);
       }
     }
   }
@@ -509,7 +509,7 @@ blockquote {
     font-size: $size-minus;
     line-height: 1.6;
     color: $text-primary;
-    max-width: 90%;
+    width: 42ch;
   }
   
   .text-link {

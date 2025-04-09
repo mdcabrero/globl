@@ -1,48 +1,101 @@
 //Navbar scrolling behavior
 
 document.addEventListener('DOMContentLoaded', () => {
-  const header = document.querySelector('.site-header');
+  const headers = document.querySelectorAll('.site-header, .site-header--services');
   let lastScroll = parseInt(sessionStorage.getItem('lastScrollPosition') || 0);
   
   // Apply the correct class immediately on page load based on stored position
   if (lastScroll > 0) {
+    headers.forEach(header => {
       header.classList.add('is-scroll-down');
       header.classList.remove('is-scroll-up');
+    });
   }
 
   // Restore scroll position if there was one
   if (lastScroll > 0) {
-      window.scrollTo(0, lastScroll);
+    window.scrollTo(0, lastScroll);
   }
 
   window.addEventListener('scroll', () => {
-      const currentScroll = window.scrollY;
+    const currentScroll = window.scrollY;
 
-      // Simple scroll direction detection
+    // Simple scroll direction detection
+    headers.forEach(header => {
       if (currentScroll > lastScroll) {
-          header.classList.add('is-scroll-down');
-          header.classList.remove('is-scroll-up');
+        header.classList.add('is-scroll-down');
+        header.classList.remove('is-scroll-up');
       } else {
-          header.classList.add('is-scroll-up');
-          header.classList.remove('is-scroll-down');
+        header.classList.add('is-scroll-up');
+        header.classList.remove('is-scroll-down');
       }
+    });
 
-      lastScroll = currentScroll;
-      
-      // Store current scroll position
-      sessionStorage.setItem('lastScrollPosition', currentScroll.toString());
+    lastScroll = currentScroll;
+    
+    // Store current scroll position
+    sessionStorage.setItem('lastScrollPosition', currentScroll.toString());
   });
 
   setTimeout(() => {
-    header.classList.add('is-loaded');
-}, 100);
+    headers.forEach(header => {
+      header.classList.add('is-loaded');
+    });
+  }, 100);
   
   // Store header state before unload
   window.addEventListener('beforeunload', () => {
-      const isScrollDown = header.classList.contains('is-scroll-down');
-      sessionStorage.setItem('headerScrolledDown', isScrollDown.toString());
+    // Using the first header's state for storage, assuming they'll be in sync
+    const isScrollDown = headers[0].classList.contains('is-scroll-down');
+    sessionStorage.setItem('headerScrolledDown', isScrollDown.toString());
   });
 });
+
+
+
+//Active navbar link tracking and styling
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Get all navigation links
+  const navLinks = document.querySelectorAll('.nav-link');
+  
+  // Get current page path
+  const currentPath = window.location.pathname;
+  
+  // Set active class based on current URL
+  navLinks.forEach(link => {
+    const linkPath = link.getAttribute('href');
+    
+    // Check if current URL ends with the link's path
+    if (currentPath.endsWith(linkPath)) {
+      link.classList.add('active');
+    }
+  });
+});
+
+
+
+
+//Open quote popup 
+
+document.addEventListener('DOMContentLoaded', () => {
+  const popupForm = document.querySelector('popup-form');
+  const ctaButtons = document.querySelectorAll('.cta, .footer-cta');
+  
+  if (popupForm) {
+    ctaButtons.forEach(button => {
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        popupForm.open();
+      });
+    });
+  } else {
+    console.error('Could not find popup-form');
+  }
+});
+
+
+
 
 
 
