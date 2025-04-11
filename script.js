@@ -171,10 +171,65 @@ function initSliders() {
   });
 }
 
-// Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', initSliders);
+// Separate function for arrow navigation
+function initSliderArrows() {
+  // Find all arrow buttons
+  const arrowButtons = document.querySelectorAll('.arrow-btn');
+  
+  arrowButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Find the nearest slider to this button
+      const section = button.closest('section');
+      if (!section) return;
+      
+      const sliderWrapper = section.querySelector('.slider-wrapper');
+      const cardSlider = section.querySelector('.card-slider');
+      if (!sliderWrapper || !cardSlider) return;
+      
+      // Determine direction based on button position (first or second arrow button)
+      const isFirstButton = button === section.querySelector('.arrow-btn:first-of-type');
+      const direction = isFirstButton ? 'prev' : 'next';
+      
+      // Calculate how far to move (one card width)
+      const cards = cardSlider.querySelectorAll('.service-card');
+      if (cards.length === 0) return;
+      
+      const card = cards[0];
+      const cardStyle = window.getComputedStyle(card);
+      const slideDistance = card.offsetWidth + 
+                    parseInt(cardStyle.marginLeft) + 
+                    parseInt(cardStyle.marginRight);
+      
+      // Get current translation value
+      const currentTranslate = cardSlider.style.transform ? 
+          parseInt(cardSlider.style.transform.match(/-?\d+/)?.[0] || 0) : 0;
+      
+      // Calculate new translation value
+      let newTranslate;
+      if (direction === 'prev') {
+        // Move right (increase translate value)
+        newTranslate = currentTranslate + slideDistance;
+      } else {
+        // Move left (decrease translate value)
+        newTranslate = currentTranslate - slideDistance;
+      }
+      
+      // Apply bounds
+      const maxScroll = -(cardSlider.offsetWidth - sliderWrapper.offsetWidth + 125);
+      const boundedTranslate = Math.max(maxScroll, Math.min(0, newTranslate));
+      
+      // Apply transition for smooth sliding
+      cardSlider.style.transition = 'transform 0.3s ease-out';
+      cardSlider.style.transform = `translateX(${boundedTranslate}px)`;
+    });
+  });
+}
 
-
+// Initialize both functionalities when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+  initSliders();
+  initSliderArrows();
+});
 
 
 //Customer testimonials

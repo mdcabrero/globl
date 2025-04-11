@@ -120,7 +120,7 @@
 
 .solution-card {
   background-color: $dusty-white;
-  box-shadow: 0 3px 4px 1px rgba(37, 20, 6, 0.5);
+  box-shadow: 0 3px 4px 1px rgba(37, 20, 6, 0.25);
   border-radius: $radius;
   border: 3px solid $brand-accent;
   padding: $space-2x; 
@@ -169,6 +169,7 @@
     display: flex;
     justify-content: space-between;
     align-items: last baseline;
+    margin-bottom: $space-6x;
 
   }
 
@@ -178,6 +179,7 @@
 
       .card-slider {
         gap: 2rem;
+        padding-right: 0;
       }
   }
 
@@ -189,7 +191,7 @@
     justify-content: flex-end;
     position: relative;
     width: 420px;
-    aspect-ratio: 5/6;
+    aspect-ratio: 3/4;
     background-image: url('../assets/placeholder-card.png');
     background-size: cover;
     background-position: left center;

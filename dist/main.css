@@ -287,7 +287,7 @@ p + p {
   background: linear-gradient(90deg, hsl(203, 100%, 83%) 0%, hsla(196, 39%, 67%, 0.5) 50%, hsla(183, 18%, 51%, 0) 100%);
 }
 .eyebrow--dark {
-  background: linear-gradient(90deg, rgb(100, 93, 228) 0%, rgb(175, 206, 250) 100%);
+  background: linear-gradient(90deg, rgb(128, 130, 231) 0%, rgb(90, 134, 237) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -700,7 +700,7 @@ textarea {
 }
 .solutions .solution-card {
   background-color: #fcfeff;
-  box-shadow: 0 3px 4px 1px rgba(37, 20, 6, 0.5);
+  box-shadow: 0 3px 4px 1px rgba(37, 20, 6, 0.25);
   border-radius: 1.5rem;
   border: 3px solid #0858DD;
   padding: 2rem;
@@ -737,6 +737,7 @@ textarea {
   display: flex;
   justify-content: space-between;
   align-items: last baseline;
+  margin-bottom: 6rem;
 }
 .services-preview .slider-wrapper {
   padding-left: 0;
@@ -744,6 +745,7 @@ textarea {
 }
 .services-preview .slider-wrapper .card-slider {
   gap: 2rem;
+  padding-right: 0;
 }
 .services-preview .service-card {
   display: flex;
@@ -751,7 +753,7 @@ textarea {
   justify-content: flex-end;
   position: relative;
   width: 420px;
-  aspect-ratio: 5/6;
+  aspect-ratio: 3/4;
   background-image: url("../assets/placeholder-card.png");
   background-size: cover;
   background-position: left center;
