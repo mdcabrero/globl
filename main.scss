@@ -205,22 +205,23 @@ input, button, textarea, select {
   &::after {
     content: '';
     position: absolute;
-    bottom: -6px; // Position below the text
+    bottom: -4px; // Position below the text
     left: 50%;
     transform: translateX(-50%) scale(0); // Center horizontally and hide initially
     width: 4px; // Size of the dot
     height: 4px; // Size of the dot
-    background-color: white; // White dot
+    background-color: $brand-light; // White dot
     border-radius: 50%; // Make it circular
     transition: transform 0.2s ease; // Smooth transition for the dot
   }
   
   // Hover state
   &:hover {
-    opacity: 0.85; // Use your brand color variable here
+    color: mix($brand-light, white, 75%); // 75% brand-light, 25% white
     
     &::after {
       transform: translateX(-50%) scale(1.25); // Show the dot
+      
     }
   }
   
@@ -232,6 +233,12 @@ input, button, textarea, select {
       background-color: rgb(255, 255, 255); 
 
     }
+
+    &:hover { //Cancel the color change hover effect when link is active
+      color: white;
+    }
+
+
   }
 }
 
@@ -295,8 +302,8 @@ input, button, textarea, select {
 .footer-nav {
   display: flex;
   justify-content: center;
-  gap: 1.1rem;
-  margin-top: 1rem;
+  gap: 1.5rem;
+  margin-top: 0.75rem;
 
   
 
@@ -304,7 +311,7 @@ input, button, textarea, select {
   a {
     color: white;
     font-weight: $font-medium;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
   }
   
 

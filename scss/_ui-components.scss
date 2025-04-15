@@ -392,9 +392,9 @@
 .quote-form {
   display: flex;
   flex-direction: column;
-  height: fit-content;
+  height: 100%;
   background-color: white;
-  padding: $space-4x;
+  padding: $space-3x;
   padding-bottom: $space-2x;
   box-shadow: 0 10px 25px rgba(7, 54, 112, 0.2);
   
@@ -424,30 +424,34 @@
 }
 
 .form-group {
+  position: relative;
   display: flex;
   flex-direction: column;
   flex: 1;
-  margin-bottom: $space-lite;
+  margin-bottom: $space-1x;
 }
 
 label {
   font-size: 0.9rem;
   font-weight: $font-medium;
   color: $brand-dark;
-  margin-bottom: $space-lite;
+  margin-bottom: 0.35rem;
   margin-left: 0.25rem;
 }
 
 input, 
 textarea {
-  padding-block: $space-lite;
   padding-inline: $space-3q;
+  padding-block: 0.35rem;
   border: 1px solid hsla(230, 35%, 15%, 0.2);
   border-radius: $space-lite;
-  font-size: 0.9rem;
-  height: 2.5rem;
-  line-height: 1.5;
+  font-size: 1rem !important;
+  line-height: 1.1;
   width: 100%;
+
+  p { 
+    font-size: 0.9rem;
+  }
   
   &::placeholder {
     color: hsla(230, 35%, 15%, 0.4);
@@ -488,9 +492,7 @@ textarea {
 }
 
 .privacy-notice {
-
   font-size: $size-minus;
-
   align-self: center;
   color: $text-primary;
   margin-top: $space-1x;
@@ -504,4 +506,58 @@ textarea {
       color: $brand-accent;
     }
   }
+}
+
+
+//Error state
+
+input.invalid, 
+textarea.invalid {
+  border: 1.5px solid #770404 !important;
+
+}
+
+.error-message {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 103%; /* Position right at the bottom edge of input */
+  margin-left: 0.25rem;
+  font-size: 0.75rem;
+  color: #e01b14;
+  z-index: 1; 
+}
+
+.error-message.active {
+  display: block;
+}
+
+
+//Success State
+
+.success-message {
+  padding: $space-4x;
+  height: 100%;
+}
+
+.success-message h2 {
+  color: $brand-dark;
+  margin-bottom: 1rem;
+}
+
+.continue-btn {
+  display: inline-block;
+  background-color: #051f38;
+  width: 100%;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  margin-top: 50%;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.continue-btn:hover {
+  background-color: #0a2e4f;
 }

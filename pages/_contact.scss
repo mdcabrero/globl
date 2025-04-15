@@ -78,3 +78,9 @@
   }
 
 }
+
+//Reduce distance to footer exclusively on Contact Page
+
+#contact-page .site-footer {
+  margin-top: $space-2x;
+}

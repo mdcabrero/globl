@@ -433,13 +433,13 @@ blockquote {
     max-width: 35%;
     display: flex;
     flex-direction: column;
-    gap: $space-1x;
+    gap: $space-3q;
   }
   
   .form-group {
     display: flex;
     flex-direction: column;
-    gap: $space-lite;
+    
   }
   
   .required-label {
@@ -450,14 +450,15 @@ blockquote {
     &::after {
       content: "*";
       color: $brand-accent;
-      margin-left: 2px;
+      margin-left: 3px;
     }
   }
   
   input[type="email"] {
     border: 1px solid rgba(0, 0, 0, 0.537);
     border-radius: calc($radius / 4);
-    padding: $space-1x;
+    padding-block: $space-1x;
+    padding-inline: $space-3q;
     font-size: $size-0;
     height: 2.5rem;
     width: 85%;
@@ -551,7 +552,7 @@ blockquote {
   }
 }
   }
-}
+
 
 
 /* Error state styles */
@@ -574,10 +575,12 @@ blockquote {
   color: #e60a0a;
   font-size: 0.85rem;
   display: none;
-  margin-top: -0.2rem;
+  margin-top: $space-micro;
   margin-left: 3px;
 }
 
 .form-group.error .error-message {
   display: block;
+}
+
 }
