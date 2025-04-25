@@ -12,22 +12,6 @@
 </head>
 <body>
 
-  <header class="site-header--services" role="banner">
-    <a href="/" class="logo">
-      <img src="assets/globl-logo--light.svg" alt="GLBL">
-    </a>
-    
-    <nav role="navigation"> 
-      <ul class="main-navigation">
-        <li><a href="about.html" class="nav-link" data-page="company">Company</a></li>
-        <li><a href="services.html" class="nav-link" data-page="services">Services</a></li>
-        <li><a href="faq.html" class="nav-link" data-page="faq">FAQ</a></li>
-        <li><a href="contact.html" class="nav-link" data-page="contact">Contact</a></li>
-      </ul>
-    </nav>
-
-    <a href="/reserve" class="cta">Reserve now</a>
-</header>
 
   <section class="faqs">
     <div class="faq-container">
@@ -154,11 +138,13 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <script>
+
+  
+document.addEventListener('DOMContentLoaded', function() {
   
  const faqData = {
     'general': {
       title: 'General Questions',
-      icon: '<img src="/assets/icons/general-questions.svg" alt="General Questions" class="category-icon">',
       items: [
         {
           question: 'What makes GLOBL different from other outsourcing firms?',
@@ -180,7 +166,6 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     'outsourcing': {
       title: 'Global Outsourcing',
-      icon: '<img src="/assets/icons/global-outsourcing.svg" alt="Global Outsourcing" class="category-icon">',      
       items: [
         {
           question: 'What types of technical specialists can you provide?',
@@ -202,7 +187,6 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     'talent': {
       title: 'Talent Strategy',
-      icon: '<img src="/assets/icons/strategy.svg" alt="Talent strategy" class="category-icon">',
       items: [
         {
           question: 'How do you align talent strategy with our business goals?',
@@ -224,7 +208,6 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     'business': {
       title: 'Business Transformation',
-      icon: '<img src="/assets/icons/business-trans.svg" alt="Talent strategy" class="category-icon">',
       items: [
         {
           question: 'How do you handle talent during major organizational changes?',
@@ -246,7 +229,6 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     'hr': {
       title: 'HR Intelligence',
-      icon: '<img src="/assets/icons/hr-intelligence.svg" alt="HR Intelligence" class="category-icon">',
       items: [
         {
           question: 'How can data analytics actually improve our hiring success?',
@@ -268,7 +250,6 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     'ai': {
       title: 'AI Solutions',
-      icon: '<img src="/assets/icons/ai-solutions.svg" alt="AI" class="category-icon">',
       items: [
         {
           question: 'Which HR processes benefit most from automation?',
@@ -290,19 +271,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   };
 
- document.addEventListener('DOMContentLoaded', function() {
-  // Blessed DOM elements
-  const categoryElement = document.querySelector('.faq-category');
+ // DOM Elements
+ const faqContent = document.querySelector('.faq-content');
   const questionsContainer = document.querySelector('.questions');
-  const filterButtons = document.querySelectorAll('.filter-btn');
+  const categoryLinks = document.querySelectorAll('.faq-category');
+  const faqTitle = document.querySelector('.faq-title');
   
-  // The sacred function to change categories
+  // Function to change category
   function changeCategory(categoryKey) {
     // Get the data for this category
     const categoryData = faqData[categoryKey];
     
-    // Update the category display with icon and title
-    categoryElement.innerHTML = categoryData.icon + categoryData.title;
+    if (!categoryData) return; // Guard clause if category doesn't exist
+    
+    // Update the title
+    faqTitle.textContent = categoryData.title;
     
     // Clear out the questions container
     questionsContainer.innerHTML = '';
@@ -325,12 +308,12 @@ document.addEventListener('DOMContentLoaded', function() {
       questionsContainer.appendChild(faqItem);
     });
     
-    // Update active button
-    filterButtons.forEach(button => {
-      if(button.getAttribute('data-category') === categoryKey) {
-        button.classList.add('active');
+    // Update active category
+    categoryLinks.forEach(link => {
+      if (link.getAttribute('data-category') === categoryKey) {
+        link.classList.add('active');
       } else {
-        button.classList.remove('active');
+        link.classList.remove('active');
       }
     });
     
@@ -373,17 +356,24 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // Add click events to filter buttons
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      // Get the key from the data-category attribute
-      const categoryKey = button.getAttribute('data-category');
+  // Add click events to category links
+  categoryLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault(); // Prevent default link behavior
+      
+      // Get the category key from data attribute
+      const categoryKey = link.getAttribute('data-category');
       changeCategory(categoryKey);
     });
   });
   
-  // Initialize with General Questions - USING THE KEY not the full title!
-  changeCategory('general');
+  // Initialize with first category
+  // Assuming the first category link has the correct data-category attribute
+  const firstCategoryKey = categoryLinks[0].getAttribute('data-category');
+  changeCategory(firstCategoryKey || 'pricing'); // Default to 'pricing' if no attribute
+  
+  // Initial accordion setup
+  setupAccordion();
 });
 
 </script>

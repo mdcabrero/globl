@@ -1,0 +1,330 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EUROHIRE</title>
+ 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dist/main.css">
+  
+</head>
+<body class="about">
+
+  <header class="site-header is-scroll-up" role="banner">
+    <a href="/" class="logo">
+      <img src="assets/globl-logo--light.svg" alt="GLBL">
+    </a>
+    
+    <nav role="navigation"> 
+      <ul class="main-navigation">
+        <li><a href="about.html" class="nav-link" data-page="company">Company</a></li>
+        <li><a href="services.html" class="nav-link" data-page="services">Services</a></li>
+        <li><a href="contact.html" class="nav-link" data-page="contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <a href="#" class="cta">Get a quote</a>
+</header>
+
+
+  <section id="faq-header">
+      <div class="page-intro page-intro--faqs">     
+          <div class="page-intro__content">
+         <h1 class="page-title">FAQs</h1>
+        </div>    
+    </div>
+
+    </section>
+
+    <section class="faqs">
+        <ul class="faqs-categories">
+          <li>
+            <a href="#" class="faq-category active" data-category="general">
+              General Questions
+            </a>
+          </li>
+          <li>
+            <a href="#" class="faq-category" data-category="outsourcing">
+              Global Outsourcing
+            </a>
+          </li>
+          <li>
+            <a href="#" class="faq-category" data-category="talent">
+              Talent Strategy
+            </a>
+          </li>
+          <li>
+            <a href="#" class="faq-category" data-category="business">
+              Business Transformation
+            </a>
+          </li>
+          <li>
+            <a href="#" class="faq-category" data-category="hr">
+              HR Intelligence
+            </a>
+          </li>
+          <li>
+            <a href="#" class="faq-category" data-category="ai">
+              AI Solutions
+            </a>
+          </li>
+        </ul>
+    
+        <div class="faq-content">
+          <h1 class="faq-title">General Questions</h1>
+          
+          <div class="questions">
+            <!-- Initial FAQ items will be populated by JavaScript -->
+          </div>
+        </div>
+      </section>
+    
+      <!-- JavaScript -->
+      <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Using the faqData object from your provided JavaScript
+        const faqData = {
+          'general': {
+            title: 'General Questions',
+            items: [
+              {
+                question: 'What makes GLOBL different from other outsourcing firms?',
+                answer: 'Unlike standard outsourcing companies, we match domain experts with precise technical skills to your specific needs. Our specialists understand both technology and business context, ensuring teams integrate seamlessly and deliver value from day one.'
+              },
+              {
+                question: 'How quickly can you provide talent for my project?',
+                answer: 'We present qualified candidates within days and have complete teams operational in 2-4 weeks, compared to the industry average of 2-3 months. This helps you meet critical deadlines without quality compromises.'
+              },
+              {
+                question: 'Do you work with companies of all sizes?',
+                answer: 'Yes. Our service model scales from startups to enterprises. We support early-stage companies, mid-size organizations experiencing growth challenges, and Fortune 500 enterprises requiring specialized talent for transformation initiatives.'
+              },
+              {
+                question: 'How do you ensure quality with offshore teams?',
+                answer: 'We rigorously vet all talent through practical assessments, implement structured communication protocols, and provide dedicated delivery managers who monitor quality and address issues immediately.'
+              },
+              {
+                question: 'How quickly can you provide talent for my project?',
+                answer: 'We present qualified candidates within days and have complete teams operational in 2-4 weeks, compared to the industry average of 2-3 months. This helps you meet critical deadlines without quality compromises.'
+              },
+              {
+                question: 'How quickly can you provide talent for my project?',
+                answer: 'We present qualified candidates within days and have complete teams operational in 2-4 weeks, compared to the industry average of 2-3 months. This helps you meet critical deadlines without quality compromises.'
+              }
+            ]
+          },
+          'outsourcing': {
+            title: 'Global Outsourcing',
+            items: [
+              {
+                question: 'What types of technical specialists can you provide?',
+                answer: 'We provide talent across software development, DevOps, data science, cybersecurity, QA, and product design. Each specialist is matched on technical skills, working style, and communication ability.'
+              },
+              {
+                question: 'How do outsourced teams integrate with our existing staff?',
+                answer: 'We conduct comprehensive onboarding covering environment setup, workflows, and communication protocols. A dedicated manager guides the process, monitors team dynamics, and resolves any friction points in real-time.'
+              },
+              {
+                question: 'What happens if an outsourced team member isn\'t working out?',
+                answer: 'We provide immediate replacements with minimal disruption. Our bench strength ensures service continuity, and our knowledge transfer protocols minimize transition impact while preventing similar issues in the future.'
+              },
+              {
+                question: 'What engagement models do you offer?',
+                answer: 'We provide Dedicated Teams for ongoing work, Project-Based Teams for specific deliverables, Staff Augmentation for integrating specialists into your teams, and Managed Services for complete technical function delivery.'
+              }
+            ]
+          },
+          'talent': {
+            title: 'Talent Strategy',
+            items: [
+              {
+                question: 'How do you align talent strategy with our business goals?',
+                answer: 'We study your business strategy, product roadmaps, capability gaps, and competitive positioning. Then we develop talent roadmaps with specific acquisition, development, and retention strategies tied directly to your business objectives.'
+              },
+              {
+                question: 'What\'s the difference between recruiting and talent strategy?',
+                answer: 'Recruiting fills immediate openings. Talent strategy addresses long-term capability needs through workforce planning, organizational design, compensation structures, and career pathing to create sustainable competitive advantage through superior technical capabilities.'
+              },
+              {
+                question: 'How long before we see results from strategic talent planning?',
+                answer: 'You\'ll see reduced critical vacancies within 2-3 months, improved retention and talent deployment in 6-12 months, and significant competitive advantage through superior technical capabilities beyond 12 months.'
+              },
+              {
+                question: 'How do you adapt talent strategy as business needs change?',
+                answer: 'We build in regular reassessment points tied to your business planning cycles and implement continuous feedback loops that capture market shifts, competitive moves, and internal capability evolution for real-time strategy adjustments.'
+              }
+            ]
+          },
+          'business': {
+            title: 'Business Transformation',
+            items: [
+              {
+                question: 'How do you handle talent during major organizational changes?',
+                answer: 'We analyze skills gaps, develop upskilling programs for retained talent, strategically acquire external talent for critical capabilities, and implement knowledge transfer frameworks to accelerate capability development.'
+              },
+              {
+                question: 'How do you prevent productivity drops during transformation?',
+                answer: 'We minimize disruption through phased transitions, overlapping responsibilities during handoffs, and targeted support for key personnel. We monitor productivity metrics to identify and address potential issues early.'
+              },
+              {
+                question: 'What\'s your track record with transformation projects?',
+                answer: 'Our clients typically achieve 2-3x faster headcount growth without quality compromise and maintain 70%+ retention during transformations while preserving culture and maintaining consistent delivery performance throughout changes.'
+              },
+              {
+                question: 'How long does a typical transformation project take?',
+                answer: 'Most initiatives follow a 4-6 month initial phase for critical capabilities, followed by a 6-12 month secondary phase for complete implementation. We deliver incremental value throughout the entire process.'
+              }
+            ]
+          },
+          'hr': {
+            title: 'HR Intelligence',
+            items: [
+              {
+                question: 'How can data analytics actually improve our hiring success?',
+                answer: 'Our platform identifies patterns humans often miss, showing which sources produce top performers, which assessment scores predict success, and which factors drive retention. This leads to 35% better hiring and 40% less turnover.'
+              },
+              {
+                question: 'What data do you need from us to get started?',
+                answer: 'We need basic ATS and HRIS data exports, plus performance metrics when available. We support API integration with major systems or can work with regular data exports, starting small and expanding as needed.'
+              },
+              {
+                question: 'Is our HR data secure with your platform?',
+                answer: 'Yes. Our platform is SOC 2 Type II certified and GDPR/CCPA compliant with role-based access, end-to-end encryption, and regular security audits. We can anonymize sensitive data while maintaining actionable insights.'
+              },
+              {
+                question: 'How do we measure ROI on HR analytics?',
+                answer: 'We track improvements in time-to-hire (typically 35-50% reduction), early turnover (40-60% decrease), quality-of-hire, and hiring manager satisfaction, providing regular reports comparing investment against measurable gains.'
+              }
+            ]
+          },
+          'ai': {
+            title: 'AI Solutions',
+            items: [
+              {
+                question: 'Which HR processes benefit most from automation?',
+                answer: 'The highest ROI comes from automating repetitive processes like candidate screening, interview scheduling, onboarding documentation, and basic employee queries – tasks that typically consume 60-70% of HR administrative time.'
+              },
+              {
+                question: 'How do you ensure AI doesn\'t introduce bias?',
+                answer: 'We use diverse training data, regular bias testing, human oversight of algorithms, and continuous monitoring of decision patterns. Our systems are transparent, allowing you to understand what factors influence automated decisions.'
+              },
+              {
+                question: 'Can your AI tools integrate with our existing HR systems?',
+                answer: 'Yes. We offer standard API connections to major HRIS, ATS, and ERP systems with pre-built integrations for Workday, SAP, Oracle, Greenhouse, Lever, and others. We develop custom connectors for legacy systems.'
+              },
+              {
+                question: 'What kind of time savings can we expect?',
+                answer: 'Our automation typically reduces administrative time by 70%+ for HR professionals while cutting candidate processing times by 50%, allowing your HR team to focus on strategic initiatives rather than paperwork.'
+              }
+            ]
+          }
+        };
+    
+        // DOM Elements
+        const questionsContainer = document.querySelector('.questions');
+        const categoryLinks = document.querySelectorAll('.faq-category');
+        const faqTitle = document.querySelector('.faq-title');
+        
+        // Function to change category
+        function changeCategory(categoryKey) {
+          // Get the data for this category
+          const categoryData = faqData[categoryKey];
+          
+          if (!categoryData) return; // Guard clause if category doesn't exist
+          
+          // Update the title
+          faqTitle.textContent = categoryData.title;
+          
+          // Clear out the questions container
+          questionsContainer.innerHTML = '';
+          
+          // Add new questions
+          categoryData.items.forEach(item => {
+            const faqItem = document.createElement('div');
+            faqItem.className = 'faq-item';
+            
+            faqItem.innerHTML = `
+              <div class="faq-question" aria-expanded="false">
+                <span>${item.question}</span>
+                <span class="faq-btn"></span>
+              </div>
+              <div class="faq-answer">
+                <p>${item.answer}</p>
+              </div>
+            `;
+            
+            questionsContainer.appendChild(faqItem);
+          });
+          
+          // Update active category
+          categoryLinks.forEach(link => {
+            if (link.getAttribute('data-category') === categoryKey) {
+              link.classList.add('active');
+            } else {
+              link.classList.remove('active');
+            }
+          });
+          
+          // Setup accordion functionality
+          setupAccordion();
+        }
+        
+        // Accordion functionality
+        function setupAccordion() {
+          const faqItems = document.querySelectorAll('.faq-item');
+          
+          faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            
+            // Remove existing event listeners to prevent duplicates
+            const newQuestion = question.cloneNode(true);
+            question.parentNode.replaceChild(newQuestion, question);
+            
+            newQuestion.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            // Close all other accordions
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                otherItem.classList.remove('active');
+                otherItem.querySelector('.faq-answer').style.height = '0px';
+                otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                }
+            });
+            
+            // Toggle current accordion
+            if (!isActive) {
+                item.classList.add('active');
+                const height = answer.scrollHeight;
+                answer.style.height = `${height}px`;
+                newQuestion.setAttribute('aria-expanded', 'true');
+            } else {
+                item.classList.remove('active');
+                answer.style.height = '0px';
+                newQuestion.setAttribute('aria-expanded', 'false');
+            }
+            });
+          });
+        }
+        
+        // Add click events to category links
+        categoryLinks.forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default link behavior
+            
+            // Get the category key from data attribute
+            const categoryKey = link.getAttribute('data-category');
+            changeCategory(categoryKey);
+          });
+        });
+        
+        // Initialize with general category
+        changeCategory('general');
+      });
+      </script>
+
+</body>
+</html>

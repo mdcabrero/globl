@@ -2,81 +2,81 @@
 @use '../scss/mixins' as *;
 
 .faqs {
-    display: flex;
-  
-    min-height: calc(100vh - $space-1x);
-    width: calc(100vw - $space-1x);
-    border-radius: calc($radius/2);
-    background-image: url('/assets/faqs-bg--blue.jpg');
-    background-size: cover;
-    background-position: center;
-    margin: $space-lite;
-    color: $headline-light;
-    padding: $space-4x;
-    padding-top: $space-8x;
-  }
-  
-  .faq-container {
-    display: grid;
-    width: 100%;
-    grid-template-columns: 1fr 1fr;
-    min-height: 100%;
-  }
-  
-  .faq-header {
-    align-self: center;
-    
-  
+  display: grid;
+  grid-template-columns: 0.6fr 1fr;
+  gap: $space-8x;
+  padding-inline: $space-3x;
+  margin-top: $space-6x;
+}
 
-    
-    .supporting-text {
-     font-size: 1.2rem;
-     margin-top: $space-1x;
-      max-width: 26ch;
-    }
-  }
-  
-  .faq-content {
-    display: flex;
-    flex-direction: column;
+// Sidebar styles with sticky positioning
+.faqs-categories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-lite;
+  position: sticky; 
+  top: $space-2x;
+  height: fit-content;
+  list-style: none;
+}
 
-  }
-  
-  .faq-category {
-    display: inline-flex;
-    background-color: $brand-light; 
-    align-items: center; // Helps align icon with text
-    color: black;
-    gap: $space-lite; 
-    padding: $space-lite $space-1x;
-    border-radius: calc($radius/4);
-    font-weight: $font-medium-plus;
-    width: fit-content;
-    font-size: $size-1;
-    margin-bottom: $space-md;
-
-        .category-icon {
-          width: 1.5rem;
-          height: auto;
-        }
-
-  }
-
-  
-  .questions {
-    display: flex;
-    flex-direction: column;
-    gap: $space-1x;
-  }
-  
-
-  
-// Cleaned and organized FAQ accordion styles
-.faq-item {
-  background-color: #f5f5f5;
+.faq-category {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  background-color: $brand-light;
+  color: $text-primary;
+  height: 6.5rem;
+  padding: $space-1x;
   border-radius: calc($radius/4);
-  overflow: hidden;
+  font-weight: $font-medium-plus;
+  font-size: 1.15rem;
+  text-decoration: none;
   transition: all 0.3s ease;
+  
+  &:after {
+    content: "→";
+    margin-left: $space-lite;
+    align-self: end;
+  }
+  
+  &.active {
+    background-color: $brand-dark;
+    color: $dusty-white;
+  }
+  
+  &:hover {
+    background-color: $brand-pastel;
+  }
+}
+
+// FAQ content styles
+.faq-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-title {
+  font-size: $size-6;
+  font-weight: $font-regular-plus;
+  margin-bottom: $space-2x;
+  color: $text-primary;
+}
+
+.questions {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.75);
+  padding-block: 2rem;
+
+  &:first-child {
+    border-top: 1px solid rgba(0, 0, 0, 0.75);
+    border-bottom: 1px solid black;
+  }
   
   // Question styling
   .faq-question {
@@ -84,12 +84,14 @@
     color: $text-primary;
     cursor: pointer;
     display: flex;
-    font-size: $size-1;
+    font-size: $size-2;
     font-weight: $font-medium;
     justify-content: space-between;
-    align-items: center;
-    padding-block: $space-3q;
-    padding-inline: $space-1x;
+    width: 100%;
+  }
+
+  &:hover .faq-btn {
+    background-color: $brand-accent;
   }
 }
 
@@ -105,7 +107,7 @@
   position: relative;
   transition: background-color 0.3s ease;
   width: 2.25rem;
-  
+
   &::before,
   &::after {
     background-color: black;
@@ -115,16 +117,15 @@
     transition: transform 0.25s linear;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); // Center perfectly to avoid browser interpretation of placement, which might add an extra pixel or two unnecessarily.
-
+    transform: translate(-50%, -50%);
   }
-  
+
   // Horizontal line
   &::before {
     height: 2px;
     width: 16px;
   }
-  
+
   // Vertical line
   &::after {
     height: 16px;
@@ -136,52 +137,42 @@
 .faq-answer {
   height: 0;
   overflow: hidden;
-  padding: 0 $space-1x;
-  transition: all 0.4s ease-out;
+  transition: height 0.4s ease-out;
   
   p {
-    font-size: 1.2rem;
-    margin-bottom: $space-1x;
-    max-width: 90%;
+    margin-top: 1rem;
+    padding-bottom: $space-1x;
+    font-size: $size-1;
+    line-height: 1.6;
+    color: $text-primary;
   }
 }
 
-// States
-.faq-item {
-  // Hover state
-  &:hover .faq-btn {
-    background-color: $brand-primary; // Tangerine color
+// Active state
+.faq-item.active {
+  background-color: white;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+
+  .faq-question {
+    font-weight: $font-bold;
   }
-  
-  // Active state
-  &.active .faq-btn::after {
-    transform: translate(-50%, -50%) scaleY(0);
+
+  &:first-child {
+    border-top: none;
+    border-bottom: none;
   }
 }
 
-  
-  
-  .category-filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: $space-1x;
-    margin-top: $space-md;
-  }
-  
-  .filter-btn {
-    background: transparent;
-    color: $dusty-white;
-    border: 1px solid $dusty-white;
-    border-radius: $radius;
-    padding-inline: $space-1x;
-    height: 2rem;  
-    cursor: pointer;
-    font-size: $size-0;
-    transition: background-color 0.3s ease;
+// This hides the bottom border of any item that's followed by an active item
+.faq-item:has(+ .active) {
+  border-bottom: none;
+}
 
-    
-    &.active {
-      border-color: $brand-secondary;
-      color: $brand-secondary;
-    }
-  }
+// For the open state
+.faq-item.active .faq-btn::after {
+  transform: translate(-50%, -50%) scaleY(0);
+}
