@@ -1436,7 +1436,7 @@ textarea.invalid {
   justify-content: space-between;
   background-color: #A8CCFF;
   color: #07070b;
-  height: 6.5rem;
+  height: 6rem;
   padding: 1rem;
   border-radius: 0.375rem;
   font-weight: 550;
@@ -1476,8 +1476,10 @@ textarea.invalid {
 }
 
 .faq-item {
+  position: relative;
   border-bottom: 1px solid rgba(0, 0, 0, 0.75);
   padding-block: 2rem;
+  transition: padding 0.3s ease, background-color 0.3s ease;
 }
 .faq-item:first-child {
   border-top: 1px solid rgba(0, 0, 0, 0.75);
@@ -1492,6 +1494,21 @@ textarea.invalid {
   font-weight: 500;
   justify-content: space-between;
   width: 100%;
+}
+.faq-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -2rem;
+  right: -2rem;
+  bottom: 0.5rem;
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  pointer-events: none;
 }
 .faq-item:hover .faq-btn {
   background-color: #0858DD;
@@ -1542,19 +1559,16 @@ textarea.invalid {
 }
 
 .faq-item.active {
-  background-color: white;
   border-radius: 8px;
   border: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin-bottom: 1rem;
   transition: all 0.3s ease;
 }
 .faq-item.active .faq-question {
   font-weight: 700;
 }
-.faq-item.active:first-child {
-  border-top: none;
-  border-bottom: none;
+.faq-item.active::before {
+  opacity: 1;
 }
 
 .faq-item:has(+ .active) {
