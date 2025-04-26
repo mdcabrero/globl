@@ -450,7 +450,7 @@ blockquote {
     &::after {
       content: "*";
       color: $brand-accent;
-      margin-left: 3px;
+      margin-left: 4px;
     }
   }
   
@@ -473,19 +473,20 @@ blockquote {
   .consent-group {
     display: flex;
     align-items: flex-start;
-    gap: $space-lite;
+    gap: $space-micro;
   }
   
   input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
-    width: 0.5rem;
-    height: 45%;
+    width: 0.35rem;
+    height: 50%;
     border: 1px solid hsla(0, 0%, 0%, 0.4);
     border-radius: 4px;
     margin-top: 3px;
     cursor: pointer;
     position: relative;
+    transform: scale(0.8);
 
     
     &:checked {
@@ -510,7 +511,7 @@ blockquote {
     font-size: $size-minus;
     line-height: 1.6;
     color: $text-primary;
-    width: 42ch;
+    width: 100%;
   }
   
   .text-link {
