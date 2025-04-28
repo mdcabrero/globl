@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQS</title>
+    <title>EUROHIRE</title>
  
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -10,139 +10,133 @@
     <link rel="stylesheet" href="dist/main.css">
   
 </head>
-<body>
+<body class="about">
+
+  <header class="site-header is-scroll-up" role="banner">
+    <a href="/" class="logo">
+      <img src="assets/globl-logo--light.svg" alt="GLBL">
+    </a>
+    
+    <nav role="navigation"> 
+      <ul class="main-navigation">
+        <li><a href="about.html" class="nav-link" data-page="company">Company</a></li>
+        <li><a href="services.html" class="nav-link" data-page="services">Services</a></li>
+        <li><a href="faq.html" class="nav-link" data-page="faqs">FAQ</a></li>
+        <li><a href="contact.html" class="nav-link" data-page="contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <a href="#" class="cta">Get a quote</a>
+</header>
 
 
-  <section class="faqs">
-    <div class="faq-container">
-      <header class="faq-header"> 
-        <h1 class="page-title">FAQ's</h1>
-      </header>
-  
-      <div class="faq-content">
-          <span class="faq-category">
-          
-          </span>
-        
-        <div class="questions">
-
-          <div class="faq-item">
-            <div class="faq-question" aria-expanded="false">
-              <span>What makes GLOBL different from other outsourcing firms?</span>
-              <span class="faq-btn"></span>
-            </div>
-            <div class="faq-answer">
-              <p>Unlike standard outsourcing companies that simply provide bodies to fill seats, we match domain experts with precise technical skills to your specific needs. Our specialists understand both the technology and business context, ensuring teams integrate seamlessly with your operations and deliver value from day one.</p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <div class="faq-question" aria-expanded="false">
-              <span>How quickly can GLOBL provide technical talent for my project?</span>
-              <span class="faq-btn"></span>
-            </div>
-            <div class="faq-answer">
-              <p>We ensure that our outsourcing services are up to the highest standards and able to finish your projects on time, for we care a lot about it.</p>
-            
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <div class="faq-question" aria-expanded="false">
-              <span>What does your company do?</span>
-              <span class="faq-btn"></span>
-            </div>
-            <div class="faq-answer">
-              <p>We ensure that our outsourcing services are up to the highest standards and able to finish your projects on time, for we care a lot about it.</p>
-            
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <div class="faq-question" aria-expanded="false">
-              <span>What does your company do?</span>
-              <span class="faq-btn"></span>
-            </div>
-            <div class="faq-answer">
-              <p>We ensure that our outsourcing services are up to the highest standards and able to finish your projects on time, for we care a lot about it.</p>
-            
-            </div>
-          </div>
-        
-        
-          
-          <!-- Continue for all 5 questions -->
-        </div>
-        
-        <div class="category-filters">
-          <button class="filter-btn active" data-category="general">General Questions</button>
-          <button class="filter-btn" data-category="outsourcing">Global Outsourcing</button>
-          <button class="filter-btn" data-category="talent">Talent Strategy</button>
-          <button class="filter-btn" data-category="business">Business Transformation</button>
-          <button class="filter-btn" data-category="hr">HR Intelligence</button>
-          <button class="filter-btn" data-category="ai">AI Solutions</button>
-        </div>
-      </div>
+  <section id="faq-header">
+      <div class="page-intro page-intro--faqs">     
+          <div class="page-intro__content">
+         <h1 class="page-title">FAQs</h1>
+        </div>    
     </div>
-  </section>
 
+    </section>
 
+    <section class="faqs">
+        <ul class="faqs-categories">
+          <li>
+            <a href="#" class="faq-category active" data-category="general">
+              General Questions
+            </a>
+          </li>
+          <li>
+            <a href="#" class="faq-category" data-category="outsourcing">
+              Global Outsourcing
+            </a>
+          </li>
+          <li>
+            <a href="#" class="faq-category" data-category="talent">
+              Talent Strategy
+            </a>
+          </li>
+          <li>
+            <a href="#" class="faq-category" data-category="business">
+              Business Transformation
+            </a>
+          </li>
+          <li>
+            <a href="#" class="faq-category" data-category="hr">
+              HR Intelligence
+            </a>
+          </li>
+          <li>
+            <a href="#" class="faq-category" data-category="ai">
+              AI Solutions
+            </a>
+          </li>
+        </ul>
+    
+        <div class="faq-content">
+          <h1 class="faq-title">General Questions</h1>
+          
+          <div class="questions">
+            <!-- Initial FAQ items will be populated by JavaScript -->
+          </div>
+        </div>
+      </section>
 
+      <footer class="site-footer">
 
-  <popup-form></popup-form>  
-  <script src="popup-form.js"></script>
-  
-  <script src="script.js"></script>
-  
-
-
-<script>
-// Divine Accordion Functionality
-document.addEventListener('DOMContentLoaded', function() {
-  // Get all FAQ items
-  const faqItems = document.querySelectorAll('.faq-item');
-  
-  // Add click event to each FAQ item
-  faqItems.forEach(item => {
-    const question = item.querySelector('.faq-question');
-    const answer = item.querySelector('.faq-answer');
-
-    question.addEventListener('click', () => {
-      // Toggle active class
-      const isActive = item.classList.contains('active');
-      
-      // Close all other accordions
-      faqItems.forEach(otherItem => {
-        if (otherItem !== item) {
-          otherItem.classList.remove('active');
-          otherItem.querySelector('.faq-answer').style.height = '0px';
-          otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-        }
-      });
-      
-      // Toggle current accordion
-      if (!isActive) {
-        item.classList.add('active');
-        // Calculate and set height for smooth animation
-        const height = answer.scrollHeight;
-        answer.style.height = `${height}px`;
-        question.setAttribute('aria-expanded', 'true');
-      } else {
-        item.classList.remove('active');
-        answer.style.height = '0px';
-        question.setAttribute('aria-expanded', 'false');
-      }
-    });
-  });
-});
-</script>
-
-<script>
-
-  
-document.addEventListener('DOMContentLoaded', function() {
-  
- const faqData = {
+        <div class="footer-main">
+          <!-- Logo and Company Info Column -->
+    
+        <div class="footer-left">
+    
+         <img src="/assets/globl-logo--light.svg" alt="Hyre" class="footer-logo">
+          
+         <nav class="footer-nav">
+          <a href="about.html">Company</a>
+          <a href="services.html">Services</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact.html">Contact</a>
+    
+          </nav>
+    
+        </div>
+    
+    
+        <figure class="footer-cta"> 
+          <div> 
+          <p> Ready to start?</p>
+          <p> Complete our short form and we'll get back to you with all the details.</p>
+        </div>
+          <h4 class="book-call"> 
+            <span class="arrow-icon"></span>
+            Get a quote 
+          </h4>
+    
+        </figure>
+         </div>
+    
+         
+         <div class="footer-legal">
+    
+         <div>
+          <a> Terms of use</a>
+          <a> Privacy policy</a>
+        </div>
+    
+        <small class="copyright"> 
+          © 2025 GLBL Technologies, All Rights Reserved
+        </small>
+    
+    
+         </div>
+    
+      </footer>
+    
+      <!-- JavaScript -->
+      <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Using the faqData object from your provided JavaScript
+        const faqData = {
     'general': {
       title: 'General Questions',
       items: [
@@ -161,6 +155,30 @@ document.addEventListener('DOMContentLoaded', function() {
         {
           question: 'How do you ensure quality with offshore teams?',
           answer: 'We rigorously vet all talent through practical assessments, implement structured communication protocols, and provide dedicated delivery managers who monitor quality and address issues immediately.'
+        },
+        {
+          question: 'What is your pricing model?',
+          answer: 'We offer transparent, flexible pricing based on skill level, engagement duration, and team size. Options include fixed project rates, monthly retainers, and performance-based models aligned with your budget constraints.'
+        },
+        {
+          question: 'Where are your technical teams located?',
+          answer: 'Our talent network spans six continents with strength in North America, Europe, and Asia-Pacific. We source specialized talent globally while managing time zone alignment to your specific requirements.'
+        },
+        {
+          question: 'What industries do you specialize in?',
+          answer: 'We specialize in technology, finance, healthcare, manufacturing, and retail industries, providing domain-specific expertise that aligns with each sector\'s unique technical requirements and regulatory considerations.'
+        },
+        {
+          question: 'Can I scale my team up or down as needed?',
+          answer: 'Absolutely. Our flexible staffing model allows you to adjust team size and composition as project requirements evolve, without long-term commitments or penalties.'
+        },
+        {
+          question: 'What communication tools and processes do you use?',
+          answer: 'We adapt to your preferred tools or recommend proven solutions for project management, code collaboration, and communication. We establish clear protocols for reporting, meetings, and issue resolution.'
+        },
+        {
+          question: 'How do you handle cultural differences with global teams?',
+          answer: 'We provide cross-cultural training, establish explicit communication norms, and employ managers experienced in bridging cultural gaps. Our teams are selected for strong collaborative capabilities across cultures.'
         }
       ]
     },
@@ -182,6 +200,26 @@ document.addEventListener('DOMContentLoaded', function() {
         {
           question: 'What engagement models do you offer?',
           answer: 'We provide Dedicated Teams for ongoing work, Project-Based Teams for specific deliverables, Staff Augmentation for integrating specialists into your teams, and Managed Services for complete technical function delivery.'
+        },
+        {
+          question: 'How do you handle language barriers in global teams?',
+          answer: 'We assess language proficiency during selection, provide language support when needed, and implement documentation practices that minimize miscommunications. All client-facing staff have excellent English skills.'
+        },
+        {
+          question: 'What security measures are in place for remote teams?',
+          answer: 'We implement secure VPNs, endpoint protection, access controls, regular security audits, and strict data handling protocols. All remote staff follow comprehensive security policies aligned with industry standards.'
+        },
+        {
+          question: 'How do you manage different time zones?',
+          answer: 'We structure teams for sufficient overlap with your working hours, implement asynchronous communication protocols, and provide options for extended coverage across multiple time zones when needed.'
+        },
+        {
+          question: 'What\'s involved in your technical vetting process?',
+          answer: 'Our multi-stage process includes skills assessments, practical coding challenges, architecture design exercises, communication evaluations, and domain-specific problem-solving scenarios reviewed by senior technical experts.'
+        },
+        {
+          question: 'Can you set up an offshore development center for us?',
+          answer: 'Yes. We establish dedicated facilities aligned with your long-term objectives, featuring physical infrastructure, technical resources, and management personnel exclusively assigned to your organization.'
         }
       ]
     },
@@ -203,6 +241,27 @@ document.addEventListener('DOMContentLoaded', function() {
         {
           question: 'How do you adapt talent strategy as business needs change?',
           answer: 'We build in regular reassessment points tied to your business planning cycles and implement continuous feedback loops that capture market shifts, competitive moves, and internal capability evolution for real-time strategy adjustments.'
+        },
+        // New questions start here
+        {
+          question: 'How do you identify and develop future leaders?',
+          answer: 'We use competency mapping, behavioral assessments, performance pattern analysis, and targeted development programs to identify high-potential talent and accelerate their readiness for leadership roles.'
+        },
+        {
+          question: 'What metrics do you use to measure talent strategy success?',
+          answer: 'We track time-to-productivity, retention rates, internal mobility, skill gap closure, succession coverage, and talent acquisition efficiency. All metrics connect directly to business outcomes and ROI.'
+        },
+        {
+          question: 'How do you build competitive compensation structures?',
+          answer: 'We analyze market benchmarks, competitor offerings, internal equity considerations, and performance metrics to create compensation frameworks that attract and retain key talent without budget overruns.'
+        },
+        {
+          question: 'Can you help with employer branding?',
+          answer: 'Absolutely. We conduct employer value proposition assessments, develop authentic brand messaging, implement targeted outreach strategies, and optimize candidate experience to strengthen your market positioning.'
+        },
+        {
+          question: 'How do you approach diversity and inclusion in talent strategy?',
+          answer: 'We integrate D&I goals throughout the talent lifecycle, implement bias mitigation techniques, establish inclusive practices, and measure progress through comprehensive metrics on representation and advancement.'
         }
       ]
     },
@@ -224,6 +283,27 @@ document.addEventListener('DOMContentLoaded', function() {
         {
           question: 'How long does a typical transformation project take?',
           answer: 'Most initiatives follow a 4-6 month initial phase for critical capabilities, followed by a 6-12 month secondary phase for complete implementation. We deliver incremental value throughout the entire process.'
+        },
+        // New questions start here
+        {
+          question: 'How do you manage resistance to organizational change?',
+          answer: 'We implement structured change management frameworks, engage key stakeholders early, provide transparent communication about rationale and benefits, and deliver targeted support for those most affected.'
+        },
+        {
+          question: 'What\'s your approach to digital transformation?',
+          answer: 'We focus on people first, then processes, then technology. We modernize workflows, upskill talent, and implement digital solutions in stages, ensuring each phase delivers measurable business value.'
+        },
+        {
+          question: 'How do you ensure transformations align with company culture?',
+          answer: 'We conduct cultural assessments, identify core values to preserve, adapt change approaches to cultural context, and implement mechanisms to reinforce desired behaviors throughout the transition.'
+        },
+        {
+          question: 'Can you help with post-merger integration?',
+          answer: 'Yes. We manage organizational structure alignment, talent assessment and integration, role clarification, culture harmonization, and workflow optimization to accelerate synergy realization while minimizing disruption.'
+        },
+        {
+          question: 'How do you measure transformation success?',
+          answer: 'We establish baseline metrics, define clear success indicators, implement real-time tracking systems, and conduct regular assessments against business case targets with adjustments as needed.'
         }
       ]
     },
@@ -245,6 +325,27 @@ document.addEventListener('DOMContentLoaded', function() {
         {
           question: 'How do we measure ROI on HR analytics?',
           answer: 'We track improvements in time-to-hire (typically 35-50% reduction), early turnover (40-60% decrease), quality-of-hire, and hiring manager satisfaction, providing regular reports comparing investment against measurable gains.'
+        },
+        // New questions start here
+        {
+          question: 'What predictions can your HR analytics provide?',
+          answer: 'Our predictive models forecast hiring needs, identify flight risks, predict performance outcomes, anticipate skill gaps, and project workforce costs based on historical patterns and market trends.'
+        },
+        {
+          question: 'How do you analyze candidate quality beyond resumes?',
+          answer: 'We utilize multi-factor assessment frameworks, behavioral pattern analysis, skills demonstrations, predictive performance indicators, and reference verification to create comprehensive quality profiles.'
+        },
+        {
+          question: 'Can your analytics help reduce unconscious bias?',
+          answer: 'Yes. We identify pattern disparities in selection and advancement, implement blind assessment techniques, and provide bias intervention metrics that promote objective decision-making throughout the talent lifecycle.'
+        },
+        {
+          question: 'How do you track employee engagement and satisfaction?',
+          answer: 'We combine pulse surveys, sentiment analysis, productivity metrics, attrition indicators, and communication patterns to create holistic engagement scores with actionable improvement recommendations.'
+        },
+        {
+          question: 'What workforce insights can help with strategic planning?',
+          answer: 'We provide capability gap analysis, succession readiness metrics, competitive talent positioning, future skill requirements, and workforce cost optimization insights aligned directly with business growth objectives.'
         }
       ]
     },
@@ -266,116 +367,141 @@ document.addEventListener('DOMContentLoaded', function() {
         {
           question: 'What kind of time savings can we expect?',
           answer: 'Our automation typically reduces administrative time by 70%+ for HR professionals while cutting candidate processing times by 50%, allowing your HR team to focus on strategic initiatives rather than paperwork.'
+        },
+        // New questions start here
+        {
+          question: 'How does your AI handle complex candidate evaluations?',
+          answer: 'Our AI analyzes communication patterns, problem-solving approaches, technical assessment results, and experience relevance using natural language processing and machine learning to provide comprehensive evaluation profiles.'
+        },
+        {
+          question: 'What types of HR reports can your AI generate automatically?',
+          answer: 'Our system produces turnover analysis, recruitment funnel metrics, performance distribution, compensation benchmarking, and skill gap reports with minimal configuration and maximum accuracy.'
+        },
+        {
+          question: 'How do you train AI on our specific needs?',
+          answer: 'We customize our AI through initial domain configuration, supervised learning phases, feedback integration, and continuous improvement cycles that progressively align with your unique requirements and preferences.'
+        },
+        {
+          question: 'Can your AI help with employee onboarding?',
+          answer: 'Yes. Our AI streamlines documentation, personalizes training plans, schedules orientation activities, provides interactive guidance, answers common questions, and tracks completion of critical onboarding tasks.'
+        },
+        {
+          question: 'What security measures protect AI-processed HR data?',
+          answer: 'We implement data anonymization, encryption at rest and in transit, strict access controls, regular security audits, and compliance monitoring to protect sensitive information throughout processing.'
         }
       ]
     }
   };
-
- // DOM Elements
- const faqContent = document.querySelector('.faq-content');
-  const questionsContainer = document.querySelector('.questions');
-  const categoryLinks = document.querySelectorAll('.faq-category');
-  const faqTitle = document.querySelector('.faq-title');
-  
-  // Function to change category
-  function changeCategory(categoryKey) {
-    // Get the data for this category
-    const categoryData = faqData[categoryKey];
     
-    if (!categoryData) return; // Guard clause if category doesn't exist
-    
-    // Update the title
-    faqTitle.textContent = categoryData.title;
-    
-    // Clear out the questions container
-    questionsContainer.innerHTML = '';
-    
-    // Add new questions
-    categoryData.items.forEach(item => {
-      const faqItem = document.createElement('div');
-      faqItem.className = 'faq-item';
-      
-      faqItem.innerHTML = `
-        <div class="faq-question" aria-expanded="false">
-          <span>${item.question}</span>
-          <span class="faq-btn"></span>
-        </div>
-        <div class="faq-answer">
-          <p>${item.answer}</p>
-        </div>
-      `;
-      
-      questionsContainer.appendChild(faqItem);
-    });
-    
-    // Update active category
-    categoryLinks.forEach(link => {
-      if (link.getAttribute('data-category') === categoryKey) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
-    
-    // Setup accordion functionality
-    setupAccordion();
-  }
-  
-  // Accordion functionality
-  function setupAccordion() {
-    const faqItems = document.querySelectorAll('.faq-item');
-    
-    faqItems.forEach(item => {
-      const question = item.querySelector('.faq-question');
-      const answer = item.querySelector('.faq-answer');
-      
-      question.addEventListener('click', () => {
-        const isActive = item.classList.contains('active');
+        // DOM Elements
+        const questionsContainer = document.querySelector('.questions');
+        const categoryLinks = document.querySelectorAll('.faq-category');
+        const faqTitle = document.querySelector('.faq-title');
         
-        // Close all other accordions
-        faqItems.forEach(otherItem => {
-          if (otherItem !== item) {
-            otherItem.classList.remove('active');
-            otherItem.querySelector('.faq-answer').style.height = '0px';
-            otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-          }
+        // Function to change category
+        function changeCategory(categoryKey) {
+          // Get the data for this category
+          const categoryData = faqData[categoryKey];
+          
+          if (!categoryData) return; // Guard clause if category doesn't exist
+          
+          // Update the title
+          faqTitle.textContent = categoryData.title;
+          
+          // Clear out the questions container
+          questionsContainer.innerHTML = '';
+          
+          // Add new questions
+          categoryData.items.forEach(item => {
+            const faqItem = document.createElement('div');
+            faqItem.className = 'faq-item';
+            
+            faqItem.innerHTML = `
+              <div class="faq-question" aria-expanded="false">
+                <span>${item.question}</span>
+                <span class="faq-btn"></span>
+              </div>
+              <div class="faq-answer">
+                <p>${item.answer}</p>
+              </div>
+            `;
+            
+            questionsContainer.appendChild(faqItem);
+          });
+          
+          // Update active category
+          categoryLinks.forEach(link => {
+            if (link.getAttribute('data-category') === categoryKey) {
+              link.classList.add('active');
+            } else {
+              link.classList.remove('active');
+            }
+          });
+          
+          // Setup accordion functionality
+          setupAccordion();
+        }
+        
+        // Accordion functionality
+        function setupAccordion() {
+          const faqItems = document.querySelectorAll('.faq-item');
+          
+          faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            
+            // Remove existing event listeners to prevent duplicates
+            const newQuestion = question.cloneNode(true);
+            question.parentNode.replaceChild(newQuestion, question);
+            
+            newQuestion.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            // Close all other accordions
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                otherItem.classList.remove('active');
+                otherItem.querySelector('.faq-answer').style.height = '0px';
+                otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                }
+            });
+            
+            // Toggle current accordion
+            if (!isActive) {
+                item.classList.add('active');
+                const height = answer.scrollHeight;
+                answer.style.height = `${height}px`;
+                newQuestion.setAttribute('aria-expanded', 'true');
+            } else {
+                item.classList.remove('active');
+                answer.style.height = '0px';
+                newQuestion.setAttribute('aria-expanded', 'false');
+            }
+            });
+          });
+        }
+        
+        // Add click events to category links
+        categoryLinks.forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default link behavior
+            
+            // Get the category key from data attribute
+            const categoryKey = link.getAttribute('data-category');
+            changeCategory(categoryKey);
+          });
         });
         
-        // Toggle current accordion
-        if (!isActive) {
-          item.classList.add('active');
-          const height = answer.scrollHeight;
-          answer.style.height = `${height}px`;
-          question.setAttribute('aria-expanded', 'true');
-        } else {
-          item.classList.remove('active');
-          answer.style.height = '0px';
-          question.setAttribute('aria-expanded', 'false');
-        }
+        // Initialize with general category
+        changeCategory('general');
       });
-    });
-  }
-  
-  // Add click events to category links
-  categoryLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault(); // Prevent default link behavior
-      
-      // Get the category key from data attribute
-      const categoryKey = link.getAttribute('data-category');
-      changeCategory(categoryKey);
-    });
-  });
-  
-  // Initialize with first category
-  // Assuming the first category link has the correct data-category attribute
-  const firstCategoryKey = categoryLinks[0].getAttribute('data-category');
-  changeCategory(firstCategoryKey || 'pricing'); // Default to 'pricing' if no attribute
-  
-  // Initial accordion setup
-  setupAccordion();
-});
+      </script>
 
-</script>
+<popup-form></popup-form>  
+<script src="popup-form.js"></script>
+
+<script src="script.js"></script>
+
+
 </body>
 </html>

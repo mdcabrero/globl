@@ -18,19 +18,21 @@ p {
 h1 {
   font-size: clamp(2.6127rem, 2.2592rem + 1.6161vw, 3.8147rem);
   color: #FBFBFB;
-  line-height: 1.2;
+  line-height: 1.15;
+  font-weight: 600;
 }
 
 .page-title {
   font-size: clamp(3.1353rem, 2.655rem + 2.1957vw, 4.7684rem);
   color: #FBFBFB;
   line-height: 1.1;
+  font-weight: 600;
 }
 
 .supporting-text {
-  font-size: clamp(1.26rem, 1.171rem + 0.4067vw, 1.56rem);
+  font-size: 1.35rem;
   color: #e8e8e8;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 .section-headline, .section-headline--light,
@@ -128,7 +130,7 @@ p + p {
 .page-intro__content {
   gap: 4em;
   padding-left: 6rem;
-  padding-bottom: 8rem;
+  padding-bottom: 6rem;
 }
 .page-intro--services {
   background-image: url("/assets/services/services-hero.jpg");
@@ -677,14 +679,13 @@ textarea.invalid {
   width: 100%;
   height: 95%;
   background-image: url("../assets/hero-image.jpg");
-  background-position: right 60%;
+  background-position: right 50%;
   background-size: cover;
   border-radius: 0.75rem;
 }
 .hero__content {
-  gap: 4em;
   padding-left: 6rem;
-  padding-bottom: 8rem;
+  padding-bottom: 6rem;
 }
 
 .why-us-preview .section-header {
@@ -696,17 +697,17 @@ textarea.invalid {
 .why-us-preview .media-wrap::after {
   content: "";
   position: absolute;
-  top: 3%;
-  left: 3%;
+  top: 3.5%;
+  left: 5%;
   height: 100%;
-  width: 95%;
+  width: 100%;
   background-color: #558EEC;
   border-radius: 1.5rem;
   border: 2px solid black;
   z-index: -1;
 }
 .why-us-preview .media-wrap img {
-  width: 95%;
+  width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: top right;
@@ -1429,6 +1430,12 @@ textarea.invalid {
   top: 2rem;
   height: fit-content;
   list-style: none;
+  transition: top 0.3s ease; /* Smooth transition for position changes */
+}
+
+/* Adjust top position when navbar has is-scroll-up class, so navbar does not interfere with the faq categories */
+body:has(.is-scroll-up) .faqs-categories {
+  top: 6.5rem;
 }
 
 .faq-category {
@@ -1700,8 +1707,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  backdrop-filter: blur(0.5px);
-  background-color: #010005; /* Default to solid background */
+  backdrop-filter: blur(0.25px);
   /* Hide until DOM fully loaded to prevent flicker */
   opacity: 0;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.35s cubic-bezier(0.5, 1, 0.2, 1), opacity 0.2s ease-in;
@@ -1779,22 +1785,22 @@ body {
 
 .main-navigation {
   display: flex;
-  gap: 3.5rem;
+  gap: 3.75rem;
 }
 
 .nav-link {
   color: white;
   text-decoration: none;
-  font-size: 1.35rem;
+  font-size: clamp(1.05rem, 0.9912rem + 0.28vw, 1.25rem);
   font-weight: 500;
   transition: color 0.2s ease;
   position: relative;
-  padding-bottom: 8px;
+  padding-bottom: 6px;
 }
 .nav-link::after {
   content: "";
   position: absolute;
-  bottom: -4px;
+  bottom: -5px;
   left: 50%;
   transform: translateX(-50%) scale(0);
   width: 4px;
@@ -1807,10 +1813,10 @@ body {
   color: rgb(189.75, 216.75, 255);
 }
 .nav-link:hover::after {
-  transform: translateX(-50%) scale(1.25);
+  transform: translateX(-50%) scale(1.2);
 }
 .nav-link.active::after {
-  transform: translateX(-50%) scale(1.25);
+  transform: translateX(-50%) scale(1.2);
   background-color: rgb(255, 255, 255);
 }
 .nav-link.active:hover {
@@ -1851,19 +1857,21 @@ body {
   width: 100%;
   justify-self: center;
   height: auto;
-  transform: scaleX(105%);
 }
 
 .footer-nav {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1.25rem;
   margin-top: 0.75rem;
 }
 .footer-nav a {
   color: white;
   font-weight: 500;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
+}
+.footer-nav a:hover {
+  color: #A8CCFF;
 }
 
 .footer-cta {

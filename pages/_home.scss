@@ -9,14 +9,13 @@
     width: 100%;
     height: 95%;
     background-image: url('../assets/hero-image.jpg');
-    background-position: right 60%;
+    background-position: right 50%;
     background-size: cover;
     border-radius: calc($radius/2);
   
     &__content {
-      gap: 4em;
       padding-left: $space-6x;
-      padding-bottom: $space-8x;
+      padding-bottom: $space-6x;
     }
   }
   
@@ -35,10 +34,10 @@
       &::after {
         content: '';
         position: absolute;
-        top: 3%;
-        left: 3%;
+        top: 3.5%;
+        left: 5%;
         height: 100%;
-        width: 95%;
+        width: 100%;
         background-color: $brand-pastel; // Use your brand accent color
         border-radius: $radius;
         border: 2px solid black;
@@ -46,7 +45,7 @@
     }
   
       img {
-        width: 95%;
+        width: 100%;
         height: 100%;
         object-fit: cover;
         object-position: top right;

@@ -72,8 +72,9 @@ input, button, textarea, select {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  backdrop-filter: blur(0.5px);
-  background-color: rgba($bg-dark, 1); /* Default to solid background */
+  backdrop-filter: blur(0.25px);
+
+  
   
   /* Hide until DOM fully loaded to prevent flicker */
   opacity: 0;
@@ -81,6 +82,8 @@ input, button, textarea, select {
       transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
       background-color 0.35s cubic-bezier(0.5, 1, 0.2, 1),
       opacity 0.2s ease-in;
+
+
 
   &.is-loaded {
     opacity: 1;
@@ -107,7 +110,11 @@ input, button, textarea, select {
     to {
       background-color: rgba($bg-dark, 1);
     }
+
   }
+
+
+
 
 
   &--services {
@@ -187,25 +194,25 @@ input, button, textarea, select {
 }
 
 .main-navigation {
-  @include flex-row(3.5rem);
+  @include flex-row(3.75rem);
 
 }
 
 .nav-link {
   color: white;
   text-decoration: none;
-  font-size: 1.35rem;
+  font-size: $size-1;
   font-weight: $font-medium;
   transition: color 0.2s ease; // Changed from opacity to color for the hover effect
   position: relative; // Added to position the dot correctly
-  padding-bottom: 8px; // Add padding to accommodate the dot
+  padding-bottom: 6px; // Add padding to accommodate the dot
 
   
   // White dot indicator (hidden by default)
   &::after {
     content: '';
     position: absolute;
-    bottom: -4px; // Position below the text
+    bottom: -5px; // Position below the text
     left: 50%;
     transform: translateX(-50%) scale(0); // Center horizontally and hide initially
     width: 4px; // Size of the dot
@@ -220,7 +227,7 @@ input, button, textarea, select {
     color: mix($brand-light, white, 75%); // 75% brand-light, 25% white
     
     &::after {
-      transform: translateX(-50%) scale(1.25); // Show the dot
+      transform: translateX(-50%) scale(1.2); // Show the dot
       
     }
   }
@@ -229,7 +236,7 @@ input, button, textarea, select {
   &.active {
     
     &::after {
-      transform: translateX(-50%) scale(1.25); // Show the dot
+      transform: translateX(-50%) scale(1.2); // Show the dot
       background-color: rgb(255, 255, 255); 
 
     }
@@ -291,7 +298,7 @@ input, button, textarea, select {
       width: 100%;
       justify-self: center;
       height: auto;
-      transform: scaleX(105%);
+
 
  
 
@@ -302,7 +309,7 @@ input, button, textarea, select {
 .footer-nav {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1.25rem;
   margin-top: 0.75rem;
 
   
@@ -311,7 +318,11 @@ input, button, textarea, select {
   a {
     color: white;
     font-weight: $font-medium;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
+
+    &:hover {
+      color: $brand-light;
+    }
   }
   
 

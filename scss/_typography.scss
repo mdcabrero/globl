@@ -22,20 +22,23 @@ p {
 h1 {
     font-size: $size-6;
     color: $headline-light;
-    line-height: 1.2;   
+    line-height: 1.15;   
+    font-weight: $font-semibold;
 }
 
 .page-title {
   font-size: $size-7;
   color: $headline-light;
   line-height: 1.1;   
+  font-weight: $font-semibold;
+
 }
 
 .supporting-text {
     // Supporting text is meant to accompany headlines
-    font-size: $size-2;
+    font-size: 1.35rem;
     color: $text-light;
-    margin-top: $space-md;
+    margin-top: $space-1x;
 }
 
 
