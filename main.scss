@@ -73,29 +73,25 @@ input, button, textarea, select {
   align-items: center;
   justify-content: space-between;
   backdrop-filter: blur(0.25px);
-
-  
   
   /* Hide until DOM fully loaded to prevent flicker */
   opacity: 0;
   transition: 
-      transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
       background-color 0.35s cubic-bezier(0.5, 1, 0.2, 1),
       opacity 0.2s ease-in;
-
-
 
   &.is-loaded {
     opacity: 1;
   }
 
   &.is-scroll-down {
-      transform: translateY(-100%);
+    transform: translateY(-100%); /* Slide up outside of view */
   }
 
   &.is-scroll-up {
-      transform: translateY(0);
-      background-color: $bg-dark;
+    transform: translateY(0); /* Slide down into view */
+    background-color: $bg-dark;
   }
   
   /* Your existing animation code */
@@ -110,7 +106,6 @@ input, button, textarea, select {
     to {
       background-color: rgba($bg-dark, 1);
     }
-
   }
 
 
@@ -130,11 +125,8 @@ input, button, textarea, select {
     justify-content: space-between;
 
 
-    /* Hide until DOM fully loaded to prevent flicker */
-    opacity: 0;
     transition: 
-    transform 0.45s cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 0.2s ease-in;
+    transform 0.45s ease;
 
       .main-navigation {
         filter: drop-shadow(0 0 3px rgba(16, 3, 3, 0.35));
@@ -148,10 +140,6 @@ input, button, textarea, select {
       }
 
 
-
-  &.is-loaded {
-    opacity: 1;
-  }
 
   &.is-scroll-down {
       transform: translateY(-100%);

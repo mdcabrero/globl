@@ -1,28 +1,23 @@
-//Navbar scrolling behavior
+//Navbar scrolling behavior and restoring page position for internal navigation
 
 document.addEventListener('DOMContentLoaded', () => {
   const headers = document.querySelectorAll('.site-header, .site-header--services');
-  let lastScroll = parseInt(sessionStorage.getItem('lastScrollPosition') || 0);
+  const currentPath = window.location.pathname;
+  const previousPath = sessionStorage.getItem('previousPagePath');
   
-  // Apply the correct class immediately on page load based on stored position
-  if (lastScroll > 0) {
+  // If navigating to a new page, scroll to top
+  if (previousPath !== currentPath) {
+    window.scrollTo(0, 0);
+    // Reset header state for new page
     headers.forEach(header => {
-      header.classList.add('is-scroll-down');
-      header.classList.remove('is-scroll-up');
+      header.classList.add('is-scroll-up');
+      header.classList.remove('is-scroll-down');
     });
-  }
-
-  // Restore scroll position if there was one
-  if (lastScroll > 0) {
-    window.scrollTo(0, lastScroll);
-  }
-
-  window.addEventListener('scroll', () => {
-    const currentScroll = window.scrollY;
-
-    // Simple scroll direction detection
+  } else {
+    // On refresh, restore header state
+    const wasHeaderHidden = sessionStorage.getItem('headerHidden') === 'true';
     headers.forEach(header => {
-      if (currentScroll > lastScroll) {
+      if (wasHeaderHidden) {
         header.classList.add('is-scroll-down');
         header.classList.remove('is-scroll-up');
       } else {
@@ -30,27 +25,40 @@ document.addEventListener('DOMContentLoaded', () => {
         header.classList.remove('is-scroll-down');
       }
     });
-
-    lastScroll = currentScroll;
-    
-    // Store current scroll position
-    sessionStorage.setItem('lastScrollPosition', currentScroll.toString());
-  });
-
-  setTimeout(() => {
-    headers.forEach(header => {
-      header.classList.add('is-loaded');
-    });
-  }, 100);
+  }
   
-  // Store header state before unload
-  window.addEventListener('beforeunload', () => {
-    // Using the first header's state for storage, assuming they'll be in sync
-    const isScrollDown = headers[0].classList.contains('is-scroll-down');
-    sessionStorage.setItem('headerScrolledDown', isScrollDown.toString());
+  // Store current path for next navigation
+  sessionStorage.setItem('previousPagePath', currentPath);
+  
+  // Handle scroll events for header visibility
+  let lastScroll = window.scrollY;
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+    let isHeaderHidden = false;
+    
+    // Update header classes based on scroll direction
+    headers.forEach(header => {
+      if (currentScroll > lastScroll && currentScroll > 50) {
+        header.classList.add('is-scroll-down');
+        header.classList.remove('is-scroll-up');
+        isHeaderHidden = true;
+      } else {
+        header.classList.add('is-scroll-up');
+        header.classList.remove('is-scroll-down');
+        isHeaderHidden = false;
+      }
+    });
+    
+    // Store header state for potential refresh
+    sessionStorage.setItem('headerHidden', isHeaderHidden.toString());
+    lastScroll = currentScroll;
   });
+  
+  // Add loaded class after a brief delay
+  setTimeout(() => {
+    headers.forEach(header => header.classList.add('is-loaded'));
+  }, 100);
 });
-
 
 
 //Active navbar link tracking and styling
