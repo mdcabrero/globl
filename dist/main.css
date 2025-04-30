@@ -1694,6 +1694,11 @@ body {
   overflow-x: hidden;
 }
 
+#chatbot {
+  all: initial;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
 /*   NAVIGATION  */
 .site-header {
   position: fixed;
@@ -1709,10 +1714,10 @@ body {
   backdrop-filter: blur(0.25px);
   /* Hide until DOM fully loaded to prevent flicker */
   opacity: 0;
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.35s cubic-bezier(0.5, 1, 0.2, 1), opacity 0.2s ease-in;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.25s cubic-bezier(0.5, 1, 0.2, 1), opacity 0.2s ease-in;
   /* Your existing animation code */
   animation-timeline: scroll();
-  animation-range: 0 270px;
+  animation-range: 0 1100px;
   animation-name: headerBackground;
 }
 .site-header.is-loaded {

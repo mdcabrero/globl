@@ -53,12 +53,15 @@ input, button, textarea, select {
 }
 
 
-
-
+//Chatbot Isolation
 #chatbot {
   all: initial;
-  isolation: isolate;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+
+
 }
+
 
 
   
@@ -82,8 +85,8 @@ input, button, textarea, select {
   /* Hide until DOM fully loaded to prevent flicker */
   opacity: 0;
   transition: 
-      transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-      background-color 0.35s cubic-bezier(0.5, 1, 0.2, 1),
+      transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      background-color 0.25s cubic-bezier(0.5, 1, 0.2, 1),
       opacity 0.2s ease-in;
 
   &.is-loaded {
@@ -101,7 +104,7 @@ input, button, textarea, select {
   
   /* Your existing animation code */
   animation-timeline: scroll();
-  animation-range: 0 270px;
+  animation-range: 0 1100px;
   animation-name: headerBackground;
   
   @keyframes headerBackground {
