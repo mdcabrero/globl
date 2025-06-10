@@ -35,16 +35,20 @@
     background-size: cover;/* This makes it fit the height while maintaining aspect ratio */
     background-position: left 75%; /* Right aligned, vertically centered */
 
-
-
     margin: 0.75rem ; /* This centers it horizontally with equal space on sides */
 
-
+   
   
     &__content {
       gap: 4em;
-      padding-left: $space-6x;
+      padding-left: $space-4x;
       padding-bottom: $space-6x;
+
+       @include desktop {
+      padding-left: $space-4x;
+      padding-bottom: $space-4x;
+    }
+
     }
 
     &--services{
@@ -58,6 +62,7 @@
       background-image: url('/assets/faqs-bg--blue.jpg');
       background-size: cover;
       background-position: center;
+
     }
 
 
@@ -80,7 +85,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: end;
-    padding-inline: $space-6x;
+    padding-inline: $space-4x;
   }
 
 }
@@ -95,7 +100,11 @@
 
 .container { 
     display: flex;   
-    padding-inline: $space-6x;
+    padding-inline: $space-4x;
+
+    @include desktop {
+      padding-inline: $space-3x;
+    }
    
 
   
@@ -112,6 +121,11 @@
       padding: $space-6x;
       z-index: -2;
 
+      @include desktop {
+
+        padding-inline: $space-3x;
+      }
+
      }
 
   }
@@ -126,9 +140,18 @@
 
 .two-col {
   display: grid;
-  grid-template-columns: 1.1fr 0.75fr;
-  gap: $space-3x;
-  padding-inline: $space-6x;
+   grid-template-columns: 1fr 35vw;
+  gap: $space-4x;
+  padding-inline: $space-4x;
+
+  @include desktop {
+     padding-inline: $space-3x;
+  }
+
+  @include desktop-lite {
+     grid-template-columns: 1fr;
+    gap: $space-1x;
+  }
 }
 
 

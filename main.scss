@@ -1,5 +1,5 @@
-@use 'scss/index' as *;
 @use 'pages/index' as *;
+@use 'scss/index' as *;
 
  
 /* CSS RESET */
@@ -89,6 +89,11 @@ input, button, textarea, select {
       background-color 0.25s cubic-bezier(0.5, 1, 0.2, 1),
       opacity 0.2s ease-in;
 
+  @include desktop-lite {
+      padding-inline: 3rem;
+    }
+
+
   &.is-loaded {
     opacity: 1;
   }
@@ -114,6 +119,7 @@ input, button, textarea, select {
     to {
       background-color: rgba($bg-dark, 1);
     }
+
   }
 
 
@@ -125,7 +131,7 @@ input, button, textarea, select {
     top: 0;
     left: 0;
     width: 100%;
-    padding-inline: $space-4x;
+    padding-inline: 4.75rem; //4.75 instead of $space-4x because the page-intro elements has by default an extra 0.75rem of margin applied (needed to center the floating container), so it has to be added so they're in line
     padding-block: 2.75rem; //Main-navigation padding is adding an extra 1.5rem (total) of vertical spacing, so this version of the header needs different vertical padding proportions to mantain dimension consistency.
     z-index: 100;
     display: flex;
@@ -184,24 +190,32 @@ input, button, textarea, select {
 
   
   img {
-    width: 11rem;
+    width: 11.5rem;
     height: auto;
   }
 }
 
 .main-navigation {
-  @include flex-row(3.75rem);
+  @include flex-row(4rem);
+
+  @include desktop-lite {
+    @include flex-row(2.5rem);
+  }
 
 }
 
 .nav-link {
   color: white;
   text-decoration: none;
-  font-size: $size-1;
+  font-size: 1.5rem;
   font-weight: $font-medium;
   transition: color 0.2s ease; // Changed from opacity to color for the hover effect
   position: relative; // Added to position the dot correctly
   padding-bottom: 6px; // Add padding to accommodate the dot
+
+  @include desktop-lite {
+    font-size: 1.5rem;
+  }
 
   
   // White dot indicator (hidden by default)
@@ -280,6 +294,15 @@ input, button, textarea, select {
   padding-bottom: $space-1x;
   padding-inline: $space-4x;
 
+  @include desktop {
+    padding-inline: $space-3x;
+    padding-top: $space-4x;
+  }
+
+  @include desktop-lite {
+    padding-inline: $space-2x;
+  }
+
 }
 
 
@@ -342,6 +365,15 @@ input, button, textarea, select {
   border-radius: $radius;
   font-weight: $font-regular-plus;
 
+  @include desktop {
+    width: 50%;
+
+  }
+
+@media (max-width: 1030px) {
+  display: none;
+}
+
 
     p {
       color: white;
@@ -359,6 +391,14 @@ input, button, textarea, select {
       letter-spacing: -1px;
       font-weight: $font-medium-plus;
       line-height: 1;
+
+      @include desktop {
+        font-size: 3rem;
+      }
+
+        @include desktop-lite {
+        font-size: 2.75rem;
+      }
     }
 
     .arrow-icon {

@@ -49,16 +49,17 @@
 //========== MEDIA QUERIES ============//  
 
   @mixin desktop {
-  @media (max-width: 1300px) {
+  @media (max-width: 1450px) {
     @content;
   }
 }
 
-@mixin tablet {
-  @media (max-width: 900px) {
+  @mixin desktop-lite {
+  @media (max-width: 1250px) {
     @content;
   }
 }
+
 
 
 
@@ -69,10 +70,12 @@
 }
 
 
-@mixin hide-on-tablet {
-  @include tablet {
+@mixin hide-on-desktop-lite {
+  @include desktop-lite {
     display: none !important;
   }
 }
+
+
 
 

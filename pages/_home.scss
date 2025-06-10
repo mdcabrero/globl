@@ -13,8 +13,12 @@
     border-radius: calc($radius/1.5);
   
     &__content {
-      padding-left: $space-6x;
+      padding-left: $space-4x;
       padding-bottom: $space-6x;
+
+      @include desktop {
+        padding: $space-4x;
+      }
     }
   }
   
@@ -25,10 +29,18 @@
 
     .section-header {
       margin-top: $space-3x;
+
+      @include desktop {
+        margin-top: 0;
+      }
     }
 
     .media-wrap {
       position: relative;
+      height: 95%;
+
+
+      @include hide-on-desktop-lite;
 
       &::after {
         content: '';
@@ -60,6 +72,10 @@
      margin-top: $space-3x;
      margin-bottom: $space-6x;
      width: 90%;
+
+     @include desktop {
+      margin-bottom: $space-4x;
+     }
   
   
   .benefit-item {
@@ -95,11 +111,14 @@
 
 }
 
+  
+}
+
 
 
   
 
- }
+ 
 
 
  .solutions {
@@ -114,6 +133,10 @@
   grid-template-columns: repeat(3, 1fr);
   gap: $space-md;
   margin-top: $space-3x;
+
+  @include desktop-lite {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .solution-card {
@@ -125,6 +148,10 @@
   display: flex;
   flex-direction: column;
 
+  @include desktop {
+    padding: $space-md;
+  }
+
   
   &__icon {
       width: 6.5rem; 
@@ -132,13 +159,26 @@
       fill: $brand-primary;
       margin-bottom: $space-2x;
       align-self: flex-start; // Left-aligned
+
+      @include desktop {
+        width: 5.5rem;
+        margin-bottom: 1rem;
+      }
+
+      @include desktop-lite {
+        width: 6.5rem;
+      }
   }
   
   &__content {
       display: flex;
       flex-direction: column;
       gap: $space-1x;
-
+     
+      @include desktop-lite {
+        margin-top: auto;
+  
+      }
   
       
       p {
@@ -146,6 +186,10 @@
           line-height: 1.6;
           color: $text-primary;
           max-width: 35ch;
+
+          @include desktop {
+            font-size: 1.1rem;
+          }
       }
   }
 }
@@ -168,6 +212,10 @@
     justify-content: space-between;
     align-items: last baseline;
     margin-bottom: $space-6x;
+
+    @include desktop {
+      margin-bottom: $space-3x;
+    }
 
   }
 
@@ -196,6 +244,11 @@
 
     border-radius: $radius;
     overflow: hidden;
+
+    @include desktop-lite {
+      aspect-ratio: 4/4.5;
+      width: 400px;
+    }
   
     &__content {
       padding: $space-2x;
@@ -270,6 +323,10 @@
       display: flex;
       flex-direction: column;
       gap: $space-2x;
+
+      @include desktop-lite {
+        padding-left: $space-4x;
+      }
 
 
       // Background pattern

@@ -3,10 +3,20 @@
 
 .faqs {
   display: grid;
-  grid-template-columns: 0.6fr 1fr;
-  gap: $space-8x;
+  grid-template-columns: 0.5fr 1fr;
+  gap: $space-6x;
   padding-inline: $space-3x;
   margin-top: $space-6x;
+
+  @include desktop {
+    gap: $space-4x;
+    padding-inline: $space-2x;
+  }
+
+  @include desktop-lite {
+    grid-template-columns: 0.3fr 1fr;
+    padding-inline: $space-md;
+  }
 }
 
 // Sidebar styles with sticky positioning
@@ -32,7 +42,7 @@ body:has(.is-scroll-up) .faqs-categories {
   justify-content: space-between;
   background-color: $brand-light;
   color: $text-primary;
-  height: 6rem;
+  height: 6.5rem;
   padding: $space-1x;
   border-radius: calc($radius/4);
   font-weight: $font-medium-plus;
@@ -63,8 +73,8 @@ body:has(.is-scroll-up) .faqs-categories {
 }
 
 .faq-title {
-  font-size: $size-6;
-  font-weight: $font-regular-plus;
+  font-size: 3.2rem;
+  font-weight: $font-medium;
   margin-bottom: $space-2x;
   color: $text-primary;
 }
@@ -81,9 +91,12 @@ body:has(.is-scroll-up) .faqs-categories {
   padding-block: $space-2x;
   transition: padding 0.3s ease, background-color 0.3s ease;
 
+  @include desktop-lite {
+    padding-block: $space-md;
+  }
+
   &:first-child {
     border-top: 1px solid rgba(0, 0, 0, 0.75);
-    border-bottom: 1px solid black;
   }
   
   // Question styling
@@ -96,6 +109,11 @@ body:has(.is-scroll-up) .faqs-categories {
     font-weight: $font-medium;
     justify-content: space-between;
     width: 100%;
+
+      .question-content {
+        width: 80%;
+   
+      }
   }
 
 
@@ -115,11 +133,13 @@ body:has(.is-scroll-up) .faqs-categories {
     transition: opacity 0.3s ease;
     z-index: -1;
     pointer-events: none;
+
   }
 
   &:hover .faq-btn {
     background-color: $brand-accent;
   }
+
 }
 
 // Plus/minus button
@@ -129,11 +149,11 @@ body:has(.is-scroll-up) .faqs-categories {
   border-radius: 4px;
   display: flex;
   flex-shrink: 0;
-  height: 2.25rem;
+  height: 2.3rem;
   justify-content: center;
   position: relative;
   transition: background-color 0.3s ease;
-  width: 2.25rem;
+  width: 2.3rem;
 
   &::before,
   &::after {
@@ -149,14 +169,14 @@ body:has(.is-scroll-up) .faqs-categories {
 
   // Horizontal line
   &::before {
-    height: 2px;
+    height: 1.5px;
     width: 16px;
   }
 
   // Vertical line
   &::after {
     height: 16px;
-    width: 2px;
+    width: 1.5px;
   }
 }
 
@@ -188,6 +208,18 @@ body:has(.is-scroll-up) .faqs-categories {
 
   &::before {
     opacity: 1;
+
+    @include desktop {
+      //This prevents the white pseudo-element from showing up when a faq is clicked
+      opacity: 0;
+    }
+  }
+
+  @include desktop {
+    //This ensures bottom border is displayed for the faq on active state for desktop
+    border-bottom: 1px solid black;
+    margin-bottom: 0;
+    border-radius: 0;
   }
 
 
@@ -196,6 +228,10 @@ body:has(.is-scroll-up) .faqs-categories {
 // This hides the bottom border of any item that's followed by an active item
 .faq-item:has(+ .active) {
   border-bottom: none;
+
+  @include desktop {
+    border-bottom: 1px solid black;
+  }
 }
 
 // For the open state

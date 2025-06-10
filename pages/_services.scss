@@ -22,8 +22,8 @@
     display: flex;
     justify-content: space-between;
     align-items: last baseline;
-    padding-left: $space-6x;
-    padding-right: $space-3x;
+    padding-left: $space-4x;
+    padding-right: $space-4x;
     padding-bottom: $space-4x;
     height: calc(100vh - 1.5rem);
     width: calc(100vw - 1.5rem);
@@ -39,6 +39,13 @@
     will-change: transform; // ONLY transform, not position
     transform: translate3d(0, 0, 0); // Force GPU
     transition: transform 0.01s linear; // Tiny transition helps smoothness
+
+    @include desktop-lite {
+        justify-content: end;
+        flex-direction: column;
+        gap: 2rem;
+        padding-bottom: $space-3x;
+    }
 
 
     
@@ -85,7 +92,10 @@
     display: flex;
     flex-direction: column;
     gap: $space-1x;
-    width: 66%;
+
+    .p--light {
+        color: rgb(230, 242, 255);
+    }
   
 
     
@@ -96,6 +106,11 @@
         max-width: 18ch;
        
     }
+
+    @include desktop-lite {
+        gap: 0.75rem;
+
+    }
 }
 
 
@@ -105,7 +120,11 @@
     grid-template-rows: auto auto;
     gap: $space-2x;
     color: white;
-    width: 33%;
+
+    @include desktop-lite {
+        display: flex;
+    }
+
 
  
 
@@ -113,6 +132,7 @@
         position: relative;
         font-size: $size-1;
         padding-left: $space-3q; // Space for the accent bar
+        height: fit-content;
 
    
     

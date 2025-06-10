@@ -11,7 +11,7 @@
     padding: $space-lite $space-2x;
     border-radius: $radius/2;
     border: 1px solid white;
-    font-size: $size-0;
+    font-size: 1.1rem;
     font-weight: $font-semibold;
     background-color: $brand-accent;
     color: $headline-light;
@@ -183,8 +183,9 @@
    .testimonial-card {
     display: grid;
     grid-template-columns: 40% 1fr;
-    width: 70%;
-    height: 78vh;
+    width: 72%;
+    height: 80vh;
+    max-height: 550px;
     margin-inline: auto;
     background: $bg-dark;
     border-radius: $radius;
@@ -198,6 +199,15 @@
       @include full-img;
       border-end-end-radius: $radius * 2;
 
+    }
+
+    @include desktop {
+      width: 80%;
+    }
+
+    @include desktop-lite {
+      width: 100%;
+      grid-template-columns: 35% 1fr;
     }
   }
   
@@ -366,6 +376,14 @@
     border-radius: $radius;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(7, 54, 112, 0.2);
+
+    @include desktop {
+      width: 85vw;
+    }
+
+      @include desktop-lite {
+      width: 95vw;
+    }
 
 }
 
