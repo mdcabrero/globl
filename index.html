@@ -14,9 +14,7 @@
 </head>
 <body>
 
-  <width-tracker></width-tracker>
-
-   <div class="mobile-warning-overlay" id="mobileWarning">
+   <div class="mobile-warning-overlay" id="mobileWarning" aria-hidden="true">
         <div class="mobile-warning-content">
             <!-- Replace this SVG with your company logo -->
            <img src="assets/globl-logo--light.svg" alt="GLBL">
@@ -46,9 +44,9 @@ Remove comments when ready to deploy
         <nav role="navigation"> 
           <ul class="main-navigation">
             <li><a href="services.html" class="nav-link" data-page="services">Services</a></li>
-            <li><a href="faq.html" class="nav-link" data-page="faqs">FAQ</a></li>
             <li><a href="contact.html" class="nav-link" data-page="contact">Contact</a></li>
-            <li> <a href="#" class="cta">Get a quote</a></li> 
+            <li><a href="faq.html" class="nav-link" data-page="faqs">FAQ</a></li>
+            <li> <a href="#" class="cta">  Get a quote </a></li> 
           </ul>
         </nav>
     </header>
@@ -348,10 +346,9 @@ Remove comments when ready to deploy
        <img src="/assets/globl-logo--light.svg" alt="Hyre" class="footer-logo">
         
        <nav class="footer-nav">
-        <a href="about.html">Company</a>
         <a href="services.html">Services</a>
-        <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
+        <a href="faq.html">FAQ</a>
   
         </nav>
   
@@ -393,7 +390,6 @@ Remove comments when ready to deploy
 
 <popup-form></popup-form>  
 <script src="popup-form.js"></script>
-<script src="width-tracker.js"> </script>
 
 <script src="script.js"></script>
 <script type="module" src="chatbot/assets/index-CEVrBmav.js"></script>

@@ -5,26 +5,82 @@
    /*    BUTTONS   */
 
 
-   .cta {
+  .cta {
     @include button-base;
     display: inline-block;
-    padding: $space-lite $space-md;
+    padding: $space-lite $space-2x;
     border-radius: $radius/2;
     border: 1px solid white;
-    font-size: 1.35rem;
-    font-weight: $font-semibold;
+    font-size: 1.2rem;
+    font-weight: $font-medium;
     background-color: $brand-accent;
     color: $headline-light;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: transform 0.35s ease-in;
+    animation: button-pulse 3.5s infinite;
+  
 
-    &:hover {
-      color: $brand-primary;
-      background-color: darken($headline-light, 10%);
+    
+    // Animated gradient background
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -500%;
+        width: 600%;
+        height: 100%;
+      background: linear-gradient(90deg,rgb(0, 51, 117) 0%, rgb(2, 23, 182) 50%, rgb(38, 9, 203) 100%);
+        z-index: -1;
+        animation: bg-gradient-move 3s linear infinite;
     }
 
+    &:hover {
+       transform: scale(1.02);
+
+        &::before {
+            animation-play-state: paused;
+        }
+
+    }
+       
+
     @include desktop-lite {
-    font-size: 1.2rem;
+        font-size: 1.15rem;
+    }
+}
+
+// Keyframes for the animations
+@keyframes bg-gradient-move {
+    0% {
+        left: -500%;
+    }
+    50% {
+        left: 0%;
+    }
+    100% {
+        left: -500%;
+    }
+
+    
+}
+
+@keyframes button-pulse {
+    0% {
+        transform: scale(0.97);
+
+    }
+    70% {
+        transform: scale(1);
+ 
+    }
+    100% {
+        transform: scale(0.97);
+    }
   }
-   }
+
+
 
 
  .secondary-btn {

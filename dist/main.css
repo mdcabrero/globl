@@ -1389,24 +1389,64 @@ p + p {
   cursor: pointer;
   transition: background-color 0.2s ease;
   display: inline-block;
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 2rem;
   border-radius: 0.75rem;
   border: 1px solid white;
-  font-size: 1.35rem;
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 500;
   background-color: #0858DD;
   color: #FBFBFB;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: transform 0.35s ease-in;
+  animation: button-pulse 3.5s infinite;
+}
+.cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -500%;
+  width: 600%;
+  height: 100%;
+  background: linear-gradient(90deg, rgb(0, 51, 117) 0%, rgb(2, 23, 182) 50%, rgb(38, 9, 203) 100%);
+  z-index: -1;
+  animation: bg-gradient-move 3s linear infinite;
 }
 .cta:hover {
-  color: #0949B3;
-  background-color: rgb(225.5, 225.5, 225.5);
+  transform: scale(1.02);
+}
+.cta:hover::before {
+  animation-play-state: paused;
 }
 @media (max-width: 1250px) {
   .cta {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
   }
 }
 
+@keyframes bg-gradient-move {
+  0% {
+    left: -500%;
+  }
+  50% {
+    left: 0%;
+  }
+  100% {
+    left: -500%;
+  }
+}
+@keyframes button-pulse {
+  0% {
+    transform: scale(0.97);
+  }
+  70% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.97);
+  }
+}
 .secondary-btn {
   text-decoration: none;
   background: transparent;
@@ -1927,7 +1967,7 @@ body {
   padding-block: 1rem;
   z-index: 100;
   display: flex;
-  align-items: center;
+  align-items: end;
   justify-content: space-between;
   backdrop-filter: blur(0.25px);
   /* Hide until DOM fully loaded to prevent flicker */
@@ -2020,8 +2060,8 @@ body {
 .nav-link {
   color: white;
   text-decoration: none;
-  font-size: 1.6rem;
-  font-weight: 500;
+  font-size: 1.5rem;
+  font-weight: 450;
   transition: color 0.2s ease;
   position: relative;
   padding-bottom: 6px;
@@ -2164,16 +2204,18 @@ body {
 .footer-nav {
   display: flex;
   justify-content: center;
-  gap: 1.25rem;
-  margin-top: 0.75rem;
+  gap: 1.75rem;
+  margin-top: 0.5rem;
 }
 .footer-nav a {
   color: white;
-  font-weight: 500;
-  font-size: 1.1rem;
+  font-weight: 450;
+  font-size: 1.5rem;
+  transition: all 0.2s ease-in;
 }
 .footer-nav a:hover {
-  color: #A8CCFF;
+  color: #2d78f0;
+  font-weight: 550;
 }
 
 .footer-cta {

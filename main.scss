@@ -78,7 +78,7 @@ input, button, textarea, select {
   padding-block: $space-1x;
   z-index: 100;
   display: flex;
-  align-items: center;
+  align-items: end;
   justify-content: space-between;
   backdrop-filter: blur(0.25px);
   
@@ -209,8 +209,8 @@ input, button, textarea, select {
 .nav-link {
   color: white;
   text-decoration: none;
-  font-size: 1.6rem;
-  font-weight: $font-medium;
+  font-size: 1.5rem;
+  font-weight: $font-regular-plus;
   transition: color 0.2s ease; // Changed from opacity to color for the hover effect
   position: relative; // Added to position the dot correctly
   padding-bottom: 6px; // Add padding to accommodate the dot
@@ -396,19 +396,21 @@ input, button, textarea, select {
 .footer-nav {
   display: flex;
   justify-content: center;
-  gap: 1.25rem;
-  margin-top: 0.75rem;
+  gap: 1.75rem;
+  margin-top: 0.5rem;
 
   
 
   
   a {
     color: white;
-    font-weight: $font-medium;
-    font-size: 1.1rem;
+    font-weight: $font-regular-plus;
+    font-size: 1.5rem;
+    transition: all 0.2s ease-in;
 
     &:hover {
-      color: $brand-light;
+      color: #2d78f0;
+      font-weight: $font-medium-plus;
     }
   }
   
