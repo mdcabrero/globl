@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   justify-content: end;
-  height: calc(100vh - 2rem);
+  height: calc(100dvh - 2rem);
   background-image: url("../assets/hero-image.jpg");
   background-position: right 50%;
   background-size: cover;
@@ -731,7 +731,7 @@
   padding-left: 4rem;
   padding-right: 4rem;
   padding-bottom: 4rem;
-  height: calc(100vh - 1.5rem);
+  height: calc(100dvh - 1.5rem);
   width: calc(100vw - 1.5rem);
   margin: 0.75rem;
   border-radius: 0.75rem;
@@ -1040,7 +1040,7 @@ body:has(.is-scroll-up) .faqs-categories {
 
 .contact {
   display: flex;
-  height: calc(100vh - 1.5rem);
+  height: calc(100dvh - 1.5rem);
   width: calc(100vw - 1.5rem);
   border-radius: 0.75rem;
   background-image: url("/assets/process-pattern.jpg");
