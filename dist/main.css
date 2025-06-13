@@ -1049,6 +1049,7 @@ body:has(.is-scroll-up) .faqs-categories {
   margin: 0.75rem;
   color: #FBFBFB;
   padding: 4.75rem;
+  padding-bottom: 4rem;
   justify-content: space-between;
   align-items: end;
   gap: 3rem;
