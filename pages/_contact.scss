@@ -21,7 +21,11 @@
       padding-right: 2rem;
     }
 
-    
+       @media (max-height: 650px) {
+      //Ensure the content doesn't get too close to the navbar on landscape mode for tablets
+      padding-bottom: $space-2x;
+
+    }
 
   
   
@@ -83,6 +87,8 @@
       width: 100%;
       padding: $space-md;
     }
+
+ 
   }
   
   .contact-item {

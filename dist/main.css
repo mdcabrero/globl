@@ -1058,6 +1058,11 @@ body:has(.is-scroll-up) .faqs-categories {
     padding-right: 2rem;
   }
 }
+@media (max-height: 650px) {
+  .contact {
+    padding-bottom: 2rem;
+  }
+}
 .contact header {
   display: flex;
   flex-direction: column;
