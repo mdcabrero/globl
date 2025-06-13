@@ -1061,7 +1061,7 @@ body:has(.is-scroll-up) .faqs-categories {
 .contact header {
   display: flex;
   flex-direction: column;
-  width: 45%;
+  width: 40%;
 }
 @media (max-width: 1450px) {
   .contact header {
@@ -2130,8 +2130,8 @@ body {
   justify-content: center;
 }
 .mobile-warning-content img {
-  width: 60%;
-  max-width: 400px;
+  width: 80%;
+  max-width: 300px;
   height: auto;
   margin-bottom: 1.5rem;
   object-fit: contain;
