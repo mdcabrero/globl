@@ -1,7 +1,11 @@
 @use 'pages/index' as *;
 @use 'scss/index' as *;
 
- 
+
+html {
+    font-size: 90%;
+}
+
 /* CSS RESET */
 
  *, *::before, *::after {
@@ -50,7 +54,6 @@ input, button, textarea, select {
   background-color: $bg-light;
   overflow-x: hidden; // Prevent slider content overflowing and making the page wider than it needs to
 
-
 }
 
 
@@ -71,7 +74,7 @@ input, button, textarea, select {
 
 
 .site-header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -133,7 +136,7 @@ input, button, textarea, select {
     left: 0;
     width: 100%;
     padding-inline: 4.75rem; //4.75 instead of $space-4x because the page-intro elements has by default an extra 0.75rem of margin applied (needed to center the floating container), so it has to be added so they're in line
-    padding-block: 2.75rem; //Main-navigation padding is adding an extra 1.5rem (total) of vertical spacing, so this version of the header needs different vertical padding proportions to mantain dimension consistency.
+    padding-block: 3rem; //Main-navigation padding is adding an extra 1.5rem (total) of vertical spacing, so this version of the header needs different vertical padding proportions to mantain dimension consistency.
     z-index: 100;
     display: flex;
     align-items: center;

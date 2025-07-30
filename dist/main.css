@@ -739,6 +739,8 @@
   position: fixed;
   inset: 0;
   border: 2px solid black;
+  opacity: 0;
+  transform: translateY(100vh);
   will-change: transform;
   transform: translate3d(0, 0, 0);
   transition: transform 0.01s linear;
@@ -1915,6 +1917,10 @@ textarea.invalid {
   background-color: #0a2e4f;
 }
 
+html {
+  font-size: 90%;
+}
+
 /* CSS RESET */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -1965,7 +1971,7 @@ body {
 
 /*   NAVIGATION  */
 .site-header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -2013,7 +2019,7 @@ body {
   left: 0;
   width: 100%;
   padding-inline: 4.75rem;
-  padding-block: 2.75rem;
+  padding-block: 3rem;
   z-index: 100;
   display: flex;
   align-items: center;

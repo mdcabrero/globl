@@ -152,10 +152,10 @@ document.addEventListener('DOMContentLoaded', function() {
   // Register ScrollTrigger plugin
   gsap.registerPlugin(ScrollTrigger);
   
-  // Set initial state - all cards hidden below viewport
+  // Set initial state - all cards hidden below viewport and make them visible
   gsap.set(".service-media", {
     y: "100vh", // Start below the viewport
-    opacity: 1
+    opacity: 1 // Make them visible now that GSAP has loaded
   });
   
   // Count the cards to calculate the scroll length
