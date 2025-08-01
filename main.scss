@@ -400,7 +400,7 @@ input, button, textarea, select {
 .footer-nav {
   display: flex;
   justify-content: center;
-  gap: 1.75rem;
+  gap: 1.5rem;
   margin-top: 0.5rem;
 
   
@@ -409,7 +409,7 @@ input, button, textarea, select {
   a {
     color: white;
     font-weight: $font-regular-plus;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     transition: all 0.2s ease-in;
 
     &:hover {
@@ -451,7 +451,7 @@ input, button, textarea, select {
 
     p {
       color: white;
-      font-size: 1.75rem;
+      font-size: 1.9rem;
       line-height: 1.4;
 
       &:first-of-type {
@@ -461,7 +461,7 @@ input, button, textarea, select {
 
     h4 {
       color: whitesmoke;
-      font-size: 3.25rem;
+      font-size: 3rem;
       letter-spacing: -1px;
       font-weight: $font-medium-plus;
       line-height: 1;

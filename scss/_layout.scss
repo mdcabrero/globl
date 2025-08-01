@@ -122,7 +122,6 @@
       z-index: -2;
 
       @include desktop {
-
         padding-inline: $space-3x;
       }
 
@@ -140,7 +139,7 @@
 
 .two-col {
   display: grid;
-   grid-template-columns: 1fr 35vw;
+   grid-template-columns: 1fr 32vw;
   gap: $space-4x;
   padding-inline: $space-4x;
 

@@ -299,7 +299,7 @@ const testimonials = [
         
         // Bring it back into the light of the Lord
         card.style.opacity = 1;
-      }, 350);
+      }, 500);
     }
     
     function startAutoRotation() {
