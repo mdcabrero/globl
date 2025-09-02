@@ -2215,7 +2215,7 @@ body {
   align-items: flex-start;
 }
 .footer-main .footer-logo {
-  width: 100%;
+  width: 95%;
   justify-self: center;
   height: auto;
 }
@@ -2223,18 +2223,17 @@ body {
 .footer-nav {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1.25rem;
   margin-top: 1rem;
 }
 .footer-nav a {
   color: white;
   font-weight: 450;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   transition: all 0.2s ease-in;
 }
 .footer-nav a:hover {
   color: #2d78f0;
-  font-weight: 550;
 }
 
 .footer-cta {
@@ -2252,6 +2251,7 @@ body {
   height: 60vh;
   border-radius: 1.5rem;
   font-weight: 450;
+  cursor: pointer;
 }
 @media (max-width: 1450px) {
   .footer-cta {
@@ -2320,6 +2320,7 @@ body {
 }
 .footer-legal a {
   margin-right: 3rem;
+  cursor: pointer;
 }
 .footer-legal small {
   font-size: 0.8rem;

@@ -386,7 +386,7 @@ input, button, textarea, select {
 
   
     .footer-logo {
-      width: 100%;
+      width: 95%;
       justify-self: center;
       height: auto;
 
@@ -400,7 +400,7 @@ input, button, textarea, select {
 .footer-nav {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1.25rem;
   margin-top: 1rem;
 
   
@@ -409,12 +409,12 @@ input, button, textarea, select {
   a {
     color: white;
     font-weight: $font-regular-plus;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     transition: all 0.2s ease-in;
 
     &:hover {
       color: #2d78f0;
-      font-weight: $font-medium-plus;
+    
     }
   }
   
@@ -438,6 +438,7 @@ input, button, textarea, select {
   height: 60vh;
   border-radius: $radius;
   font-weight: $font-regular-plus;
+  cursor: pointer;
 
   @include desktop {
     width: 50%;
@@ -512,6 +513,7 @@ input, button, textarea, select {
 
     a {
       margin-right: $space-3x;
+      cursor: pointer;
     }
 
     small{
