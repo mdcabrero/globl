@@ -450,7 +450,7 @@ blockquote {
     &::after {
       content: "*";
       color: $brand-accent;
-      margin-left: 4px;
+      margin-left: 3px;
     }
   }
   
@@ -479,8 +479,8 @@ blockquote {
   input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
-    width: 0.35rem;
-    height: 50%;
+    width: 0.5rem;
+    height: 51%;
     border: 1px solid hsla(0, 0%, 0%, 0.4);
     border-radius: 4px;
     margin-top: 3px;
@@ -496,10 +496,10 @@ blockquote {
       &::after {
         content: '';
         position: absolute;
-        left: 8px;
+        left: 7px;
         top: 0px;
         width: 7px;
-        height: 17px;
+        height: 15px;
         border: solid white;
         border-width: 0 3px 3px 0;
         transform: rotate(42deg);

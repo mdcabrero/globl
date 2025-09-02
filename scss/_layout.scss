@@ -11,7 +11,7 @@
   }
 
   section + section {  /* Default spacing between all sections */
-    margin-top: 10rem;
+    margin-top: 12rem;
 
   }
 
@@ -31,7 +31,7 @@
     height: calc(100dvh - 1.5rem);
     width: calc(100vw - 1.5rem);
     border-radius: calc($radius/2);
-    background-image: url('/assets/about/about-hero.jpg');
+    background-image: url('/assets/about/about-hero2.png');
     background-size: cover;/* This makes it fit the height while maintaining aspect ratio */
     background-position: left 75%; /* Right aligned, vertically centered */
 
