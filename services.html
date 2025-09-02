@@ -8,6 +8,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="dist/main.css">
+    <style>
+    /* Critical inline styles to prevent FOUC, before GSAP takes over and animate from there */
+    .service-media {
+    transform: translateY(100vh);
+}
+</style>
+    
   
 </head>
 <body class="services">
@@ -139,7 +146,7 @@
       <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
-    <script>
+    <script defer>
 // JAVASCRIPT for the divine animation
 document.addEventListener('DOMContentLoaded', function() {
   // First, let's make sure GSAP and ScrollTrigger are loaded
@@ -191,6 +198,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
        
 </script>
+
+
 
 
 <popup-form></popup-form>  
