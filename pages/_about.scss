@@ -180,7 +180,9 @@
 
 
 
-
+.benefits-section {
+  padding-inline: $space-4x;
+}
 
 
 .benefits-grid {
@@ -188,9 +190,10 @@
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: $space-1x;
-  width: 90vw;
+  width: 92vw;
   height: 130vh;
   margin-inline: auto;
+  
 
 }
 
