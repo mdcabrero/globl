@@ -20,6 +20,10 @@
     z-index: 1;
     transition: transform 0.35s ease-in;
     animation: button-pulse 3.5s infinite;
+
+     @include mobile {
+    display: none;
+  }
   
 
     

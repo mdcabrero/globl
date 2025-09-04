@@ -1417,6 +1417,11 @@ p + p {
   transition: transform 0.35s ease-in;
   animation: button-pulse 3.5s infinite;
 }
+@media (max-width: 400px) {
+  .cta {
+    display: none;
+  }
+}
 .cta::before {
   content: "";
   position: absolute;
@@ -1989,35 +1994,14 @@ body {
   align-items: center;
   justify-content: space-between;
   backdrop-filter: blur(0.25px);
+  padding-top: 3rem;
   /* Hide until DOM fully loaded to prevent flicker */
-  opacity: 0;
+  opacity: 1;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.25s cubic-bezier(0.5, 1, 0.2, 1), opacity 0.2s ease-in;
-  /* Your existing animation code */
-  animation-timeline: scroll();
-  animation-range: 0 1100px;
-  animation-name: headerBackground;
 }
 @media (max-width: 1250px) {
   .site-header {
     padding-inline: 3rem;
-  }
-}
-.site-header.is-loaded {
-  opacity: 1;
-}
-.site-header.is-scroll-down {
-  transform: translateY(-100%); /* Slide up outside of view */
-}
-.site-header.is-scroll-up {
-  transform: translateY(0); /* Slide down into view */
-  background-color: #010005;
-}
-@keyframes headerBackground {
-  from {
-    background-color: rgba(1, 0, 5, 0);
-  }
-  to {
-    background-color: #010005;
   }
 }
 .site-header--services {
@@ -2046,16 +2030,6 @@ body {
   transform: translateY(0);
 }
 
-@keyframes headerBackground {
-  from {
-    background-color: rgba(1, 0, 5, 0);
-    padding-top: 3rem;
-  }
-  to {
-    background-color: #010005;
-    padding-block: 1rem;
-  }
-}
 .logo {
   display: block;
 }
@@ -2073,6 +2047,11 @@ body {
   .main-navigation {
     display: flex;
     gap: 2rem;
+  }
+}
+@media (max-width: 400px) {
+  .main-navigation {
+    display: none;
   }
 }
 
