@@ -60,8 +60,15 @@
   }
 }
 
-  @mixin tablet {
+@mixin tablet {
   @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+// 360px–900px compact layout range
+@mixin compact {
+  @media (max-width: 900px) {
     @content;
   }
 }

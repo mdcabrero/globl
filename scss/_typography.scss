@@ -25,6 +25,10 @@ h1 {
     color: $headline-light;
     line-height: 1.15;   
     font-weight: $font-semibold;
+    @include compact {
+      font-size: $size-5;
+      line-height: 1.12;
+    }
 }
 
 .page-title {
@@ -42,6 +46,10 @@ h1 {
     font-size: 1.35rem;
     color: $text-light;
     margin-top: $space-1x;
+    @include compact {
+      font-size: 1.1rem;
+      margin-top: $space-lite;
+    }
 }
 
 
@@ -51,6 +59,10 @@ h2 {
     color: $brand-dark;
     line-height: 1.25;
     font-weight: $font-semibold;
+    @include compact {
+      font-size: $size-3;
+      line-height: 1.2;
+    }
 }
 
 .section-headline--light {

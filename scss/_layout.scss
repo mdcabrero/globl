@@ -4,6 +4,10 @@
 .page-wrapper {
     padding-top: $space-1x;
     padding-inline: $space-1x;
+    @include compact {
+      padding-inline: $space-3q;
+      padding-top: $space-3q;
+    }
   }
 
   .hero-wrapper {
@@ -12,7 +16,9 @@
 
   section + section {  /* Default spacing between all sections */
     margin-top: 12rem;
-
+    @include compact {  // Reduce vertical spacing on compact screens
+      margin-top: $space-6x;
+    }
   }
 
 
@@ -98,12 +104,15 @@
 
 // CONTAINER LAYOUTS
 
-.container { 
+  .container { 
     display: flex;   
     padding-inline: $space-4x;
 
     @include desktop {
       padding-inline: $space-3x;
+    }
+    @include compact {
+      padding-inline: $space-2x;
     }
    
 
@@ -123,6 +132,10 @@
 
       @include desktop {
         padding-inline: $space-3x;
+      }
+
+      @include compact {
+        padding: $space-3x;
       }
 
      }
@@ -150,6 +163,11 @@
      grid-template-columns: 1fr;
     gap: $space-1x;
   }
+
+  @include compact {
+    grid-template-columns: 1fr;
+    padding-inline: $space-2x;
+  }
 }
 
 
@@ -168,6 +186,10 @@
   position: relative;
   overflow: visible; // Let cards be visible outside the wrapper, so they don't get cropped by any padding attributes
   padding-left: $space-6x;
+  @include compact {
+    padding-left: $space-2x;
+    overflow: hidden; // only show one card at a time on compact
+  }
 }
 
 // Core slider functionality - reusable across different contexts

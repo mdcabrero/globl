@@ -53,6 +53,11 @@
     @include desktop-lite {
         font-size: 1.15rem;
     }
+
+    // Hide header CTA in compact range; a dedicated hero CTA will appear
+    @include compact {
+      .site-header & { display: none !important; }
+    }
 }
 
 // Keyframes for the animations
@@ -243,7 +248,7 @@
 
 
    /* Testimonial Cards */
-  
+   
    .testimonial-card {
     display: grid;
     grid-template-columns: 40% 1fr;
@@ -273,12 +278,23 @@
       width: 100%;
       grid-template-columns: 35% 1fr;
     }
+
+    // Compact: single column, hide image, reduce height
+    @include compact {
+      grid-template-columns: 1fr;
+      width: 100%;
+      height: auto;
+      max-height: none;
+
+      > img { display: none !important; }
+    }
   }
   
 
 .testimonial__body {
   padding-top: $space-4x;
   padding-bottom: $space-3x;
+  font-size: 1.35rem;
   padding-inline: $space-4x;    
   display: flex;
   flex-direction: column;
@@ -292,6 +308,11 @@
     flex-shrink: 1;
     line-height: 1.75;
 
+     @include compact {
+      margin-block: 3rem;
+
+     }
+
   }
   
   footer {
@@ -299,6 +320,12 @@
     justify-content: space-between;
     align-items: last baseline;
 
+  }
+
+  @include compact {
+    padding-top: $space-4x;
+    padding-bottom: $space-2x;
+    padding-inline: $space-3x;
   }
 }
 
@@ -353,6 +380,14 @@
   }
 }
 
+// Compact: unify process-card widths
+@include compact {
+  .process-card,
+  .process-card--md,
+  .process-card--lg {
+    width: min(100%, 40ch);
+  }
+}
 
 
    /* ==== Blog Card ==== */
@@ -430,6 +465,7 @@
   background-image: url('../assets/quote-form.jpg');
   background-size: cover;
   background-position: center;
+  @include compact { display: none; }
 }
 
 .popup {
@@ -445,8 +481,14 @@
       width: 85vw;
     }
 
-      @include desktop-lite {
+    @include desktop-lite {
       width: 95vw;
+    }
+
+    @include compact {
+      grid-template-columns: 1fr;
+      width: 92vw;
+      max-width: 640px;
     }
 
 }
@@ -457,6 +499,9 @@
   background-color: white;
   position: relative;
   overflow-y: auto;
+  @include compact {
+    max-height: 85vh;
+  }
 }
 
 .close-btn {
@@ -494,6 +539,13 @@
     margin-bottom: $space-md;
     max-width: 45ch;
   }
+
+  @include compact {
+    padding: $space-md;
+    padding-bottom: $space-md;
+    h1 { font-size: $size-2; }
+    .form-intro { font-size: $size-minus; margin-bottom: $space-1x; }
+  }
 }
 
 // Form layout and components
@@ -501,8 +553,11 @@
   display: flex;
   gap: $space-2x;
   margin-bottom: $space-lite;
+  @include compact {
+    flex-direction: column;
+    gap: $space-1x;
+  }
   
-
 }
 
 .form-group {
@@ -588,6 +643,10 @@ textarea {
       color: $brand-accent;
     }
   }
+
+  @include compact {
+    padding-bottom: 1rem;
+  }
 }
 
 
@@ -620,6 +679,7 @@ textarea.invalid {
 .success-message {
   padding: $space-4x;
   height: 100%;
+  @include compact { padding: $space-2x; }
 }
 
 .success-message h2 {
@@ -638,8 +698,14 @@ textarea.invalid {
   border: none;
   cursor: pointer;
   font-weight: bold;
+  @include compact { margin-top: $space-2x; }
 }
 
 .continue-btn:hover {
   background-color: #0a2e4f;
+}
+
+// Hide secondary button in compact range
+@include compact {
+  .secondary-btn { display: none !important; }
 }

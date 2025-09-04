@@ -2,7 +2,7 @@
 @use '../scss/mixins' as *;
 
 /* === HERO SECTION === */
- .hero {
+  .hero {
     display: flex;
     flex-direction: column;
     justify-content: end;
@@ -19,12 +19,18 @@
       @include desktop {
         padding: $space-4x;
       }
+
+      // Compact: reduce paddings and show mobile CTA
+      @include compact {
+        padding-left: $space-2x;
+        padding-bottom: $space-3x;
+      }
     }
   }
   
 
 
- .why-us-preview {
+.why-us-preview {
 
 
     .section-header {
@@ -41,6 +47,10 @@
 
 
       @include hide-on-desktop-lite;
+      // Ensure hidden within compact as well
+      @include compact {
+        display: none !important;
+      }
 
       &::after {
         content: '';
@@ -140,6 +150,12 @@
   @include desktop-lite {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  // Single column in compact range
+  @include compact {
+    grid-template-columns: 1fr;
+    gap: $space-1x;
+  }
 }
 
 .solution-card {
@@ -220,6 +236,11 @@
       margin-bottom: $space-3x;
     }
 
+    @include compact {
+      align-items: flex-start;
+      margin-bottom: $space-2x;
+      .slider-nav { display: none !important; }
+    }
   }
 
   .slider-wrapper {
@@ -229,6 +250,10 @@
       .card-slider {
         gap: 2rem;
         padding-right: 0;
+      }
+
+      @include compact {
+        margin-top: $space-2x;
       }
   }
 
@@ -251,6 +276,11 @@
     @include desktop-lite {
       aspect-ratio: 4/4.5;
       width: 400px;
+    }
+
+    @include compact {
+      width: 100%;
+      aspect-ratio: 3/2;
     }
   
     &__content {
@@ -294,6 +324,17 @@
 
  }
 
+  // Compact arrows below the card
+  .slider-nav--below {
+    display: none !important;
+    @include compact {
+      display: flex !important;
+      justify-content: center;
+      gap: $space-2x;
+      margin-top: $space-3x;
+    }
+  }
+
 
 
 
@@ -312,6 +353,10 @@
  
  margin-top: $space-12x; 
  margin-bottom: $space-16x;
+ @include compact {
+   margin-top: $space-6x;
+   margin-bottom: $space-6x;
+ }
 
 
     header {
@@ -331,6 +376,11 @@
         padding-left: $space-4x;
       }
 
+      @include compact {
+        align-items: center;
+        padding-left: $space-2x;
+      }
+
 
       // Background pattern
       .pattern {
@@ -346,7 +396,23 @@
         border-bottom-left-radius: $radius;
 
         z-index: -1; // Ensures pattern stays behind cards
+        @include compact { display: none; }
       }
 }
 
 }
+
+
+
+// Mobile/Tablet CTA under hero supporting text
+.cta--mobile-hero {
+  display: none !important;
+
+  @include compact {
+    display: inline-block !important;
+    margin-top: 2.5rem;
+      font-size: 1.5rem !important;
+  }
+
+}
+
