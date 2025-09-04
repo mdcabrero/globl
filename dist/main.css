@@ -1359,8 +1359,7 @@ p + p {
 
 .two-col {
   display: grid;
-  grid-template-columns: 1fr 32vw;
-  gap: 4rem;
+  grid-template-columns: 1fr 32.5vw;
   padding-inline: 4rem;
 }
 @media (max-width: 1450px) {

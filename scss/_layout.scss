@@ -139,8 +139,7 @@
 
 .two-col {
   display: grid;
-   grid-template-columns: 1fr 32vw;
-  gap: $space-4x;
+   grid-template-columns: 1fr 32.5vw;
   padding-inline: $space-4x;
 
   @include desktop {
