@@ -25,6 +25,11 @@
     padding-bottom: 3rem;
   }
 }
+@media (max-width: 900px) {
+  .hero {
+    background-position: 35% center;
+  }
+}
 
 .why-us-preview .section-header {
   margin-top: 3rem;
@@ -79,6 +84,11 @@
     margin-bottom: 3rem;
   }
 }
+@media (max-width: 900px) {
+  .why-us-preview .benefits-list {
+    width: 100%;
+  }
+}
 .why-us-preview .benefits-list .benefit-item {
   display: flex;
   align-items: center;
@@ -126,7 +136,6 @@
 @media (max-width: 900px) {
   .solutions .solutions-cards-container {
     grid-template-columns: 1fr;
-    gap: 1rem;
   }
 }
 .solutions .solution-card {
@@ -172,14 +181,20 @@
   }
 }
 .solutions .solution-card__content p {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   line-height: 1.6;
   color: #07070b;
   max-width: 35ch;
 }
 @media (max-width: 1450px) {
   .solutions .solution-card__content p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 900px) {
+  .solutions .solution-card__content p {
+    max-width: 90%;
+    font-size: 1.3rem;
   }
 }
 
@@ -220,7 +235,7 @@
 }
 @media (max-width: 900px) {
   .services-preview .slider-wrapper {
-    margin-top: 2rem;
+    margin-top: 3rem;
   }
 }
 .services-preview .service-card {
@@ -244,8 +259,7 @@
 }
 @media (max-width: 900px) {
   .services-preview .service-card {
-    width: 100%;
-    aspect-ratio: 3/2;
+    aspect-ratio: 2/2;
   }
 }
 .services-preview .service-card__content {
@@ -296,12 +310,17 @@
 @media (max-width: 900px) {
   .process {
     margin-top: 6rem;
-    margin-bottom: 6rem;
+    margin-bottom: 12rem;
   }
 }
 .process header {
   margin-bottom: 7rem;
   margin-inline: auto;
+}
+@media (max-width: 900px) {
+  .process header {
+    margin-bottom: 6rem;
+  }
 }
 .process .process-layout {
   position: relative;
@@ -318,7 +337,7 @@
 @media (max-width: 900px) {
   .process .process-layout {
     align-items: center;
-    padding-left: 2rem;
+    padding-left: 0;
   }
 }
 .process .process-layout .pattern {
@@ -336,7 +355,7 @@
 }
 @media (max-width: 900px) {
   .process .process-layout .pattern {
-    display: none;
+    top: -3rem;
   }
 }
 
@@ -347,7 +366,7 @@
   .cta--mobile-hero {
     display: inline-block !important;
     margin-top: 2.5rem;
-    font-size: 1.5rem !important;
+    font-size: 1.35rem !important;
   }
 }
 
@@ -1259,7 +1278,7 @@ h1 {
 }
 @media (max-width: 900px) {
   h1 {
-    font-size: clamp(2.1773rem, 1.9201rem + 1.1758vw, 3.0518rem);
+    font-size: 2.5rem;
     line-height: 1.12;
   }
 }
@@ -1278,8 +1297,10 @@ h1 {
 }
 @media (max-width: 900px) {
   .supporting-text {
-    font-size: 1.1rem;
-    margin-top: 0.5rem;
+    font-size: 1.25rem;
+    margin-top: 1rem;
+    color: rgb(243, 239, 233);
+    width: 80%;
   }
 }
 
@@ -1293,7 +1314,7 @@ h2 {
 @media (max-width: 900px) {
   .section-headline, .section-headline--light,
   h2 {
-    font-size: clamp(1.512rem, 1.3823rem + 0.5931vw, 1.9531rem);
+    font-size: 1.75rem;
     line-height: 1.2;
   }
 }
@@ -1308,6 +1329,12 @@ h3 {
   font-weight: 500;
   line-height: 1.3;
   color: #FBFBFB;
+}
+@media (max-width: 900px) {
+  .card-title,
+  h3 {
+    font-size: 1.35rem;
+  }
 }
 
 .card-title--dark {
@@ -1336,7 +1363,7 @@ h4 {
 .subtitle {
   display: block;
   color: #e8e8e8;
-  font-size: clamp(0.875rem, 0.8382rem + 0.1681vw, 1rem);
+  font-size: 1.15rem;
   font-weight: 400;
 }
 
@@ -1433,6 +1460,11 @@ p + p {
 .extra-gap {
   margin-bottom: 4rem;
 }
+@media (max-width: 900px) {
+  .extra-gap {
+    margin-bottom: 3rem;
+  }
+}
 
 .container {
   display: flex;
@@ -1445,7 +1477,7 @@ p + p {
 }
 @media (max-width: 900px) {
   .container {
-    padding-inline: 2rem;
+    padding-inline: 1rem;
   }
 }
 .container--flex {
@@ -1466,7 +1498,8 @@ p + p {
 }
 @media (max-width: 900px) {
   .container--island {
-    padding: 3rem;
+    padding: 2.5rem;
+    padding-block: 3rem;
   }
 }
 
@@ -1493,7 +1526,7 @@ p + p {
 @media (max-width: 900px) {
   .two-col {
     grid-template-columns: 1fr;
-    padding-inline: 2rem;
+    padding-inline: 1rem;
   }
 }
 
@@ -1506,6 +1539,7 @@ p + p {
 @media (max-width: 900px) {
   .slider-wrapper {
     padding-left: 2rem;
+    padding-right: 2rem;
     overflow: hidden;
   }
 }
@@ -1515,9 +1549,13 @@ p + p {
   gap: 1.5rem;
   position: relative;
   left: 0;
-  user-select: none;
   width: max-content;
   padding-right: 6rem;
+}
+@media (max-width: 900px) {
+  .card-slider {
+    padding-right: 2rem;
+  }
 }
 
 .is-dragging * {
@@ -1535,7 +1573,7 @@ p + p {
   padding: 0.5rem 2rem;
   border-radius: 0.75rem;
   border: 1px solid white;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 500;
   background-color: #0858DD;
   color: #FBFBFB;
@@ -1560,12 +1598,14 @@ p + p {
   background: linear-gradient(90deg, rgb(0, 51, 117) 0%, rgb(2, 23, 182) 50%, rgb(38, 9, 203) 100%);
   z-index: -1;
   animation: bg-gradient-move 3s linear infinite;
+  transition: all 0.5s;
 }
 .cta:hover {
-  transform: scale(1.02);
+  animation-play-state: paused;
 }
 .cta:hover::before {
-  animation-play-state: paused;
+  filter: saturate(300%);
+  background-color: rgb(98, 98, 223);
 }
 @media (max-width: 1250px) {
   .cta {
@@ -1766,13 +1806,19 @@ p + p {
 .testimonial__body > img {
   width: 10rem;
 }
+@media (max-width: 900px) {
+  .testimonial__body > img {
+    width: 9rem;
+  }
+}
 .testimonial__body blockquote {
   flex-shrink: 1;
   line-height: 1.75;
 }
 @media (max-width: 900px) {
   .testimonial__body blockquote {
-    margin-block: 3rem;
+    margin-block: 4rem;
+    font-size: 1.2rem;
   }
 }
 .testimonial__body footer {
@@ -1832,7 +1878,9 @@ p + p {
   .process-card,
   .process-card--md,
   .process-card--lg {
-    width: min(100%, 40ch);
+    width: 80%;
+    padding-block: 2rem;
+    padding-inline: 1.5rem;
   }
 }
 /* ==== Blog Card ==== */
@@ -2415,7 +2463,7 @@ body {
 @media (max-width: 900px) {
   .site-footer {
     height: auto;
-    min-height: 60vh;
+    min-height: 75vh;
     padding-top: 4rem;
     padding-bottom: 2rem;
     justify-content: space-between;
@@ -2431,6 +2479,11 @@ body {
   width: 95%;
   justify-self: center;
   height: auto;
+}
+@media (max-width: 900px) {
+  .footer-main .footer-logo {
+    width: 75%;
+  }
 }
 @media (max-width: 900px) {
   .footer-main {

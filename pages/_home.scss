@@ -26,6 +26,10 @@
         padding-bottom: $space-3x;
       }
     }
+
+     @include compact {
+        background-position: 35% center;
+      }
   }
   
 
@@ -85,6 +89,10 @@
 
      @include desktop {
       margin-bottom: $space-3x;
+     }
+
+     @include compact {
+      width: 100%;
      }
   
   
@@ -154,7 +162,6 @@
   // Single column in compact range
   @include compact {
     grid-template-columns: 1fr;
-    gap: $space-1x;
   }
 }
 
@@ -201,13 +208,18 @@
   
       
       p {
-          font-size: 1.2rem;
+          font-size: 1.25rem;
           line-height: 1.6;
           color: $text-primary;
           max-width: 35ch;
 
           @include desktop {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+          }
+
+          @include compact {
+            max-width: 90%;
+            font-size: 1.3rem;
           }
       }
   }
@@ -253,7 +265,7 @@
       }
 
       @include compact {
-        margin-top: $space-2x;
+        margin-top: $space-3x;
       }
   }
 
@@ -279,8 +291,7 @@
     }
 
     @include compact {
-      width: 100%;
-      aspect-ratio: 3/2;
+      aspect-ratio: 2/2;
     }
   
     &__content {
@@ -355,13 +366,17 @@
  margin-bottom: $space-16x;
  @include compact {
    margin-top: $space-6x;
-   margin-bottom: $space-6x;
+   margin-bottom: $space-12x;
  }
 
 
     header {
       margin-bottom: $space-4x + $space-3x; //Compensate in this particular section for the 'dead-space' caused by the absolute element + optical imbalance between text and graphics
       margin-inline: auto;
+
+      @include compact {
+        margin-bottom: $space-6x;
+      }
     }
 
 
@@ -378,7 +393,7 @@
 
       @include compact {
         align-items: center;
-        padding-left: $space-2x;
+        padding-left: 0;
       }
 
 
@@ -396,7 +411,9 @@
         border-bottom-left-radius: $radius;
 
         z-index: -1; // Ensures pattern stays behind cards
-        @include compact { display: none; }
+        @include compact {
+          top: -$space-3x;
+        }
       }
 }
 
@@ -411,7 +428,7 @@
   @include compact {
     display: inline-block !important;
     margin-top: 2.5rem;
-      font-size: 1.5rem !important;
+      font-size: 1.35rem !important;
   }
 
 }

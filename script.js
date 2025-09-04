@@ -109,6 +109,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Slider logic
 function initSliders() {
+  // Helpers for consistent metrics across viewports
+  const getTranslateX = (el) => {
+    const t = el.style.transform || '';
+    const simple = t.match(/translateX\((-?\d+(?:\.\d+)?)px\)/);
+    if (simple) return parseFloat(simple[1]);
+    // Fallback for matrix transforms if ever set by CSS
+    const m = t.match(/matrix\([^,]+,[^,]+,[^,]+,[^,]+,\s*(-?\d+(?:\.\d+)?)\s*,/);
+    if (m) return parseFloat(m[1]);
+    const m3 = t.match(/matrix3d\((?:[^,]+,){12}\s*(-?\d+(?:\.\d+)?)\s*,/);
+    if (m3) return parseFloat(m3[1]);
+    return 0;
+  };
+
+  const getStepDistance = (container) => {
+    const cards = container.querySelectorAll('.service-card');
+    if (cards.length >= 2) {
+      const a = cards[0].getBoundingClientRect();
+      const b = cards[1].getBoundingClientRect();
+      // Distance from left edges includes margins and CSS gap
+      return Math.round(b.left - a.left);
+    }
+    if (cards.length === 1) {
+      return Math.round(cards[0].getBoundingClientRect().width);
+    }
+    return 0;
+  };
+
+  const getMaxTranslate = (wrapper, container) => {
+    // Negative or zero. Uses scrollWidth so CSS gap is included.
+    return Math.min(0, wrapper.clientWidth - container.scrollWidth);
+  };
   // Get all sliders on the page
   const sliderWrappers = document.querySelectorAll('.slider-wrapper');
   
@@ -119,8 +150,9 @@ function initSliders() {
     
     let isDragging = false;
     let startX;
-    let scrollLeft;
+    let baseTranslate;
     let hasMoved = false;
+    let currentTranslate = 0; // Track live translate during drag
     
     // Initialize this specific slider
     sliderWrapper.addEventListener('mousedown', (e) => {
@@ -129,8 +161,8 @@ function initSliders() {
       isDragging = true;
       hasMoved = false;
       startX = e.pageX - sliderWrapper.offsetLeft;
-      scrollLeft = cardSlider.style.transform ? 
-          parseInt(cardSlider.style.transform.match(/-?\d+/)?.[0] || 0) : 0;
+      baseTranslate = getTranslateX(cardSlider);
+      currentTranslate = baseTranslate;
           
       cardSlider.style.transition = 'none';
       cardSlider.classList.add('is-dragging');
@@ -147,10 +179,15 @@ function initSliders() {
         hasMoved = true;
       }
       
-      const newTranslate = scrollLeft + walk;
-      const maxScroll = -(cardSlider.offsetWidth - sliderWrapper.offsetWidth + 125);
-      const boundedTranslate = Math.max(maxScroll, Math.min(0, newTranslate));
+      // Limit drag movement to one card distance from the grab point
+      const step = getStepDistance(cardSlider);
+      const limitedWalk = step > 0 ? Math.max(-step, Math.min(step, walk)) : walk;
+
+      const newTranslate = baseTranslate + limitedWalk;
+      const maxTranslate = getMaxTranslate(sliderWrapper, cardSlider);
+      const boundedTranslate = Math.max(maxTranslate, Math.min(0, newTranslate));
       
+      currentTranslate = boundedTranslate;
       cardSlider.style.transform = `translateX(${boundedTranslate}px)`;
     });
     
@@ -160,7 +197,77 @@ function initSliders() {
       isDragging = false;
       cardSlider.style.transition = 'transform 0.3s ease-out';
       cardSlider.classList.remove('is-dragging');
+
+      // Snap to either the start position or exactly one step based on drag distance
+      const moved = currentTranslate - baseTranslate;
+      const step = getStepDistance(cardSlider);
+      const threshold = step * 0.3; // drag at least 30% of a card to advance
+      let targetTranslate = baseTranslate;
+
+      if (step > 0 && Math.abs(moved) >= threshold) {
+        const direction = moved < 0 ? -1 : 1; // left drag is negative
+        targetTranslate = baseTranslate + direction * step;
+      }
+
+      // Respect bounds
+      const maxTranslate = getMaxTranslate(sliderWrapper, cardSlider);
+      const boundedTarget = Math.max(maxTranslate, Math.min(0, targetTranslate));
+
+      cardSlider.style.transform = `translateX(${boundedTarget}px)`;
+      // Update base translate for next interaction
+      currentTranslate = boundedTarget;
     });
+
+    // Touch support
+    sliderWrapper.addEventListener('touchstart', (e) => {
+      const touch = e.touches[0];
+      isDragging = true;
+      hasMoved = false;
+      startX = touch.pageX - sliderWrapper.offsetLeft;
+      baseTranslate = getTranslateX(cardSlider);
+      currentTranslate = baseTranslate;
+      cardSlider.style.transition = 'none';
+      cardSlider.classList.add('is-dragging');
+    }, { passive: true });
+
+    document.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      const touch = e.touches[0];
+      const x = touch.pageX - sliderWrapper.offsetLeft;
+      const walk = x - startX;
+      if (Math.abs(walk) > 5) {
+        hasMoved = true;
+      }
+      const step = getStepDistance(cardSlider);
+      const limitedWalk = step > 0 ? Math.max(-step, Math.min(step, walk)) : walk;
+      const newTranslate = baseTranslate + limitedWalk;
+      const maxTranslate = getMaxTranslate(sliderWrapper, cardSlider);
+      const boundedTranslate = Math.max(maxTranslate, Math.min(0, newTranslate));
+      currentTranslate = boundedTranslate;
+      // Prevent vertical scroll when actively swiping horizontally
+      e.preventDefault();
+      cardSlider.style.transform = `translateX(${boundedTranslate}px)`;
+    }, { passive: false });
+
+    document.addEventListener('touchend', () => {
+      if (!isDragging) return;
+      isDragging = false;
+      cardSlider.style.transition = 'transform 0.3s ease-out';
+      cardSlider.classList.remove('is-dragging');
+
+      const moved = currentTranslate - baseTranslate;
+      const step = getStepDistance(cardSlider);
+      const threshold = step * 0.3;
+      let targetTranslate = baseTranslate;
+      if (step > 0 && Math.abs(moved) >= threshold) {
+        const direction = moved < 0 ? -1 : 1;
+        targetTranslate = baseTranslate + direction * step;
+      }
+      const maxTranslate = getMaxTranslate(sliderWrapper, cardSlider);
+      const boundedTarget = Math.max(maxTranslate, Math.min(0, targetTranslate));
+      cardSlider.style.transform = `translateX(${boundedTarget}px)`;
+      currentTranslate = boundedTarget;
+    }, { passive: true });
     
     // Handle link clicks
     cardSlider.querySelectorAll('a').forEach(link => {
@@ -194,37 +301,40 @@ function initSliderArrows() {
       const cardSlider = section.querySelector('.card-slider');
       if (!sliderWrapper || !cardSlider) return;
       
-      // Determine direction based on button position (first or second arrow button)
-      const isFirstButton = button === section.querySelector('.arrow-btn:first-of-type');
-      const direction = isFirstButton ? 'prev' : 'next';
+      // Determine direction using explicit markers or icon alt text
+      let direction = button.getAttribute('data-direction');
+      if (!direction) {
+        const img = button.querySelector('img');
+        const alt = (img?.getAttribute('alt') || '').toLowerCase();
+        if (alt.includes('prev') || alt.includes('left')) direction = 'prev';
+        else direction = 'next';
+      }
       
-      // Calculate how far to move (one card width)
+      // Calculate how far to move (distance between adjacent cards)
       const cards = cardSlider.querySelectorAll('.service-card');
       if (cards.length === 0) return;
-      
-      const card = cards[0];
-      const cardStyle = window.getComputedStyle(card);
-      const slideDistance = card.offsetWidth + 
-                    parseInt(cardStyle.marginLeft) + 
-                    parseInt(cardStyle.marginRight);
+      const step = (cards.length >= 2)
+        ? Math.round(cards[1].getBoundingClientRect().left - cards[0].getBoundingClientRect().left)
+        : Math.round(cards[0].getBoundingClientRect().width);
       
       // Get current translation value
-      const currentTranslate = cardSlider.style.transform ? 
-          parseInt(cardSlider.style.transform.match(/-?\d+/)?.[0] || 0) : 0;
+      const currentTranslate = (cardSlider.style.transform)
+        ? (parseFloat(cardSlider.style.transform.match(/-?\d+(?:\.\d+)?/)?.[0] || '0'))
+        : 0;
       
       // Calculate new translation value
       let newTranslate;
       if (direction === 'prev') {
         // Move right (increase translate value)
-        newTranslate = currentTranslate + slideDistance;
+        newTranslate = currentTranslate + step;
       } else {
         // Move left (decrease translate value)
-        newTranslate = currentTranslate - slideDistance;
+        newTranslate = currentTranslate - step;
       }
       
       // Apply bounds
-      const maxScroll = -(cardSlider.offsetWidth - sliderWrapper.offsetWidth + 125);
-      const boundedTranslate = Math.max(maxScroll, Math.min(0, newTranslate));
+      const maxTranslate = Math.min(0, sliderWrapper.clientWidth - cardSlider.scrollWidth);
+      const boundedTranslate = Math.max(maxTranslate, Math.min(0, newTranslate));
       
       // Apply transition for smooth sliding
       cardSlider.style.transition = 'transform 0.3s ease-out';
@@ -237,6 +347,20 @@ function initSliderArrows() {
 document.addEventListener('DOMContentLoaded', () => {
   initSliders();
   initSliderArrows();
+  // Ensure translate stays within bounds on resize/orientation changes
+  window.addEventListener('resize', () => {
+    document.querySelectorAll('.slider-wrapper').forEach(wrapper => {
+      const track = wrapper.querySelector('.card-slider');
+      if (!track) return;
+      const current = parseFloat(track.style.transform?.match(/-?\d+(?:\.\d+)?/)?.[0] || '0');
+      const maxTranslate = Math.min(0, wrapper.clientWidth - track.scrollWidth);
+      const bounded = Math.max(maxTranslate, Math.min(0, current));
+      if (bounded !== current) {
+        track.style.transition = 'transform 0.2s ease-out';
+        track.style.transform = `translateX(${bounded}px)`;
+      }
+    });
+  });
 });
 
 

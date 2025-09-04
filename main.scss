@@ -348,7 +348,7 @@ input, button, textarea, select {
 
   @include compact {
     height: auto;
-    min-height: 60vh;
+    min-height: 75vh;
     padding-top: $space-4x;
     padding-bottom: $space-2x;
     justify-content: space-between;
@@ -367,6 +367,10 @@ input, button, textarea, select {
       width: 95%;
       justify-self: center;
       height: auto;
+
+       @include compact {
+         width: 75%;
+        }
 
 
  

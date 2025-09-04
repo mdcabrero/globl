@@ -11,7 +11,7 @@
     padding: $space-lite $space-2x;
     border-radius: $radius/2;
     border: 1px solid white;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: $font-medium;
     background-color: $brand-accent;
     color: $headline-light;
@@ -25,6 +25,7 @@
     display: none;
   }
   
+ 
 
     
     // Animated gradient background
@@ -38,13 +39,15 @@
       background: linear-gradient(90deg,rgb(0, 51, 117) 0%, rgb(2, 23, 182) 50%, rgb(38, 9, 203) 100%);
         z-index: -1;
         animation: bg-gradient-move 3s linear infinite;
+        transition: all 0.5s;
     }
 
     &:hover {
-       transform: scale(1.02);
+         animation-play-state: paused;
 
         &::before {
-            animation-play-state: paused;
+            filter: saturate(300%);
+             background-color: rgb(98, 98, 223);
         }
 
     }
@@ -302,6 +305,10 @@
   
   > img {
     width: 10rem;
+
+    @include compact {
+      width: 9rem;
+    }
   }
   
   blockquote {
@@ -309,7 +316,8 @@
     line-height: 1.75;
 
      @include compact {
-      margin-block: 3rem;
+      margin-block: $space-4x;
+      font-size: 1.2rem;
 
      }
 
@@ -385,7 +393,9 @@
   .process-card,
   .process-card--md,
   .process-card--lg {
-    width: min(100%, 40ch);
+    width: 80%;
+     padding-block: $space-2x;
+  padding-inline: $space-md;
   }
 }
 

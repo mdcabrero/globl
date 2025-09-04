@@ -98,6 +98,9 @@
 
 .extra-gap {
   margin-bottom: $space-4x; // Utility class with 2x the default margin-bottom of the section-header to compensate for optical imbalance between text and graphics when needed
+@include compact {
+  margin-bottom: $space-3x;
+}
 }
 
   
@@ -112,7 +115,7 @@
       padding-inline: $space-3x;
     }
     @include compact {
-      padding-inline: $space-2x;
+      padding-inline: $space-1x;
     }
    
 
@@ -135,7 +138,8 @@
       }
 
       @include compact {
-        padding: $space-3x;
+        padding: 2.5rem;
+        padding-block: $space-3x;
       }
 
      }
@@ -166,7 +170,7 @@
 
   @include compact {
     grid-template-columns: 1fr;
-    padding-inline: $space-2x;
+    padding-inline: $space-1x;
   }
 }
 
@@ -188,7 +192,9 @@
   padding-left: $space-6x;
   @include compact {
     padding-left: $space-2x;
-    overflow: hidden; // only show one card at a time on compact
+    padding-right: $space-2x;
+    overflow: hidden;
+
   }
 }
 
@@ -198,9 +204,14 @@
   gap: $space-md;
   position: relative;
   left: 0;
-  user-select: none;
+
   width: max-content;
   padding-right: $space-6x;
+
+   @include compact {
+    padding-right: $space-2x;
+
+  }
   
 
 }
