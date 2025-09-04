@@ -541,7 +541,7 @@
   }
 
   @include compact {
-    padding: $space-md;
+    padding: $space-2x;
     padding-bottom: $space-md;
     h1 { font-size: $size-2; }
     .form-intro { font-size: $size-minus; margin-bottom: $space-1x; }

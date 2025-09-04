@@ -1977,7 +1977,7 @@ p + p {
 }
 @media (max-width: 900px) {
   .quote-form {
-    padding: 1.5rem;
+    padding: 2rem;
     padding-bottom: 1.5rem;
   }
   .quote-form h1 {
