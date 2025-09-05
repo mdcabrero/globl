@@ -1262,6 +1262,7 @@ body:has(.is-scroll-up) .faqs-categories {
 p {
   max-width: 48ch;
   color: #07070b;
+  font-size: 1.2rem;
 }
 
 .p--light {
