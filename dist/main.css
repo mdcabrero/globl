@@ -370,6 +370,11 @@
   }
 }
 
+@media (max-height: 450px) and (orientation: landscape) {
+  .hero {
+    height: calc(180dvh - 2rem);
+  }
+}
 .about .eyebrow--closer {
   margin-bottom: 0.5rem;
 }
@@ -2256,7 +2261,6 @@ body {
   left: 0;
   width: 100%;
   padding-inline: 4rem;
-  padding-block: 1rem;
   z-index: 100;
   display: flex;
   align-items: center;

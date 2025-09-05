@@ -433,3 +433,11 @@
 
 }
 
+
+//Edge case for landscape phones
+  @media (max-height: 450px) and (orientation: landscape) {
+  .hero {
+     height: calc(180dvh - 2rem);
+  }
+
+}
